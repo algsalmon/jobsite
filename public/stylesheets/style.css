@@ -1,0 +1,119 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+.container-fluid{
+  background: lightgrey;
+}
+
+.container {
+  width: 800px;
+  margin-top: 0px;
+  border-bottom: 5px solid blue;
+  background:white; 
+}
+
+ .footer{
+  position: relative;
+  bottom: 0%;
+  width: 1300px;
+  text-align: center;
+ 
+}
+
+ .unsubscribe{
+ text-align: center;
+  margin: 40px 390px;
+  background: white;
+ 
+ }
+
+ table{
+   color: white;
+ }
+
+ .navmargin{
+   margin-bottom: 40px;
+  
+
+ }
+ .navbar-brand{
+  margin-bottom: 1px;
+
+ }
+
+ nav h5{
+  width:100%;
+  text-align: left;
+  position: absolute;
+ }
+
+ h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  
+}
+
+.col-xs-3 {
+  width: 25%;
+}
+
+.col-xs-4 {
+  width: 33.33333333%;
+}
+
+.col-xs-5 {
+  width: 41.66666667%;
+}
+
+
+.apply{
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.5;
+  padding: 3px 12px;
+}
+
+.col-xs-12 {
+  width: 100%;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.navbar-expand-lg {
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    height: 100;
+    border-top: solid blue;
+    
+    
+}
+
+
+
+
+
+
+ 
+
+ 

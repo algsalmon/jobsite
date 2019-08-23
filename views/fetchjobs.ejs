@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+const joblist = document.querySelector(".jobspool")
+
+fetch("https://indeed-indeed.p.rapidapi.com/apisearch?q=java&v=2&format=json&radius=25&l=austin%2C%20tx", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "indeed-indeed.p.rapidapi.com",
+		"x-rapidapi-key": "28e40fbb36mshb0b81c140d58ffbp106178jsn5a375b70bb82"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.log(err);
+});
+
+//const insertjobs = (data) => {
+
+  //  data.search.forEach( (results) => {
+  //     "${results.city}"
+
+//});
+//};
+
+
+       
+
+    
+</script>
+
+<div class="jobspool"> 
+
+
+</div>
+
+
+</body>
+</html>
