@@ -1,42 +1,38 @@
+
+
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    
 </head>
 <body>
-<script>
-const joblist = document.querySelector(".jobspool")
 
-fetch("https://www.cv-library.co.uk/search-jobs-json?key=ZLv,7aJ4PLzcsYKk&q=Perl&geo=Fleet&distance=15&salarytype=annum&tempperm=Any", {
-   
-})
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.log(err);
-});
-
-//const insertjobs = (data) => {
-
-  //  data.search.forEach( (results) => {
-  //     "${results.city}"
-
-//});
-//};
-
-
-       
-
-    
-</script>
-
-<div class="jobspool"> 
+<div id="jobspool"> 
 
 
 </div>
+<script>
+//import {fetchJobs} from '../data/jobs.js'
+
+fetch("https://www.cv-library.co.uk/search-jobs-json?key=ZLv,7aJ4PLzcsYKk&q=sales&geo=london&distance=15&salarytype=annum&tempperm=Any")
+.then(response => response.json())
+.then((jobs)  =>{
+    console.log(jobs);
+jobs.jobs.forEach ( (result) => {
+console.log("result:"+result);
+const latestjob = `<li><p>${result.title}</p></li>`;
+
+const jobba = document.querySelector("#jobspool")
+jobba.insertAdjacentHTML("beforeend" , latestjob);
+
+});
+});
+
+    
+</script>
 
 
 </body>
