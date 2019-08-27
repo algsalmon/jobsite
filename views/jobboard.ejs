@@ -18,161 +18,81 @@
         <a class="navbar-brand"></a>
         <h5> The place for all your gig economy needs!</h5>
         <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <input id="searchJob" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button  class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </nav>
     </div>
   
     <div class="jobs">
-  <table class="jobitem">
-      <tr>
-          <div class="container">
-      
-              <div class="row">
-      
-                <div class="col-sm-12">
-                  <h3>Deliveroo</h3> <p id="date"> </p>
-                  <script>
+  <table id="jobitem">
+      <tr id="jobNews">
+          <script>
+ 
+
+
+
+             // import {fetchJobs} from '../data/jobs.js'
+            const searchjob = (query) =>{
+              fetch("https://www.cv-library.co.uk/search-jobs-json?key=ZLv,7aJ4PLzcsYKk&q=${query}&geo=london&distance=15&salarytype=annum&tempperm=Any")
+              .then(response => response.json())
+              .then((jobs) =>{
+                  console.log(jobs);
+              jobs.jobs.forEach ( (result) => {
+              console.log("result:"+result);
+              const jobDescription = `
+              <div class="container">
+                    <div class="row">
+                      <div class="col-sm-4">
+                         <h5>${result.title}</h5>
+                         <h5>${result.agency.title}</h5>  
+                        
+                       </div>
+                       <div class="col-sm-4">
+                          <p>${result.location}</p>      
+                       </div>
+                       <div class="col-sm-4">
+                       </div>
+                   </div>  
+                   <div class="row">
+                  <div class="col-sm-12">
+                       <p>${result.description}</p> 
+                  </div>     
+                   <div class="col-sm-3">
+                          <p><button><a href= https://www.cv-library.co.uk${result.url}> apply here </a> </button></p>                 
+                  </div>  
+              </div>       
+              </div>            
+              `;
+              const jobba = document.querySelector("#jobNews")
+              jobba.insertAdjacentHTML("beforeend" , jobDescription);
+            });
+              
   
-                 
-                  var lastUpdated = new Date();
-                   var year = lastUpdated.getFullYear();
-                   var day = lastUpdated.getDate();
-                   var month = lastUpdated.getMonth();
-                   document.querySelector("#date").innerHTML =  'Last updated: ' + day + '/' + month + '/' + year;
-                  </script>
-                 </div>
+              
+             
+              
+          });
+
       
-                <div class="col-sm-6">
-                    <p>You can make up to £120 every day working for Deliveroo and also keep all of your tips. To find out more about current opportunities click here. </p> 
-                    <p>#ridewithus #deliveroo</p>
-                </div>
-      
-                <div class="col-sm-3">
-                  <a href ="https://deliveroo.co.uk/apply"><button> Apply now </button></a>
+              
+              };
+            
+              const jobsForm = document.querySelector("#searchJob");
+              jobsForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                
+                const input = event.currentTarget.querySelector('.form-control');
+                  jobsForm.innerHTML = '';
+
+                  searchJob(input.value);
+              });
+           
                   
-                </div>
-  
-                <div class="col-sm-3">
-                    <img src="/images/Deliveroo.png" width="100"> 
-                  </div>
-  
-        
-              </div>
-      
-            </div>
-      </tr>
-      
-     
-      <tr>
-          <div class="container">
-      
-              <div class="row">
-      
-                <div class="col-sm-12">
-                  <h3>Uber</h3>  <p id="date2"></p>
-  
-                  <script>
-                       var lastUpdated = new Date();
-                       var year = lastUpdated.getFullYear();
-                       var day =  lastUpdated.getDate();
-                       var month = lastUpdated.getMonth();
-                       document.querySelector("#date2").innerHTML =  'Last updated: ' + day + '/' + month + '/' + year;
-                  </script>
-                  
-                 </div>
-      
-                <div class="col-sm-6">
-                    <p>Earn money riding and driving and taking people where they want to go.  Flexible work where you decide your schedule. Sign up here and find out what you need. #flexiblework #parttimework </p> 
-                </div>
-      
-                <div class="col-sm-3">
-                    <a href ="https://www.uber.com/a/join-new/gb?_ga=2.67009902.1790486470.1564412186-681635480.1564412186"><button> Apply now </button></a>
-                  
-                </div>
-  
-                <div class="col-sm-3">
-                    <img src="/images/uber.png" width="50" height="50"> 
-                  </div>
-  
-        
-              </div>
-      
-            </div>
+              </script>
       </tr>
   
-      <tr>
-          <div class="container">
       
-              <div class="row">
-      
-                <div class="col-sm-12">
-                  <h3>Taskrabbit</h3>  <p id="date3">Date</p>
-  
-                  <script>
-                      var lastUpdated = new Date();
-                      var year = lastUpdated.getFullYear();
-                      var day =  lastUpdated.getDate();
-                      var month = lastUpdated.getMonth();
-                      document.querySelector("#date3").innerHTML =  'Last updated: ' + day + '/' + month + '/' + year;
-                 </script>
-                 </div>
-      
-                <div class="col-sm-6">
-                    <p>Want to get paid to help people with various tasks like cleaning, delivery, general handyman activity, moving house, personal assistant. earn money in your own time #flexiblework</p> 
-                </div>
-      
-                <div class="col-sm-3">
-                    <a href ="https://www.taskrabbit.co.uk/become-a-tasker"><button> Apply now </button></a>
-                  
-                </div>
-  
-                <div class="col-sm-3">
-                    <img src="/images/tastrabbit.png" width="100"> 
-                  </div>
-  
-        
-              </div>
-      
-            </div>
-      </tr>
-  
-      <tr>
-          <div class="container">
-      
-              <div class="row">
-      
-                <div class="col-sm-12">
-                  <h3>fivverr</h3>  <p id="date4">Date</p>
-  
-                  <script>
-                      var lastUpdated = new Date();
-                      var year = lastUpdated.getFullYear();
-                      var day =  lastUpdated.getDate();
-                      var month = lastUpdated.getMonth();
-                      document.querySelector("#date4").innerHTML =  'Last updated: ' + day + '/' + month + '/' + year;
-                 </script>
-                 </div>
-      
-                <div class="col-sm-6">
-                    <p>Help business by completing freelance task for them like translation, helping them with social media or writing. You decide the jobs you take. Sell your services #flexiblework #part-time</p> 
-                </div>
-      
-                <div class="col-sm-3">
-                    <a href ="https://www.fiverr.com/start_selling"><button> Apply now </button></a>
-                  
-                </div>
-  
-                <div class="col-sm-3">
-                    <img src="/images/fivverr.png" width="100"> 
-                  </div>
-  
-        
-              </div>
-      
-            </div>
-      </tr>
   
         </table>
   
