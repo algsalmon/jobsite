@@ -13,6 +13,7 @@
     "express-generator": "^4.16.1",
     "goquery": "^1.0.2",
     "http-errors": "~1.6.3",
+    "mongoose": "^5.6.11",
     "morgan": "~1.9.1"
   }
 }

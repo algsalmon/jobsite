@@ -1,53 +1,131 @@
-
 <htmL>
 
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="/stylesheets/style.css">
-        <title><%= title %></title>
-      </head>
-  
-    <body>
-        <div class="container-fluid">
-       <nav class="navbar navbar-expand-lg navbar-light bg-white">
-      <a class="navbar-brand" href="#"><img src="/images/gigjoblogo.png" ></a>
-       </nav>
-  
-    <div class="navmargin">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title><%= title %></title>
+  <script src="javascripts/fetchjobs.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147951644-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147951644-1');
+</script>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="container-fluid row">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="col-sm-12">
+        <img src="images/logojobgrabba.png" width="200" id="flag">
+      </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"></div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white row" >
+      <img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" id="flag">
+      <div class="col-sm-12" id="leftreg">
+        <a href="/register"><button id="registerButton">REGISTER</button></a>
+      </div>  
+      <div class="col-sm-12"></div>
+    </nav>
+  </div>
+
+  <!-- Search bar -->
+  <div class="navmargin">
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand"></a>
-        <h5> The place for all your gig economy needs!</h5>
-        <form class="form-inline">
-          <input id="searchJob" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button  class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </nav>
-    </div>
-  
-    <div class="jobs">
-  <table id="jobitem">
-      <tr id="jobNews">
-          <script>
- 
+      <a class="navbar-brand"></a>
+      <form id="searchJob" class="form-inline" onsubmit="return false;">
+        <p> 
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchField">
+        </p>
+        <p> 
+          <input class="btn btn-outline-success my-2 my-sm-0" type="submit" Value="Search"></input>
+        </p>
+      </form>
+    </nav>
+  </div>
 
+  <!-- Left column -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <table>
+          <tr>
+            <img src="images/dosomething.png" width="150">
+          </tr>
+          <tr>
+            <p class="blurb"> Hey are you looking for a new job? Do you need a fresh challenge? Whether you're looking for part-time roles or gig jobs like Uber or Deliveroo riders, office jobs and professional jobs, we'll keep you posted. Check out these jobs and sign up to get regular updates on jobs. We'll also send you some special offers from our advertisers so keep a look out!</p>
+          </tr>
+        </table>
+      </div>
 
+      <!-- Middle column -->
+      <div class="col-sm-9" class="justify-content-center">
+        <div class="jobs">
+          <table id="jobitem">
+            <tr>
+              <div class="paginataionHolder">
+                <h2>
+                  <span id="totalResults"> Result #:1255</span>
+                </h2> 
+                <!-- drop down menu -->
+                <!-- Page:
+                <select id="pageSelection">
+                   <option>1</option> 
+                  </select> --> 
+                <div>
+                  <button>Previous</button>
+                  <span id="paginationButtons"></span>
+                  <button>Next</button>
+                </div>
+              </div>
+            </tr>
+            <tr id="jobNews">
+              <!-- <script>
+          
+                var itemsPerPage = 25;
+                var currentPage = 0;
+                const pageSelect = document.querySelector("#pageSelection");
+                const searchJob = (query) => {
+                 
+                  currentPage = pageSelect.options[pageSelect.selectedIndex].value;
+                  const jobsSearchUrl = `https://www.cv-library.co.uk/search-jobs-json?key=ZLv,7aJ4PLzcsYKk&q=${query}&perPage=25&offset=`+(25*currentPage)+`&geo=london&distance=15&salarytype=annum&tempperm=Any&posted=14&order=date`;
+                  fetch(jobsSearchUrl)
+                    .then(response => response.json())
+                    .then((jobs) => {
+                      console.log(jobs);
+                      var totalResultsSpan = document.querySelector("#totalResults");
+                      totalResultsSpan.innerHTML = "Result #:"+jobs.total_entries;
+                      totalResultsSpan.innerHTML = "All "+query+" jobs";
+                      var totalEntries = jobs.total_entries;
+                      var pageCount = totalEntries/itemsPerPage;
+                      var pageOptions = "";
+                       for ( var i = 0; i<pageCount;i++){
+                         // initilaisation code, codition, add one increment
+                      if(currentPage==(i+1)){ 
+                         pageOptions = pageOptions+"<option selected>"+(i+1)+"</option>";
+                      }else{pageOptions = pageOptions+"<option>"+(i+1)+"</option>";}
+                       }
+                       pageSelect.innerHTML = pageOptions;
 
-             // import {fetchJobs} from '../data/jobs.js'
-            const searchjob = (query) =>{
-              fetch("https://www.cv-library.co.uk/search-jobs-json?key=ZLv,7aJ4PLzcsYKk&q=${query}&geo=london&distance=15&salarytype=annum&tempperm=Any")
-              .then(response => response.json())
-              .then((jobs) =>{
-                  console.log(jobs);
-              jobs.jobs.forEach ( (result) => {
-              console.log("result:"+result);
-              const jobDescription = `
+                      jobs.jobs.forEach((result) => {
+                        console.log("result:" + result);
+                        const jobDescription = `
               <div class="container">
                     <div class="row">
                       <div class="col-sm-4">
-                         <h5>${result.title}</h5>
-                         <h5>${result.agency.title}</h5>  
-                        
+                         <p>${result.title}</p>
+                         <h5>${result.agency.title}</h5> 
                        </div>
+                     
                        <div class="col-sm-4">
                           <p>${result.location}</p>      
                        </div>
@@ -56,74 +134,132 @@
                    </div>  
                    <div class="row">
                   <div class="col-sm-12">
-                       <p>${result.description}</p> 
+                       <p>${result.description.trim()}</p> 
                   </div>     
                    <div class="col-sm-3">
-                          <p><button><a href= https://www.cv-library.co.uk${result.url}> apply here </a> </button></p>                 
+                          <p><button><a href= https://www.cv-library.co.uk${result.url}> Apply Here </a> </button></p>                 
                   </div>  
               </div>       
               </div>            
               `;
-              const jobba = document.querySelector("#jobNews")
-              jobba.insertAdjacentHTML("beforeend" , jobDescription);
-            });
-              
-  
-              
-             
-              
-          });
 
-      
-              
-              };
-            
-              const jobsForm = document.querySelector("#searchJob");
-              jobsForm.addEventListener('submit', (event) => {
-                event.preventDefault();
+
+                        jobba.insertAdjacentHTML("beforeend", jobDescription);
+                      });
+
+                    });
+                };
                 
-                const input = event.currentTarget.querySelector('.form-control');
-                  jobsForm.innerHTML = '';
 
+
+                const jobnews = document.querySelector("#jobnews");
+                //  load page initial data
+                searchJob("Marketing");
+                // initial data end
+
+                //Search form and Function
+                const jobsForm = document.querySelector("#searchJob");
+                jobsForm.addEventListener('submit', (event) => {
+                  event.preventDefault();
+
+                  const input = event.currentTarget.querySelector('.form-control');
+                  //input.value="";
+                  jobnews.innerHTML = '';
+                  console.log("search:" + input.value);
+                  //const value = input.value;
                   searchJob(input.value);
-              });
-           
-                  
-              </script>
-      </tr>
-  
-      
-  
-        </table>
-  
+
+                });
+
+                pageSelect.addEventListener('change', (event) => {
+
+                  const input = document.querySelector('#searchField');
+                  //input.value="";
+                  jobnews.innerHTML = '';
+                  console.log("search:" + input.value);
+                  //const value = input.value;
+                  searchJob(input.value);
+
+                });
+
+                const jobba = document.querySelector("#jobNews")
+                
+          //   End search form and function
+
+
+              </script> -->
+            </tr>
+
+
+
+          </table>
+
+        </div>
+      </div>
     </div>
-  
-    <div class="unsubscribe">
-      <table>
-        <tr>
-      <a href="http://privacypolicy">Unsubscribe</a>
-       </tr>
-     </table>
-    </div>
-  
-  
-  
-  
-    <div class ="footer">
-    <div class="card-footer text-muted">
-    <p><a href="http://privacypolicy">Privacy Policy &nbsp  </a>
-       <a href="http://privacypolicy">Terms and Conditions  &nbsp </a>
-       <a href="http://privacypolicy">About us &nbsp </a></p>
-       <p><a href="http://privacypolicy">Contact us &nbsp</a>
-       <a href="http://privacypolicy">Advertise</a></p>
-       
-  
+
+    <div class="col-sm-1">
+
     </div>
   </div>
-  
-  ---
-  </body>
+  </div>
 
-  </htmL>
-  
-  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+
+      </div>
+      <div class="col-sm-4">
+
+
+        <div class="unsubscribe">
+          <table>
+            <tr>
+              <a href="/unsubscribe" color="blue">Unsubscribe here</a>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        
+      </div>
+      <div class="col-sm-4">
+        <div class="footer1">
+          <div class="card-footer text-muted">
+            <p><a color="blue" href="/privacy">Privacy Policy &nbsp </a>
+              <a href="/tandc">Terms and Conditions &nbsp </a>
+              <a href="/aboutus">About us &nbsp </a></p>
+            <p><a href="http://www.almondmedia.co.uk/contact-us/"">Contact us &nbsp</a>
+              <a href="http://www.almondmedia.co.uk/contact-us/"">Advertise</a></p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-sm-4">
+          <img src="images/AMLogo.png" height="75" width="100">
+      </div>
+    </div>
+  </div>
+</body>
+<!-- Cookie Consent by https://www.PrivacyPolicies.com -->
+<script type="text/javascript" src="//www.PrivacyPolicies.com/cookie-consent/releases/3.0.0/cookie-consent.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+    cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","palette":"light","change_preferences_selector":"#changePreferences","language":"en","website_name":"jobgrabba.com","cookies_policy_url":"https://www.jobgrabba.com/privacy"});
+});
+</script>
+
+<noscript>EU Cookies Consent by <a href="https://www.jobgrabba.com/privacy">PrivacyPolicies</a></noscript>
+<!-- End Cookie Consent -->
+
+</htmL>
