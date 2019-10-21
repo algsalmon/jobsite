@@ -29,48 +29,77 @@
     
 </head>
 <body>
-
-  <!-- header -->
-  <div class="row">
-      <div class="col-md-4">
-          <a href="/"><button id="registerButton12"> See All Jobs </button></a>
-      </div>
-      <div class="col-md-4">
-          <nav class="navbar navbar-expand-lg navbar-light bg-white">
-              <img id="rightFlagNav"src="images/logojobgrabba.png" width="200" id="flag" position="right">
-            </nav>
-      </div>
-      <div class="col-md-4">
-          <img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" id="flag1">
-      </div>
-    </div>
- 
-    <!-- registration -->
-  <div id="regPage">
   <div class="container">
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <div class="brandpromo2">
-          <div class="card" style="width: 18rem;" id="col1Img">
-          <img src="images/lidl200x200.png"  class="card-img-top" alt="..."  style="display: inline-block hidden-xs";>
-           <div class="card-body">
-             <h5 class="card-title">Find and apply for your next role here</h5>
-             <p class="card-text">Search our Jobdatabase and find your next role today by registering with jobgrabba.com now. We cover all types of roles ranging from retail to IT, Marketing, Sales, Restaurant and gig economy jobs.</p>
-            </div>
+      <div class="form-row">
+          <div class="form-group col-md-4">
+              <div class="brandpromo">
+                  <div class="card" style="width: 18rem;">
+                      <img src="images/lidl200x200.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Find and apply for your next role here</h5>
+                        <p class="card-text">Search our Jobdatabase and find your next role today by registering with jobgrabba.com now. We cover all types of roles ranging from retail to IT, Marketing, Sales, Restaurant and gig economy jobs.</p>
+                        
+                      </div>
+                    </div>
+                    
+               </div>
           </div>
-         </div>
-        </div>
 
-     <div class="form-group col-md-4">
-      <div class="Regform" postition="center">
-        <form style='display:inline;' action="/signupsendy" method="POST">
+  <div class="form-group col-md-">
+    <div id="regPage">
+      <div class="container-fluid row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+          <div class="col-sm-12">
+            <img src="images/logojobgrabba.png" width="200" id="flag">
+            <a href="/"><button id="registerButton1"> See All Jobs </button></a>
+          </div>
+          <div class="col-sm-4">
+            <img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" id="flag">
+          </div>
+          <div class="col-sm-4"></div>
+        </nav>
+      
+          <nav class="navbar navbar-expand-lg navbar-light bg-white row" >
+            </nav>
+            </div>  
+      <div class="col-sm-4">
+                      
+          <div class="col-sm-4" id="leftreg">
+   
+      
+        
+        </div>
+        <div class="col-sm-4">
+                      
+      
+      
+        
+          </div>
+        </nav>
+
+
+
+        
+    <!-- <form style='display:inline;' action="/createuser" method="POST">
+       <br>First Name: <input style='display:inline;' name="firstName" type="text"></br>
+       <br>Last Name: <input style='display:inline;' name="lastName" type="text"></br>
+       <br>email: <input style='display:inline;' name="email" type="text"></br>
+       <br>Phone: <input name="phone" type="text"></br>
+       <br><input type="submit"></form></br>
+
+    </form> -->
+
+    <!-- //form starts here -->
+
+<div class="Regform" postition="center">
+        <form style='display:inline;' action="/createuser" method="POST">
                 <div class="form-row">
                     <h2 id="regCTA">Register Here</h2>
                     </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                             <label for="inputEmail4">Fist Name </label>
-                            <input type="text" class="form-control" id="inputEmail4" name="name" placeholder="First Name">
+                            <input type="text" class="form-control" id="inputEmail4" name="firstName" placeholder="First Name">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Last Name</label>
@@ -124,35 +153,37 @@
                 </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Sign in</button>
-              </form>          
+              </form>
+                    </div>
+
+        <div class="tickres">
+          
+                    </div>
+
         </div>
         <!-- form ends here -->
     <script>
 function getValue(){
     const checks = document.getElementById("gridCheck");
-     gdpr = checks.value;
-     console.log(gdpr);
-     const checks1 = document.getElementById("gridCheck3");
-     gdpr1 = checks1.value;
-    console.log(gdpr1);
-  }
-    </script>
-  </div>
-  <!-- Advertisement -->
-  <div class="form-group col-md-4">
-    <a href="/freecreditreport" > <img src="images/ukcr.png"></a>
-  </div>
- </div>
-</div>
 
- 
- 
+    console.log(checks.value);
+  };
+    </script>
+    
+  </div>
+    <div class="form-group col-md-4">
+        
+   
+     
+    </div>
+     </div>
+    </div>
     <div class="container">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-sm-4">
              
           </div>
-          <div class="col-md-4">
+          <div class="col-sm-4">
             <div class="footer1">
               <div class="card-footer text-muted">
                 <p><a color="blue" href="/privacy">Privacy Policy &nbsp </a>
@@ -164,7 +195,7 @@ function getValue(){
             </div>
     
           </div>
-          <div class="col-md-4">
+          <div class="col-sm-4">
               <img src="images/AMLogo.png" height="75" width="100">
           </div>
         </div>

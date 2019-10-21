@@ -36,7 +36,9 @@
         'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '280892588917611');
       fbq('track', 'PageView');
-      
+      var userInfo = <%- JSON.stringify(userInfo) %>;
+      userInfo.Title = "Mr.";
+      userInfo.telephone = userInfo.mobile;
     </script>
     <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=280892588917611&ev=PageView&noscript=1" /></noscript>
@@ -73,37 +75,54 @@
     <!-- nav end -->
     <div class="container">
       <div class="row">
-        <div class="d-none d-sm-block col-md-4">
-            <div class="card text-white bg-info mb-3" style="max-width: 18rem; text-align: center" id="infoCard">
-                <div class="card-body bg-info mb-3">
-                 <h5 class="card-title">What is a Social Score?</h5>
-                  <p class="card-text">Your social score is designed to give you an indication of your overall social media performance from the perspective of a potential employer or similar influencer.The score itself has no impact on you; it's the data and information that goes into compiling your score that's important.</p>
-               </div>
-               </div>
-
-        
+        <div class="col-md-4">
+          <div class="card" style="width: 18rem;" id="coregInLine">
+            <img src="/images/ukcr.png" class="card-img-top" alt="..." class="img-responsive" height="153px">
+            <div class="card-body">
+              <h3 class="card-title">Get your free credit report here</h3>
+              <p class="card-text">Get a live free credit report and also a live social media score Free Now</p>
+              <a href="https://secure.uk.rspcdn.com/xprr/red/PID/2024/SID/sid_here" class="btn btn-primary">click
+                here</a>
+            </div>
+          </div>
         </div>
 
 
         <div class="col-md-4">
-            <div  style="text-align: center">
-                <h1 style="text-align: center">Please check and activate your email now! </h1>
-                <h3> for the latest great jobs and other special offers from the newsgrabba team please ensure you <strong>activate your email and also be sure to upload your CV </strong>too so that potential employers can find you</h3>
-                     <h5> Get your CV in front of potential employers by clicking below</h5> <br></br>
-              </div>
+          <div class="form-check">
+            <img src="/images/NG.png" height="70" width="140">
+            <img src="/images/adituslogo.png" height="25" width="50">
+            <P>Would you like to be contacted by ADITUS, for a free copy of National Geographic Traveller magazine? </p>
+              <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes6" value="Yes"
+                  onclick="getValue();return true;" />
+                <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
+                  <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo7" value="No"
+                    onclick="getValue()">
+                  <label class="form-check-label" for="gridCheck6"> No </p>
+              <h5 id="NGtitle"> National Geographic </h5>
+              <p style="font-size: 10px">EAditus has negotiated the best subscriptions deals for over 20 years. Exclusive offers and deals are available to help save you money on your favourite titles!</p>
+           
+              <p style="font-size: 10px"><a href="Terms: http://www.aditus.uk.com/privacy-policy/">Terms and Conditions
+              </p></a>
+              </label>
+
+          </div>
         </div>
 
           <div class="col-md-4">
-              <!-- Information what is a social score -->
-              <div class="card" style="width: 18rem;" id="coregInLine">
-                  <img src="/images/ukcr.png" class="card-img-top" alt="..." class="img-responsive" height="153px">
-                  <div class="card-body">
-                    <h3 class="card-title">Get your free credit report here</h3>
-                    <p class="card-text">Get a live free credit report and also a live social media score Free Now</p>
-                    <a href="https://secure.uk.rspcdn.com/xprr/red/PID/2024/SID/sid_here" class="btn btn-primary">click
-                      here</a>
-                  </div>
-                </div>
+            <div class="card" style="width: 18rem;" id="coregInLine" width="350" height="153px">
+              <a href="https://pjtharness.ckmhop.com/?a=8&c=7&p=c&s1=jobgrabba"><img src="/images/karamba.png"
+                  class="card-img-top" alt="..." class="img-responsive"></a>
+              <div class="card-body">
+                <a href="https://pjtharness.ckmhop.com/?a=8&c=7&p=c&s1=jobgrabba">
+                  <h3 class="card-title">Here's a bonus deal for you too! Up to £50 bonus + 100 spins</h3>
+                </a>
+                <p class="card-text">Bonus Policy and Terms of Service apply. New depositing players only. Min. deposit:
+                  10£. Max. bonus: 50£. Offer valid on first deposit.
+                  See <a href="https://www.karamba.com/info/bonus-policy/?lpr=Adoric">full terms here.</a></p>
+                <a href="https://pjtharness.ckmhop.com/?a=8&c=7&p=c&s1=jobgrabba" class="btn btn-primary">click here</a>
+              </div>
+            </div>
           </div>
         </div>
         <!-- sign up row -->
@@ -142,11 +161,11 @@
               };
 
               function redirect() {
-	            window.location = "https://www.cv-library.co.uk/register?id=103917"
+	            window.location = "createuser"
               }
 
             </script>
-            <button id="applyNowButton"class="btn btn-primary" onclick="redirect()" onclick="sendSubscriptions();"  value="Redirect">Search Jobs</button>
+            <button id="applyNowButton"class="btn btn-primary" onclick="redirect()" onclick="sendSubscriptions();"  value="Redirect">Apply now</button>
           </div>
           <div class="col-md-4">
           </div>

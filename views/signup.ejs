@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js" ></script>
+		<script type="text/javascript" src="/javascripts/signup.js" ></script>
+		<title>Jobgrabba Registration</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="stylesheets/style.css">
+		    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147951644-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147951644-1');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5395995593492894",
+    enable_page_level_ads: true
+  });
+</script>
+	</head>
+	<body>
+	  
+     <div class="container">
+	  <div class="form-row">
+			<div class="form-group col-md-4">
+				
+			</div>	
+		
+
+<div class="form-group col-md-">
+		<div id="regPage">
+		<div class="container">
+			  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+					  <img src="images/logojobgrabba.png" width="200" id="flag">
+					  <a href="/"><button id="registerButton1"> See All Jobs </button></a>
+			  </nav>
+			</div> 
+		
+		 
+		  
+  
+    <div class="Regform" postition="center">
+					<form  style='display:inline;' action="/signupsendy" method="POST" accept-charset="utf-8" name="signup-form" id="signup-form">
+						<div class="form-row">
+							<h5 id="regCTA">One step closer to your next job! Join jobgrabba now</h5>
+							</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+									<label for="inputEmail4">Fist Name </label>
+									<input type="text" class="form-control" id="inputEmail4" name="name" placeholder="First Name">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Last Name</label>
+								<input type="text" class="form-control" id="inputEmail4" name="lastName" placeholder="Last Name">
+							</div>
+		
+						  <div class="form-group col-md-12">
+							<label for="inputEmail4">Email</label>
+							<input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
+						  </div>
+						<div class="form-group col-md-6" >
+						  <label for="inputAddress">Address</label>
+						  <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address1">
+						</div>
+						<div class="form-group col-md-6">
+						  <label for="inputAddress2">Address 2</label>
+						  <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2"name="address2">
+						</div>
+						<div class="form-group col-md-6">
+								<label for="inputCity">City</label>
+								<input type="text" class="form-control" id="inputCity" name="city">
+							  </div>
+						<div class="form-group col-md-6">
+							  <label for="inputZip">Post Code / Zip </label>
+							  <input width="200" type="text" class="form-control" id="inputZip" name="postCode">
+							  </div>
+						<div class="form-group col-md-12">
+							<label for="inputPhone">Phone</label>
+							<input id="inputPhone" class="form-control" name="phone">
+						  </div>
+						<div class="form-group col-md-12">
+						  <div class="form-check">
+						  <p> <input class="form-check-input" type="checkbox" id="gridCheck" name="tickYes" value="Yes" onclick="getValue();return true;" required/>
+									<label class="form-check-label" for="gridCheck"> Yes &nbsp &nbsp &nbsp
+							<input class="form-check-input" type="checkbox" id="gridCheck1" name="tickNo" value="No" onclick="getValue();">
+									<label class="form-check-label" for="gridCheck1"> no</p> 
+							  By signing up here you agree to our Privacy Policy and Terms and Conditions and to recieve communicaations by email, phone and sms from Never a Wasted Weekend
+							</label>
+							<br></br>
+						  </div>
+						</div>
+						  <div class="form-group col-md-12">
+							  <div class="form-check">
+								 <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes1" value="Yes" onclick="getValue();return true;" required/>
+										  <label class="form-check-label" for="gridCheck3"> Yes &nbsp &nbsp &nbsp
+								  <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo1" value="No" onclick="getValue()">
+										  <label class="form-check-label" for="gridCheck4"> No </p>
+									By joining you agree to recieve information and offers by email, phone, sms & post from 3rd parties.
+							</label>
+						</div>
+						</div>
+						</div>
+						
+						<button type="submit" class="btn btn-primary" id="submit-btn" value="Sign up">Sign in</button>
+					  </form>
+					</div>
+<!-- 
+					<script>
+						var check = document.getElementById('gridCheck');
+						var checkValue = check.value;
+						if (checkValue == true){
+							location.href = '/createuser';
+						}
+
+					
+					</script> -->
+			<p>
+				<!-- <input type="submit" value="Sign up" id="submit-btn"/> -->
+			</p>
+			<p id="status"></p>
+		</form>
+
+	
+</div>
+	
+</div>
+
+  <div class="form-group col-md-4 col-sm-12">
+        
+   
+     
+    </div>
+</div>
+</div>
+<!-- footer -->
+<div class="container">
+	<div class="row">
+	  <div class="col-md-4 col-sm-4">
+		
+	  </div>
+	  <div class="col-sm-4">
+		<div class="footer1">
+		  <div class="card-footer text-muted">
+			<p><a color="blue" href="/privacy">Privacy Policy &nbsp </a>
+			  <a href="/tandc">Terms and Conditions &nbsp </a>
+			  <a href="/aboutus">About us &nbsp </a></p>
+			<p><a href="http://www.almondmedia.co.uk/contact-us/"">Contact us &nbsp</a>
+			  <a href="http://www.almondmedia.co.uk/contact-us/"">Advertise</a></p>
+		  </div>
+		</div>
+
+	  </div>
+	  <div class="col-sm-4">
+		<img src="images/AMLogo.png" height="75" width="100">
+	  </div>
+	</div>
+  </div>
+</div>
+	</body>
+</html>

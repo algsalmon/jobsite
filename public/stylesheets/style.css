@@ -102,9 +102,15 @@ body {
     -ms-flex-pack: start;
     justify-content: flex-start;
     height: 100;
-    
-    
-    
+    margin-bottom: 40px;
+}
+
+.jobs{
+  margin-bottom: 25px;
+}
+
+.paginationArea{
+margin-bottom: 30px;
 }
 
 .footer1 {
@@ -113,6 +119,13 @@ body {
   text-align: center;
     /* Height of the footer */
  
+}
+
+#footerwelcomepg{
+  position: absolute;
+  bottom:0;
+  text-align: center;
+    /* Height of the footer */
 }
 
 #footer1 {
@@ -170,6 +183,10 @@ h5{
  padding: 20px;
 }
 
+#NGtitle{
+  padding: 0px;
+ }
+
 
 
 .navbar-light{
@@ -226,4 +243,110 @@ position: relative;
     padding: 10px;
   }
 
+  .brandpromo1{
+    margin: 10px 20px;
+    padding: 10px;
+  }
+
+  .brandpromo2{
+    margin: 10px 20px;
+    padding: 10px;
+  }
+
+  .card{
+    height:60px;
+  }
+
+#regLogo{
+  margin: 2px;
+}
+
+#column1{
+  margin-top: 10px;
+}
+
+#creditIframe{
+text-align: center;
  
+}
+
+#paginationButtons{
+  width:3;
+  color: solid white;
+}
+
+#pagiId{
+  width:10;
+}
+
+#registerButton11{
+  color:white;
+  font-size: 10px;
+  line-height: 9px;
+    padding: 0 20px;
+    border-radius: 40px;
+    margin-top: 10;
+    margin-inline-start: 10px;
+    margin: 6px -137px;
+}
+#flag1{
+  position:right;
+  
+}
+
+#col1Img{
+position: relative;
+display: inline-block;
+-ms-flex-direction: column;
+flex-direction: column;
+min-width: 0;
+word-wrap: break-word;
+background-color: #fff;
+background-clip: border-box;
+border: 1px solid rgba(0,0,0,.125);
+border-radius: .25rem;
+}
+
+#registerButton12{color:white;
+  font-size: 10px;
+  line-height: 9px;
+    padding: 0 20px;
+    border-radius: 40px;
+    margin-top: 10;
+    margin-inline-start: 10px;
+    margin: 6px 140px;
+}
+
+
+
+#coregInLine{
+display: inline;
+
+}
+
+#applyNowButton{
+    width: 140px;
+    margin: 6px 140px;
+    margin-bottom: 20px;
+
+}
+
+#regCTA{
+  margin: 5px 10px;
+}
+
+#infoCard{
+
+  margin-left: auto;
+}
+
+#gridCheck3{
+
+  margin-left: 25px;
+}
+
+#gridCheck4{
+
+  margin-left: 25px;
+}
+

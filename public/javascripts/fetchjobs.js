@@ -5,10 +5,11 @@ window.onload  = function ( )  {
   var itemsPerPage = 25;
   // const pageSelect = document.querySelector("#pageSelection");
   const paginationButtons = document.querySelector("#paginationButtons");
+  //const paginationButtonsBottom = document.querySelector("#paginationButtonsBottom");
   searchJob = (query) => {
  //   currentPage = pageSelect.options[pageSelect.selectedIndex].value;
 
-    const jobsSearchUrl = `https://www.cv-library.co.uk/search-jobs-json?key=ZLv,7aJ4PLzcsYKk&q=${query}&perPage=25&offset=`+(25*currentPage)+`&geo=london&distance=15&salarytype=annum&tempperm=Any&posted=14&order=date`;
+    const jobsSearchUrl = `https://www.cv-library.co.uk/search-jobs-json?key=ZLv,7aJ4PLzcsYKk&q=${query}&perPage=25&offset=`+(25*currentPage)+`&geo=&distance=15&salarytype=annum&tempperm=Any&posted=14&order=date`;
     fetch(jobsSearchUrl)
       .then(response => response.json())
       .then((jobs) => {
@@ -37,6 +38,7 @@ window.onload  = function ( )  {
         }
         // pageSelect.innerHTML = pageOptions;
         paginationButtons.innerHTML = buttonsHTML;
+        //paginationButtonsBottom.innerHTML = buttonsHTML;
 
         var jobDescriptions = "";
         jobs.jobs.forEach((result) => {
