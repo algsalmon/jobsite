@@ -304,9 +304,9 @@ document.getElementById('timestamp').value = datetime;
         <li>Free £300 Funeral Benefit Option
 </ul>
 <p style="font-size:12px">Don’t miss out – get your quote today! Tick yes to receive a call from one of our UK-based insurance specialists.</p>
-<p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes3" value="Yes" onclick="getValue();return true;" />
+<p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes3" value="Yes" onclick="checkedBox()" />
   <label class="form-check-label" for="gridCheck3"> Yes &nbsp &nbsp &nbsp
-<input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo1" value="No" onclick="getValue()">
+<input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo1" value="No" onclick="checkedBox()">
   <label class="form-check-label" for="gridCheck4"> No </p>
     
 <P style="font-size:8px">
@@ -349,7 +349,7 @@ document.getElementById('timestamp').value = datetime;
                           <!-- hidden values parsed through -->
                           <input id="ipaddress" maxlength="20" name="ipaddress" size="20" type="hidden" value=" "></input>
                    <!--       <input id="timestamp" maxlength="50" name="timestamp" type="hidden" value=" "></input>-->
-                          <input type="hidden" type="text" id="source" name="source" value="basicpage">
+                          <input type="hidden" type="text" id="source" name="source" value="LIDL">
                 
                 </div>
                 </div>
@@ -359,12 +359,25 @@ document.getElementById('timestamp').value = datetime;
         </div>
         <!-- form ends here -->
     <script>
+         const checks1 = document.getElementById("gridCheck3").check;
+     gdpr1 = checks1.value;
+     const checks2 = document.getElementById("gridCheck4").check;
+      function checkedBox(){ if(!checks1||!checks2){
+      alert("You must check at least one checkbox.");
+    return false;
+     }else{
+
+       return true;
+     }
+    }
 function getValue(){
     const checks = document.getElementById("gridCheck");
      gdpr = checks.value;
      console.log(gdpr);
-     const checks1 = document.getElementById("gridCheck3");
+     const checks1 = document.getElementById("gridCheck3").check;
      gdpr1 = checks1.value;
+     const checks2 = document.getElementById("gridCheck4").check;
+     
     console.log(gdpr1);
     const dobDay = document.getElementById('form_dob_day')
      dayInput = dobDay.value;

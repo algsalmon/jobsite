@@ -13,8 +13,12 @@ $(document).ready(function() {
 		phone = $form.find('input[name="phone"]').val(),
 		tickYes = $form.find('input[name="tickYes"]').val(),
 		tickYes1 = $form.find('input[name="tickYes1"]').val(),
+		day = $form.find('input[name="dob_day"]').val(),
+		month = $form.find('input[name="dob_month"]').val(),
+		year = $form.find('input[name="dob_year"]').val(),
+		DOB = year+''+month+''+day,
 		url = $form.attr('action');
-		//console.log(name)
+		console.log(DOB);
 
 	
 		

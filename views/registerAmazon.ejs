@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+       
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147951644-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147951644-1');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5395995593492894",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+    
+</head>
+<body>
+
+  <!-- header -->
+  <div class="row">
+      <div class="col-md-4">
+          <a href="/"><button id="registerButton12"> See All Jobs </button></a>
+      </div>
+      <div class="col-md-4">
+          <nav class="navbar navbar-expand-lg navbar-light bg-white">
+              <img id="rightFlagNav"src="images/logojobgrabba.png" width="200" id="flag" position="right">
+            </nav>
+      </div>
+      <div class="col-md-4">
+          <img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" id="flag1">
+      </div>
+    </div>
+ 
+    <!-- registration -->
+  <div id="regPage">
+  <div class="container">
+    <div class="form-row">
+      <div class="form-group d-none d-sm-block col-md-4">
+        <div class="brandpromo2">
+          <div class="card" style="width: 18rem;" id="col1Img">
+          <img src="images/lidl200x200.png"  class="card-img-top" alt="..."  style="display: inline-block hidden-xs";>
+           <div class="card-body">
+             <h5 class="card-title">Find and apply for your next role here</h5>
+             <p class="card-text">Search our Jobdatabase and find your next role today by registering with jobgrabba.com now. We cover all types of roles ranging from retail to IT, Marketing, Sales, Restaurant and gig economy jobs.</p>
+            </div>
+          </div>
+         </div>
+        </div>
+
+     <div class="form-group col-md-4">
+      <div class="Regform" postition="center">
+        <form style='display:inline;' action="/signupsendy" method="POST">
+                <div class="form-row">
+                    <h5 id="regCTA" style="text-align: center">Register for free today</h5><br>
+                    <P id="alreadyRegistered" style="text-align: center">Already registered? Click here</P>
+                    </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                            <label for="inputEmail4">Fist Name </label>
+                            <input type="text" class="form-control" id="inputEmail4" name="name" placeholder="First Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Last Name</label>
+                        <input type="text" class="form-control" id="inputEmail4" name="lastName" placeholder="Last Name">
+                    </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email"required>
+                  </div>
+                <div class="form-group col-md-6" >
+                  <label for="inputAddress">Address</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address1">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputAddress2">Address 2</label>
+                  <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2"name="address2">
+                </div>
+                <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity" name="city">
+                      </div>
+                <div class="form-group col-md-6">
+                      <label for="inputZip">Post Code / Zip </label>
+                      <input width="200" type="text" class="form-control" id="inputZip" name="postCode">
+                      </div>
+                <div class="form-group col-md-12">
+                    <label for="inputPhone">Phone</label>
+                    <input id="inputPhone" class="form-control" name="phone">
+                  </div>
+                <div class="form-group col-md-12">
+                  <div class="form-check">
+                  <p> <input class="form-check-input" type="checkbox" id="gridCheck" name="tickYes" value="Yes" onclick="getValue();return true;" required/>
+                            <label class="form-check-label" for="gridCheck"> Yes &nbsp &nbsp &nbsp
+                    <input class="form-check-input" type="checkbox" id="gridCheck1" name="tickNo" value="No" onclick="getValue();">
+                            <label class="form-check-label" for="gridCheck1"> no</p> 
+                      By signing up here you agree to our Privacy Policy and Terms and Conditions and to recieve communicaations by email, phone and sms from jobgrabba
+                    </label>
+                    <br>
+                  </div>
+                </div>
+                  <div class="form-group col-md-12">
+                      <div class="form-check">
+                         <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes1" value="Yes" onclick="getValue();return true;" required/>
+                                  <label class="form-check-label" for="gridCheck3"> Yes &nbsp &nbsp &nbsp
+                          <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo1" value="No" onclick="getValue()">
+                                  <label class="form-check-label" for="gridCheck4"> No </p>
+                            By joining you agree to recieve information and offers by email, phone, sms & post from 3rd parties.
+                    </label>
+                </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="form-check">
+                      <img src="/images/amazonprime.jpg" height="70" width="140">
+                      <P>Would you like a 30-day FREE trial? 
+                      <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes2" value="Yes" onclick="getValue();return true;"/>
+                          <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
+                          <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo2" value="No" onclick="getValue()">
+                          <label class="form-check-label" for="gridCheck6"> No </p>
+                            <h5>Amazon Prime - FREE 30 day trial</h5>
+                            <p style="font-size: 10px">Enjoy unlimited streaming of thousands of movies & TV shows on your tablet, smart TV, game consoles, laptop or mobile phones. You can also download videos on your mobile or tablet to watch on the go.</p> 
+                            <br><p style="font-size: 10px">Watch out for the welcome email and click through to take up the offer! <a href="https://www.amazon.co.uk/gp/help/customer/display.html?nodeId=200198240">Terms and Conditions</p></a>
+                          </label>
+                
+                </div>
+                </div>
+                </div>
+                   <button type="submit" class="btn btn-primary" style="margin-left: 130px">Sign in</button>
+              </form>          
+        </div>
+        <!-- form ends here -->
+    <script>
+function getValue(){
+    const checks = document.getElementById("gridCheck");
+     gdpr = checks.value;
+     console.log(gdpr);
+     const checks1 = document.getElementById("gridCheck3");
+     gdpr1 = checks1.value;
+    console.log(gdpr1);
+  }
+    </script>
+  </div>
+  <!-- Advertisement -->
+  <div class="form-group col-md-4">
+    <a href="https://secure.uk.rspcdn.com/xprr/red/PID/2024/SID/sid_here" > <img src="images/ukcr.png"></a>
+    <br>
+  </br>
+    <!-- Information what is a social score -->
+    <div class="card text-white bg-info mb-3" style="max-width: 18rem; text-align: center" id="infoCard">
+    <div class="card-body bg-info mb-3">
+     <h5 class="card-title">What is a Social Score?</h5>
+      <p class="card-text">Your social score is designed to give you an indication of your overall social media performance from the perspective of a potential employer or similar influencer.The score itself has no impact on you; it's the data and information that goes into compiling your score that's important.</p>
+   </div>
+   </div>
+  </div>
+ 
+
+ 
+ 
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+             
+          </div>
+          <div class="col-md-4">
+            <div class="footer1">
+              <div class="card-footer text-muted">
+                <p><a color="blue" href="/privacy">Privacy Policy &nbsp </a>
+                  <a href="/tandc">Terms and Conditions &nbsp </a>
+                  <a href="/aboutus">About us &nbsp </a></p>
+                <p><a href="http://www.almondmedia.co.uk/contact-us/"">Contact us &nbsp</a>
+                  <a href="http://www.almondmedia.co.uk/contact-us/"">Advertise</a></p>
+              </div>
+            </div>
+    
+          </div>
+          <div class="col-md-4">
+              <img src="images/AMLogo.png" height="75" width="100">
+          </div>
+        </div>
+      </div>
+</body>
+</html>

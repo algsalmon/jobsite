@@ -23,40 +23,6 @@
     google_ad_client: "ca-pub-5395995593492894",
     enable_page_level_ads: true
   });
-
-
-</script>
-<script>
-function getTimeStamp(){
-var d = new Date();
-var day = d.getDate();
-
-var d = new Date();
-var month = d.getMonth();
-
-var d = new Date();
-var year = d.getFullYear();
-
-var d = new Date();
-var hours = d.getHours();
-
-var d = new Date();
-var mins = d.getMinutes();
-
-var d = new Date();
-var secs = d.getSeconds();
-   
-var datetime = day+ month+ year + hours+":"+mins+":"+secs+":";
-console.log(datetime);
-
-}
-
-function setTimeStamp(){
-document.getElementById('timestamp').value = datetime;
-
-}
-
-
 </script>
 <!-- push notification connection -->
 <!-- <script src="javascripts/main.js"></script> -->
@@ -71,7 +37,6 @@ document.getElementById('timestamp').value = datetime;
           document.getElementById('ipaddress').value = ipa;
           console.log(ipa)
       }
-    
   </script>
   <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 </head>
@@ -81,11 +46,12 @@ document.getElementById('timestamp').value = datetime;
   <!-- header -->
   <div class="row">
       <div class="col-md-4">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
-          <img id="rightFlagNav"src="images/logojobgrabba.png" width="200" id="flag" position="right">
-        </nav>      </div>
+          <!-- <a href="/"><button id="registerButton12"> See All Jobs </button></a> -->
+      </div>
       <div class="col-md-4">
-          
+          <nav class="navbar navbar-expand-lg navbar-light bg-white">
+              <img id="rightFlagNav"src="images/logojobgrabba.png" width="200" id="flag" position="right">
+            </nav>
       </div>
       <div class="col-md-4">
           <img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" id="flag1">
@@ -112,9 +78,7 @@ document.getElementById('timestamp').value = datetime;
       <div class="Regform" postition="center">
         <form style='display:inline;' action="/signupsendy" method="POST">
                 <div class="form-row">
-                    <h5 id="regCTA" style="text-align: center">Apply for Customer Assitant Jobs Here</h5>
-                    <p id=""  style="text-align: center strong">Tesco, LIDL, Morrisons, Sainsbuy and More!</p><br>
-
+                    <h5 id="regCTA" style="text-align: center">Register for free today</h5><br>
                     <P id="alreadyRegistered" style="text-align: center"><a href="/">Already registered? Click here</a></P>
                     </div>
                     
@@ -123,21 +87,13 @@ document.getElementById('timestamp').value = datetime;
                         <label for="inputEmail4">Email</label>
                         <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email"required>
                       </div>
-                    <div class="form-group col-md-3 col-xs-12">
-                      <label for="inputEmail4">Title </label>
-                        <select class="custom-select" id="title" name="title">
-                          <option value="Mr">Mr</option>
-                          <option value="Mrs">Mrs</option>
-                          <option value="Ms">Ms</option>
-                        </select>
-                  </div>
-                    <div class="form-group col-md-4 col-xs-6">
-                            <label for="inputEmail4">First </label>
-                            <input type="text" class="form-control" id="inputEmail4" name="name" placeholder="First Name"required>
+                    <div class="form-group col-md-6">
+                            <label for="inputEmail4">First Name </label>
+                            <input type="text" class="form-control" id="inputEmail4" name="name" placeholder="First Name">
                     </div>
-                    <div class="form-group col-md-5 col-xs-12"> 
-                        <label for="inputEmail4">Last </label>
-                        <input type="text" class="form-control" id="inputEmail4" name="lastName" placeholder="Last Name"required>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Last Name</label>
+                        <input type="text" class="form-control" id="inputEmail4" name="lastName" placeholder="Last Name">
                     </div>
                     
                     <div class="form-group col-xs-3 col-md-3">
@@ -245,24 +201,24 @@ document.getElementById('timestamp').value = datetime;
                   
                 <div class="form-group col-md-6" >
                   <label for="inputAddress">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address1"required>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address1">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputAddress2">Address 2</label>
-                  <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2"name="address2"required>
+                  <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2"name="address2">
                 </div>
                 
                 <div class="form-group col-md-6">
                         <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity" name="city"required>
+                        <input type="text" class="form-control" id="inputCity" name="city">
                       </div>
                 <div class="form-group col-md-6">
                       <label for="inputZip">Post Code / Zip </label>
-                      <input width="200" type="text" class="form-control" id="inputZip" name="postCode"required>
+                      <input width="200" type="text" class="form-control" id="inputZip" name="postCode">
                       </div>
                 <div class="form-group col-md-12">
                     <label for="inputPhone">Phone</label>
-                    <input id="inputPhone" class="form-control" name="phone"required>
+                    <input id="inputPhone" class="form-control" name="phone">
                   </div>
                 <div class="form-group col-md-12">
                   <div class="form-check">
@@ -334,22 +290,8 @@ document.getElementById('timestamp').value = datetime;
                           </label> -->
 
                           <!-- hidden values parsed through -->
-                          <!--                     
-                      <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes2" value="Yes" onclick="getValue();return true;"/>
-                          <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
-                          <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo2" value="No" onclick="getValue()">
-                          <label class="form-check-label" for="gridCheck6"> No </p>
-                            <P>Would you like a 30-day FREE trial? </p>
-                              <img src="/images/amazonprime.jpg" height="35" width="70">
-                            <p style='font-size: 12px'>Amazon Prime - FREE 30 day trial</p>
-                            <p style="font-size: 10px">Enjoy unlimited streaming of thousands of movies & TV shows on your tablet, smart TV, game consoles, laptop or mobile phones. You can also download videos on your mobile or tablet to watch on the go.</p> 
-                            <br><p style="font-size: 10px">Watch out for the welcome email and click through to take up the offer! <a href="https://www.amazon.co.uk/gp/help/customer/display.html?nodeId=200198240">Terms and Conditions</p></a>
-                          </label> -->
-
-                          <!-- hidden values parsed through -->
                           <input id="ipaddress" maxlength="20" name="ipaddress" size="20" type="hidden" value=" "></input>
-                   <!--       <input id="timestamp" maxlength="50" name="timestamp" type="hidden" value=" "></input>-->
-                          <input type="hidden" type="text" id="source" name="source" value="basicpage">
+                          <input type="hidden" type="text" id="source" name="source" value="Costapage">
                 
                 </div>
                 </div>
@@ -373,10 +315,7 @@ function getValue(){
      const dobYear = document.getElementById('form_dob_year')
      yearInput = dobYear.value;
      const DOB = dayInput+' ' +monthInput+' '+yearInput;
-    //  const userTitle = document.getElementById('title');
-    //  title = userTitle.value;
-    //  console.log(title);
-    
+  
   }
   getValue();
     </script>
