@@ -24,22 +24,26 @@
     <!-- Facebook Pixel Code -->
     <script>
 
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2894844270573879');
-  fbq('track', 'PageView');
-
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2894844270573879&ev=PageView&noscript=1"
-/></noscript>      
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2894844270573879');
+        fbq('track', 'PageView');
+      
+      <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2894844270573879&ev=PageView&noscript=1"
+      /></noscript>      
+          </script>
+   <script>
+      fbq('track', 'ViewContent', {
+        value: viewjobsearchpage,
+      });
     </script>
-    
     <!-- End Facebook Pixel Code -->
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -51,36 +55,49 @@
 <!-- propeller ads retargeting -->
     <script src="//my.rtmark.net/p.js?f=sync&lr=1&partner=6a5cf0ec46bd344fd432c532f5ff51489ba0187ff3f795630c51d764b2f4d029" defer></script>
     <noscript><img src="//my.rtmark.net/img.gif?f=sync&lr=1&partner=6a5cf0ec46bd344fd432c532f5ff51489ba0187ff3f795630c51d764b2f4d029" width="1" height="1" /></noscript>
+
   </head>
 
   <body>
-      
-      <nav class="navbar navbar-expand-lg navbar-light bg-white">
-          <a class="navbar-brand" href="/"><img src="images/logojobgrabba.png" width="100" id="flag"></a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-red" id="fixednav">
+       <a class="navbar-brand" href="/"><img src="images/logojobgrabba.png" width="200" height="200" id="flag"></a>
+       
+
           
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav" id="nvtext" style="margin: 0 230px">
+            <ul class="navbar-nav" id="nvtext" style="margin: 0 141px">
               <li class="nav-item active" >
-                <a class="nav-link" href="/" id="nvtext">ABOUT |<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/aboutus" id="nvtext">ABOUT <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="/" id="nvtext">CV TIPS |</a>
+                <a class="nav-link" href="/cvhelp" id="nvtext">CV TIPS </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="/"id="nvtext">INTERVIEW TIPS |</a>
+                <a class="nav-link" href="/interviewprocess"id="nvtext">INTERVIEW TIPS </a>
               </li>
               <li class="nav-item active">
-                    <a href="/register"><button id="registerButton">REGISTER</button></a>
+                <a class="nav-link" href="/register" id="nvtext">REGISTER </a>
+              </li>
+             </ul>
+             <a href="https://www.facebook.com/Jobgrabba/"><img src="images/facebook.svg" width="20" height="20"></a>
+             &nbsp&nbsp&nbsp
+             <a href="https://www.instagram.com/jobgrabba/"></a> <img src="images/instagram.svg" width="20" height="20"></a>
+             &nbsp&nbsp&nbsp
+             <a href="https://www.twitter.com/jobgrabba"></a> <img src="images/twitter.svg" width="20" height="20"></a>
+             &nbsp&nbsp&nbsp
+            
+              
 
                  <!-- <div id="storeImages"><span><img src='/images/lidl200x200.png' width="70" height="70"><img src='/images/asdalogo.png' width="70" height="70"><img src='/images/tescologo.png' width="70" height="70"><img src='/images/sainsburylogo.png' width="70" height="70"></span> -->
                  </div> 
-
-                </li>
-            </ul>
+                 
+               
+            
           </div>
+         
           <div class="rightArea">
               
               <!-- <a class="nav-link " href="/" ><img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" id="flag1"></a></a> -->
@@ -101,24 +118,97 @@
 
       <div class="container-fluid" id="contentsSearch">
           <div class="row">
-            <div class="col-md-3  d-sm-block" id="zipcol">
-                   
+            <div class="col-md-3 d-none  d-sm-block" id="zipcol" >
+                    <!-- <form id="searchJob" class="form-inline" onsubmit="return false;">
+                            <div class= "searchjobbutton"><p> 
+                               <input class="form-control input-mysize mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchField" >
+                               <input class="btn btn-outline-secondary  my-2 my-sm-0" type="submit" Value="Search" id="searchField" ></input>
+                             </p>
+                           </div> 
+                       </form> -->
+                         <div class="brandpromo2">
+            <ul class="list-group list-group-flush" >
+                <li class="list-group-item"><a href="/cvtips">CV Resources</a></li>
+              <li class="list-group-item"><a href="/interviewprocess">Supermarket and Retail Interview Processes</a></li>
+             <li class="list-group-item"><a href="/employmentstats">Employment stats</a></li>
+             <li class="list-group-item"><a href="/learning">Learning Resources: Improve your employability</a></li>
+             <li class="list-group-item"><a href="/fulltimejobs">From Part-time to Full-time jobs </a></li>
+            </ul>
+            
+          </div>
+
                 <!-- <script src="https://www.zipalerts.com/subscribe-widget/rm6hgbnz3uz646m3u9z7t6ddemchr57g.js"></script> -->
             </div>
            
             
-                <div class="col-md-6">
-                    
-                        
-
-                     </div>
+                <div class="col-md-6" id="articles">
+                    <p><strong>CV Resources including Free Professional CV Reviews</strong></p>
+                    <p>&nbsp;</p>
+                    <p>A brief about the author:</p>
+                    <p>Jane has considerable HR and Recruiting expertise and has been on all ends of the hiring spectrum - from HR and Business Management across a wide range of companies to owning multiple companies herself.<span class="Apple-converted-space">&nbsp; </span>In addition, she has worked for the BBC, healthcare corporations, non-profits, online media publishing and recruiting agencies.</p>
+                    <p>In her words:</p>
+                    <p>&ldquo;<em>I can spot BS a mile off, I&rsquo;d much rather have someone in front of me who is authentic, has done their homework about the company and seems enthusiastic about the job as well as our company goals. Someone who shows interest in a career path within the company is always a bonus for them and us.&rdquo; </em></p>
+                    <p>&nbsp;</p>
+                    <p>There&rsquo;s lots of conflicting advice out there about how to create a great CV and cover letter.<span class="Apple-converted-space">&nbsp; </span>It will be no surprise to you then that depending on what type of position you&rsquo;re looking for, adapting your CV and getting tips from a range of resources will serve you well.<span class="Apple-converted-space">&nbsp; I</span>t&rsquo;s worth paying attention to where there are overlaps are i.e. where the various resources agree and go use that.</p>
+                    <p>&nbsp;</p>
+                    <p>One thing to notice is how the job description is written. If it&rsquo;s highly detailed, you can go into more detail in your CV.<span class="Apple-converted-space">&nbsp; </span>If it&rsquo;s very concise, make your CV to the point and more concise but don't leave anything pertinent out.</p>
+                    <p>&nbsp;</p>
+                    <p>Before we go further, a great place to look for a job is on the company website directly, that is the companies you wish to work for.<span class="Apple-converted-space">&nbsp; </span>Some companies outsource their recruiting while others don&rsquo;t so the only way to apply for some jobs is directly with the company.&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p><strong>Here are some excellent resources to get you on the right track to creating a fabulous CV for 2020 and getting that job in a company you really want to work for. </strong></p>
+                    <p>&nbsp;</p>
+                    <p>Oxford University experts offer advice and step-by-step CV advice and tips with downloadable templates.<span class="Apple-converted-space">&nbsp; &nbsp;</span></p>
+                    <p><a href="http://www.careers.ox.ac.uk/cvs/" target="_blank" rel="noopener">http://www.careers.ox.ac.uk/cvs/</a></p>
+                    <p>&nbsp;</p>
+                    <p>CV Templates (Downloadable) and Ideas for Cover Letters</p>
+                    <p><a href="https://www.randstad.co.uk/cv-hub/">https://www.randstad.co.uk/cv-hub/</a></p>
+                    <p>&nbsp;</p>
+                    <p>How to Build a CV with Little Experience</p>
+                    <p><a href="https://www.cv-library.co.uk/career-advice/cv/bulk-cv-little-experience/">https://www.cv-library.co.uk/career-advice/cv/bulk-cv-little-experience/</a></p>
+                    <p><br />First Job? No problem! Check out the link below and get great CV tips for first jobbers.</p>
+                    <p><a href="https://www.careeraddict.com/first-cv" target="_blank" rel="noopener">First Job CV</a></p>
+                    <p><br />Sample CVs by Job Title</p>
+                    <p><a href="http://www.cvtips.com/resumes-and-cvs/sample-cvs/">http://www.cvtips.com/resumes-and-cvs/sample-cvs/</a></p>
+                    <p>&nbsp;</p>
+                    <p><strong>FREE CV ASSESSMENT RESOURCES brought to you by Jobgrabba</strong></p>
+                    <p><a href="https://www.monster.co.uk/career-advice/?intcid=CA_TopNav_Career_Advice%20" target="_blank" rel="noopener">Free CV Assessment</a></p>
+                    <p><a href="https://www.cvcentre.co.uk/free-cv-review" target="_blank" rel="noopener">Free CV Review</a></p>
+                    <p>&nbsp;</p>
+                    <p>LinkedIn Offer Advice and Resources for Creating your CV on LinkedIn</p>
+                    <p><a href="https://cvonline.me/en/generate-cv-from-linkedin" target="_blank" rel="noopener">Create Your CV on LinkedIn</a></p>
+                    <p>&nbsp;</p>
+                    <p><br />Customiser CV Maker Online</p>
+                    <p><a href="https://cvonline.me/en/online-cv-maker%C2%A0" target="_blank" rel="noopener">https://cvonline.me/en/online-cv-maker </a></p>
+                    <p>&nbsp;</p>
+                    <p><strong>PROFESSIONAL INTERVIEW COACHING</strong></p>
+                    <p>James Innes have a range of <a href="https://www.cvcentre.co.uk/services/interview-coaching" target="_blank" rel="noopener">Professional Interview Coaching</a> options as varying fees depending on what you want.</p>
+                    <p>&nbsp;</p>
+                    <p><strong>Brought to you by <a href="applewebdata://1F26CBD4-BF25-45C9-8284-32FCF8518035/Jobgrabba.com">Jobgrabba.com</a></strong></p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                </div>
                   
-            
-            <div class="col-md-3">
+        
+            <div class="col-md-3" id="ukcrpcol">
+              <img src="/images/cvarttips.png" width="300" heigth="300">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Jobgrabba.com Articles -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5395995593492894"
+     data-ad-slot="3835108891"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
             </div>
             
           </div>
         </div>
+       
 
         <!-- footer -->
         <br>

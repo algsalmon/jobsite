@@ -48,6 +48,7 @@ font-family: 'Libre Baskerville', serif;
  .navbar-brand{
   margin-bottom: 1px;
 
+
  }
 
  nav h5{
@@ -194,6 +195,10 @@ h5{
   padding: 0px;
  }
 
+#CCtitle{
+  padding: 0px;
+ }
+
 
 
 .navbar-light{
@@ -248,6 +253,7 @@ position: relative;
   .brandpromo{
     margin: 170px 20px;
     padding: 10px;
+   
   }
 
   .brandpromo1{
@@ -258,6 +264,7 @@ position: relative;
   .brandpromo2{
     margin: 10px 20px;
     padding: 10px;
+    font-size: 15px;
   }
 
   .card{
@@ -413,6 +420,11 @@ display: inline;
   font-size: 20px;
 }
 
+#searchField1{
+  color: #2F2E51;
+  font: 20px;
+}
+
 .input-mysize {   
   height: 40px;
   font-size: 20px;
@@ -426,6 +438,173 @@ display: inline;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
  }
 
+ h5#jobheader{
+   padding:0px;
+   font-size: 20px;
+   font-weight: bold;
+   color:#2F2E51;
+   
+ }
+
+ #searchField{
+width:270;
+
+ }
+
+ #message{
+   color:red;
+   font-weight: bold;
+   text-align: center;
+   font-size: 10px
+ }
+ #coursemessage{
+  color:green;
+  font-weight: bold;
+  text-align: center;
+  font-size: 10px
+
+ }
+
+ #costcoursemessage{
+  color:red;
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px
+
+ }
+
+ #errormessage{
+  color:red;
+  font-weight: bold;
+  text-align: center;
+  font-size: 10px
+ }
+
+ #fixednav{
+  background-color:white;
+ }
+
+
+ .list-group-flush .list-group-item{
+  margin-right: 57px;
+  margin-left: -47px;
+ }
+
+ #nvtext {
+  margin: 0px 24px;
+}
+
+#navbarNav{
+  margin: 0 -19px;
+}
+
+#contentss{
+font-size: 15px;
+}
+
+#articles{
+  font-size: 15px;
+}
+
+#snippet{
+  font-size: 15px;
+  
+}
+
+a.py-2{
+  font-size: 15px;
+  font-weight: bold;
+  color:#2F2E51;
+
+}
+
+#sitedes{
+  font-size: 15px;
+  font-weight: bold;
+  color:#2F2E51;
+
+}
+
+#homebutton{
+  font-size: 15px;
+  font-weight: bold;
+  color:#2F2E51;
+}
+
+#homelogo{
+  background: url(/images/logojobgrabba.png);
+}
+
+#nevtext .active>.nav-link{
+
+    display: block;
+    transition-duration: 0.5s;
+   
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+#regContent{
+  margin-left: 0px;
+  margin-right: 0px;
+  max-width: initial;
+}
+
+#regimages{
+  text-align: left;
+}
+
+#regads{
+  text-align: center;
+}
+
+#regPageMobileAd{
+  text-align: center;
+  margin-left: 12px;
+}
+
+
+#dealscards{
+  margin-bottom: 350;
+  text-align: center;
+  margin-left: 87px;
+ 
+}
+
+#courseOverview{
+  margin-top: 550px;
+  font-size:12px
+}
+
+@media screen and (max-width: 768px) {
+  #courseOverview{
+     margin-top: 0px;
+  }
+}
+
+#courseOverviewRed{
+  margin-top: 100px;
+  font-size:12px
+}
+
+@media screen and (max-width: 768px) {
+  #courseOverviewRed{
+     margin-top: 0px;
+  }
+}
+
+.Highlightrefund{
+  font-weight: bold;
+}
+
+
+
+
+ 
+
+ 
 
 
 

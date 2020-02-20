@@ -17,28 +17,31 @@ async function send() {
   console.log("Service Worker Registered...");
 
 
-  registerPushNotifications = function (jobCategories) {
+  registerPushNotifications = function (jobCategories,location) {
     // Register Push
     console.log("Registering Push...");
     const subscription = register.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
-    });
-    console.log("Push Registered...");
-    const data = {
-      subscription:subscription,
-      jobCategories:jobCategories
-    }
-    // Send Push Notification
-    console.log("Sending Push...");
-    fetch("/subscribe", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "content-type": "application/json"
+    }).then(function (subscription){
+      console.log("Push Registered...");
+      const data = {
+        subscription:subscription,
+        jobCategories:jobCategories,
+        location:location
       }
+      // Send Push Notification
+      console.log("Sending Push...");
+      fetch("/subscribe", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "content-type": "application/json"
+        }
+      });
+      console.log("Push Sent...");
     });
-    console.log("Push Sent...");
+    
     return true;
   }
 }
@@ -58,14 +61,20 @@ function urlBase64ToUint8Array(base64String) {
   return outputArray;
 }
 
+if (Notification.permission == 'default'){
+setTimeout(function(){
 
+$('#allowNotificationsButton').click(function () {
+  console.log("allow clicked");
+  Notification.requestPermission(function (status) {
+    console.log('Notification permission status:', status);
+  });
+  $('#allowNotificationsModal').modal('hide');
 
-
-
-
-Notification.requestPermission(function (status) {
-  console.log('Notification permission status:', status);
 });
+$('#allowNotificationsModal').modal('show');
+},3000);
+}
 
 function displayNotification() {
   if (Notification.permission == 'granted') {

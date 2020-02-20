@@ -36,23 +36,29 @@
       'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '280892588917611');
     fbq('track', 'PageView');
-    // /* var userInfo = ;
-    //     userInfo.Title = "Mr.";
-    //     userInfo.telephone = userInfo.mobile;*/
+    
+   
+     var userInfo = <%- JSON.stringify(userInfo) %>;
+    //  console.log(JSON.stringify(userInfo));
+        // userInfo.Title = "Mr.";
+        // userInfo.telephone = userInfo.mobile;
     // the json stringify function takes 'post' or 'get' info parsed to the page from the server ,which is index.js in this case. The info passed via the post method is userInfo in this case below.
-
+    // var userInfoHomeshield = <%- JSON.stringify(userInfo) %>;
+    var userInfodiabetesLottery = <%- JSON.stringify(userInfo) %>;
     
     var userInfoo2 = <%- JSON.stringify(userInfo) %>;
-    
     var userInfoutilita = <%- JSON.stringify(userInfo) %>;
-    
+    // var userInfoCulinaryCollection = <%- JSON.stringify(userInfo) %>;
+
+    // userInfoCulinaryCollection.telephone = userInfoCulinaryCollection.mobile;
+
     var userInfobritSeniors = <%- JSON.stringify(userInfo) %>;
     var userInfoAmazon = <%- JSON.stringify(userInfo) %>;
     var userInfoDealchecker = <%- JSON.stringify(userInfo) %>;
     userInfoDealchecker.prize = "Job Advert";
     userInfoDealchecker.trafficid = "10123";
-    var userInfoNationalGeographic = <%- JSON.stringify(userInfo) %>;
-    userInfoNationalGeographic.telephone = userInfoNationalGeographic.mobile;
+    // var userInfoNationalGeographic = <%- JSON.stringify(userInfo) %>;
+    // userInfoNationalGeographic.telephone = userInfoNationalGeographic.mobile;
     userInfoo2.phone1 = userInfoo2.mobile;
     userInfoo2.optinurl = userInfoo2.reference;
     userInfoo2.prize = "Job Advert";
@@ -61,9 +67,31 @@
     userInfoutilita.trafficid = "10123";
     userInfoutilita.optinurl = userInfoutilita.reference;
     userInfoutilita.phone1 = userInfoutilita.mobile;
-    
+    userInfobritSeniors.phone1 = userInfobritSeniors.mobile;
+    userInfobritSeniors.ssid = "dealspage";
+    // userInfoHomeshield.age_of_appliance = "1 to 10 years";
+    // userInfoHomeshield.prize = "Job Advert";
+    // userInfoHomeshield.trafficid = "10123";
+    // userInfoHomeshield.optinurl = userInfoHomeshield.reference;
+    // userInfoHomeshield.phone1 = userInfoHomeshield.mobile;
+    userInfodiabetesLottery.campaign = 'coreg';
+    userInfodiabetesLottery.phone1 = userInfodiabetesLottery.mobile;
+    userInfodiabetesLottery.optinurl = "https://www.jobgrabba.com";
+    userInfodiabetesLottery.ssid = userInfodiabetesLottery.subAffiliate;
+    userInfodiabetesLottery.source = "";
 
-    console.log(JSON.stringify(userInfoDealchecker));
+    var genderString;
+              if (userInfodiabetesLottery.title == "Mr"){
+                genderString = "Male";
+              }else if (userInfodiabetesLottery.title == "Mrs" || userInfodiabetesLottery.title == "Ms"){
+                genderString = "Female";
+              };
+              userInfodiabetesLottery.gender = genderString;
+   
+    console.log(JSON.stringify(userInfo));
+    // console.log(JSON.stringify(userInfoHomeshield));
+
+    
 
   </script>
   <noscript><img height="1" width="1" style="display:none"
@@ -91,7 +119,8 @@
       <div class="col-md-4">
       </div>
       <div class="col-md-4">
-        <p style="text-align: center">Thanks for registering. You are now a Jobgrabba!<br>Your job enquiry is on the next page but first check out these money saving offers that are yours on the click of a button </p>
+        <p style="text-align: center">Thanks for registering. You are now a Jobgrabba!<br>Your job enquiry is on the
+          next page but first check out these money saving offers that are yours on the click of a button </p>
       </div>
       <div class="col-md-4">
       </div>
@@ -110,10 +139,10 @@
           <P>Would you like a 30-day FREE trial? </p>
 
           <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes2" value="Yes"
-              onclick="getValue();return true;" />
+               />
             <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
               <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo2" value="No"
-                onclick="getValue()">
+                >
               <label class="form-check-label" for="gridCheck6"> No </p>
 
 
@@ -131,19 +160,19 @@
 
       <div class="col-md-4">
         <div class="form-check">
-          <img src="/images/NG.png" height="70" width="140">
-          <img src="/images/adituslogo.png" height="25" width="50">
-          <P>Would you like to be contacted by ADITUS, for a free copy of National Geographic Traveller magazine? </p>
+          
+          <img src="/images/DiabetesLogo.jpg" height="90" width="180">
+          <br>
+          <p>Today could be your lucky day!</p>
+          From just £1 a week, be in with the chance to win 1 of 100 cash prizes and £1,000 every Friday with the diabetes lottery. Every time you play, you are helping us tackle the UK Diabetes crisis.<br></br>
+          <p>Click yes to receive a call for the chance to win!</p>
           <p><input class="form-check-input" type="checkbox" id="gridCheck5" name="tickYes6" value="Yes" />
             <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
               <input class="form-check-input" type="checkbox" id="gridCheck6" name="tickNo7" value="No">
               <label class="form-check-label" for="gridCheck6"> No </p>
-          <h5 id="NGtitle"> National Geographic </h5>
-          <p style="font-size: 10px">EAditus has negotiated the best subscriptions deals for over 20 years. Exclusive
-            offers and deals are available to help save you money on your favourite titles!</p>
-
-          <p style="font-size: 10px"><a href="Terms: http://www.aditus.uk.com/privacy-policy/">Terms and Conditions
-          </p></a>
+                <p style="font-size: 10px">  www.begambleaware.org Run by Diabetes UK Services Ltd for The British Diabetic Association (Diabetes UK) reg. charity in England and Wales (215199) and Scotland (SC039136). GB Residents Only. Age 16+ only. T's & C's apply.<a href="www.begambleaware.org"> Privacy Policy</a>
+          </p>
+        
           </label>
 
         </div>
@@ -181,11 +210,11 @@
             <p style="font-size: 10px">Claim your Free O2 Sim Card and get double Data, Minutes and Texts. Would you
               like to be contacted to hear more?</p>
 
-              
+
 
 
             <p><input class="form-check-input" type="checkbox" id="gridCheck9" name="tickYes2" value="Yes"
-                onclick="getValue();return true;" />
+                 />
               <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
                 <input class="form-check-input" type="checkbox" id="gridCheck10" name="tickNo2" value="No"
                   onclick="getValue()">
@@ -194,7 +223,8 @@
 
             <br>
             <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions">Terms and Conditions</p>
-              <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions/privacy-policy">Privacy Policy</p>
+            <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions/privacy-policy">Privacy Policy
+            </p>
             </a>
             </label>
             <input id="ipaddress" maxlength="20" name="ipaddress" size="20" type="hidden" value=" "></input>
@@ -262,35 +292,36 @@
                       <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo1" value="No" onclick="getValue()">
                               <label class="form-check-label" for="gridCheck4"> No </p>
                                 <p style="font-size:12px">Don’t miss out – get your quote today! Tick yes to receive a call from one of our UK-based insurance specialists.</p> -->
-              <P style="font-size:10px">
-                Peace of mind for you and your loved ones from as little as 13p per day!</P>
-              <ul style="font-size:10px">
-                <li>Guaranteed acceptance for UK residents aged 50-80
-                <li> No health or medical questions
-                <li>Make changes with no fees
-                <li>Free Will Kit worth £150
-                <li>Free £300 Funeral Benefit Option
-              </ul>
-              <p style="font-size:12px">Don’t miss out – get your quote today! Tick yes to receive a call from one of
-                our UK-based insurance specialists.</p>
-              <p><input class="form-check-input" type="checkbox" id="gridCheck13" name="tickYes3" value="Yes"
-                  onclick="getValue();return true;" />
-                <label class="form-check-label" for="gridCheck3"> Yes &nbsp &nbsp &nbsp
-                  <input class="form-check-input" type="checkbox" id="gridCheck14" name="tickNo1" value="No"
-                    onclick="getValue()">
-                  <label class="form-check-label" for="gridCheck4"> No </p>
-
-              <P style="font-size:8px">
-                *Based on a 50-year-old with £1,000 of cover. View full <a
-                  href="https://www.britishseniors.co.uk/over-50-life-insurance/"> terms and conditions.
-
-                </a>
-              </P>
+                                <P style="font-size:10px">
+                                  Peace of mind for you and your loved ones from as little as 13p per day!*</P>
+                                <ul style="font-size:10px">
+                  <li> Guaranteed acceptance for UK residents aged 50-80
+                  <li> No health or medical questions 
+                  <li> Make changes with no fees 
+                  <li> Free Will Kit worth £100 
+                  <li> Free £300 Funeral Benefit Option
+                                </ul>
+                                <p style="font-size:12px">Don’t miss out – get your quote today! Tick yes to receive a call from one of
+                                  our UK-based insurance specialists.</p>
+                                <p><input class="form-check-input" type="checkbox" id="gridCheck13" name="tickYes3" value="Yes"
+                                    onclick="getValue();return true;" />
+                                  <label class="form-check-label" for="gridCheck3"> Yes &nbsp &nbsp &nbsp
+                                    <input class="form-check-input" type="checkbox" id="gridCheck14" name="tickNo1" value="No"
+                                      onclick="getValue()">
+                                    <label class="form-check-label" for="gridCheck4"> No </p>
+                  
+                                <P style="font-size:8px">
+                                  *Based on a 50-year-old with £1,000 of cover. View full <a
+                                    href="https://www.britishseniors.co.uk/over-50-life-insurance/"> terms and conditions.
+                  
+                                  </a>
+                                </P>
               </label>
 
             </div>
           </div>
         </div>
+        
       </div>
       <!-- sign up row -->
       <div class="row">
@@ -299,25 +330,57 @@
         <div class="col-md-4">
           <script>
             function sendSubscriptions() {
-              var checked = $("#gridCheck5").val();
-              if (checked == "Yes") {
-                var settings = {
+              if(!validate()){
+                return;
+              }
+              // var checked = $("#gridCheck5").val();
+              // if (checked == "Yes") {
+              //   var settings = {
+              //     "async": true,
+              //     "crossDomain": true,
+              //     "data": userInfoNationalGeographic,
+              //     "url": "https://trk.m-t.io/action?_tec=0&_tep=6191767533780992",
+              //     "method": "GET",
+              //     "headers": {
+              //       "Accept": "*/*",
+              //       "Host": "trk.m-t.io",
+              //       "Accept-Encoding": "gzip, deflate",
+              //       "Connection": "keep-alive",
+              //     }
+              //   };
+              //   $.ajax(settings).done(function (response) {
+              //     console.log("national geographic response:" + JSON.stringify(response));
+              //   });
+              // }
+              // var userBrand = $("#machineSupplier").val();
+          
+              var diabetesLotteryCheckYes = $("#gridCheck5").val();
+             
+
+              
+              if (diabetesLotteryCheckYes == "Yes") {
+              
+                var diabetesLotteryInfo = {
                   "async": true,
                   "crossDomain": true,
-                  "data": userInfoNationalGeographic,
-                  "url": "https://trk.m-t.io/action?_tec=0&_tep=6191767533780992",
+                  "data": userInfodiabetesLottery,
+                  url: "https://pp.leadbyte.co.uk/api/submit.php?campid=DIABETES-COREG-UK&sid=74265&returnjson=yes",
                   "method": "GET",
                   "headers": {
                     "Accept": "*/*",
-                    "Host": "trk.m-t.io",
+                    "Host": "lead365.leadbyte.co.uk",
                     "Accept-Encoding": "gzip, deflate",
                     "Connection": "keep-alive",
                   }
                 };
-                $.ajax(settings).done(function (response) {
-                  console.log("national geographic response:" + JSON.stringify(response));
+                $.ajax(diabetesLotteryInfo).done(function (response) {
+                  console.log("Diabetes response:" + JSON.stringify(response));
                 });
               }
+
+
+
+
               var amazonCheckYes = $("#gridCheck3").val();
               if (amazonCheckYes == "Yes") {
                 // send request to other service
@@ -362,13 +425,13 @@
               }
 
               var utilita = $("#gridCheck11").val();
-             
-            var supplier = $("#supplier").val();
-            var paymentmethod = $("#paymentmethod").val(); 
-            console.log(supplier)
-            console.log(paymentmethod)
-            userInfoutilita.currentprovider = supplier;
-            userInfoutilita.paymentmethod = paymentmethod;
+
+              var supplier = $("#supplier").val();
+              var paymentmethod = $("#paymentmethod").val();
+              console.log(supplier)
+              console.log(paymentmethod)
+              userInfoutilita.currentprovider = supplier;
+              userInfoutilita.paymentmethod = paymentmethod;
 
               if (utilita == "Yes") {
                 var utilitaInfo = {
@@ -434,21 +497,74 @@
                 });
               }
               window.location = "c2version";
+
             }
           </script>
-          <script>
-            // var supplier = $("#supplier").val();
-            // var paymentmethod = $("#paymentmethod").val(); 
-            // console.log(supplier)
-            // console.log(paymentmethod)
-          </script>
+          <div id="errormessage">
+
+            </div>
+
           <button id="applyNowButton" class="btn btn-primary" onclick="sendSubscriptions();" value="Redirect">Apply
             now</button>
+          
         </div>
+        <script>
+          function validate() {
+            const yeh = document.getElementById("gridCheck13");
+            const nah = document.getElementById("gridCheck14");
+            const yeh1 = document.getElementById("gridCheck3");
+            const nah1 = document.getElementById("gridCheck4");
+            const yeh2 = document.getElementById("gridCheck5");
+            const nah2 = document.getElementById("gridCheck6");
+            const yeh4 = document.getElementById("gridCheck9");
+            const nah4 = document.getElementById("gridCheck10");
+            const yeh3 = document.getElementById("gridCheck7");
+            const nah3 = document.getElementById("gridCheck8");
+            const yeh5 = document.getElementById("gridCheck11");
+            const nah5 = document.getElementById("gridCheck12");           
+            const alertMessage = document.getElementById("validationmessage")
+            if ((yeh.checked == true || nah.checked == true) &&
+                (yeh1.checked == true || nah1.checked == true) &&
+                (yeh2.checked == true || nah2.checked == true) &&
+                (yeh3.checked == true || nah3.checked == true) &&
+                (yeh4.checked == true || nah4.checked == true) &&
+                (yeh5.checked == true || nah5.checked == true)            
+            ) {
+              return true;
+            } else {
+              document.getElementById("errormessage").innerHTML = "Please select either Yes or No for each offer";
+              return false;
+            }
+          }
+
+        </script>
         <div class="col-md-4">
         </div>
       </div>
+      <script type="text/javascript">
+        $('#gridCheck7').click(function() {
+          fbq('trackCustom', 'Purchase', { currency: "USD", value: 0.24});
+          console.log('value') });
 
+          $('#gridCheck13').click(function() {
+          fbq('trackCustom', 'Britseniors', { value: 1.40});
+        });
+
+          $('#gridCheck3').click(function() {
+          fbq('trackCustom', 'Amazon', { value: 0.20});
+        });
+          $('#gridCheck5').click(function() {
+          fbq('trackCustom', 'DiabetesLottery', { value: 0.50});
+
+        });
+          $('#gridCheck9').click(function() {
+          fbq('trackCustom', '02', { value: 0.35});
+        });
+          $('#gridCheck11').click(function() {
+          fbq('trackCustom', 'utilita', { value: 0.78});
+         
+        });
+      </script>
 
 
       <!-- footer start-->

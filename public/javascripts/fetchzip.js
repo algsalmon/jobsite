@@ -3,13 +3,17 @@ var currentPage = 1;
 window.onload = function () {
   const jobba = document.querySelector("#jobNews")
   var itemsPerPage = 25;
+ 
   // const pageSelect = document.querySelector("#pageSelection");
   const paginationButtons = document.querySelector("#paginationButtons");
   //const paginationButtonsBottom = document.querySelector("#paginationButtonsBottom");
-  searchJob = (query) => {
+  searchJob = (query,jobLocation) => {
     //   currentPage = pageSelect.options[pageSelect.selectedIndex].value;
-
-    const jobsSearchUrl = `https://api.ziprecruiter.com/jobs/v1?search=${query}%20Jobs&location=,%20UK&radius_miles=25&days_ago=&jobs_per_page=10&page=${currentPage}&api_key=mprhzcufvfyqvnuqezdqrryira9eusdu&geo=&distance=15&salarytype=annum&tempperm=Any&posted=14&order=date`;
+    if (!jobLocation){
+      jobLocation = "";
+    }
+    
+    const jobsSearchUrl = `https://api.ziprecruiter.com/jobs/v1?search=${query}%20Jobs&location=${jobLocation},%20UK&radius_miles=25&days_ago=&jobs_per_page=10&page=${currentPage}&api_key=mprhzcufvfyqvnuqezdqrryira9eusdu&geo=&distance=15&salarytype=annum&tempperm=Any&posted=14&order=date`;
     fetch(jobsSearchUrl)
       .then(response => response.json())
       .then((jobs) => {
@@ -57,7 +61,7 @@ window.onload = function () {
               <div class="row">
                 <div class="col-sm-4">
                 
-                 <h5>${result.hiring_company.name}</h5> 
+                <a href=${result.url}>  <h5 id="jobheader">${result.hiring_company.name}</h5> </a> 
                 </div>
                 <div class="col-sm-4">
              
@@ -65,14 +69,12 @@ window.onload = function () {
                 <div class="col-sm-4"></div>
               </div>  
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12" id="snippet">
                   <p>${result.snippet}</p> 
                 </div>     
                 <div class="col-sm-3">
                   <p>
-                    <button>
-                      <a href= ${result.url}> Apply Here </a> 
-                    </button>
+                    
                   </p>                 
                 </div>  
               </div>       
@@ -84,9 +86,10 @@ window.onload = function () {
     // });
   };
 
-
+   
   //  load page initial data
-  searchJob("customer assistant");
+
+  searchJob(jobCategory,jobLocation);
 
 
   //Search form and Function

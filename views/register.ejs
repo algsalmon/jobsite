@@ -8,6 +8,9 @@
   <!-- multiselect -->
   <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 
   <meta charset="UTF-8">
@@ -15,6 +18,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><%= title %></title>
   <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Propeller push -->
+  <!-- <script src="https://pushmejs.com/pfe/current/tag.min.js?z=2993452" data-cfasync="false" async></script> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147951644-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -34,6 +39,9 @@
     });
 
   </script>
+  <!-- Facebook Pixel Code -->
+
+    <!-- End Facebook Pixel Code -->
   <script>
     function getTimeStamp() {
       var d = new Date();
@@ -62,12 +70,12 @@
     function setTimeStamp() {
       document.getElementById('timestamp').value = datetime;
 
-    }
+   }
 
 
   </script>
-  <!-- push notification connection -->
-  <script src="javascripts/main.js"></script>
+<!-- push notification connection --> 
+<script src="javascripts/main.js"></script> 
 
   <!-- get ip address -->
   <script type="application/javascript">
@@ -94,42 +102,57 @@
         <img id="rightFlagNav" src="images/logojobgrabba.png" width="200" id="flag" position="right">
       </nav>
     </div>
-    <div class="col-md-4">
-
+    <div class="col-md-4" id="regPageMobileAd">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- SignUpSearchJob320*50 -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:320px;height:50px"
+           data-ad-client="ca-pub-5395995593492894"
+           data-ad-slot="7237267474"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <div class="col-md-4">
-      <img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" id="flag1">
+      <!-- <img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" id="flag1"> -->
     </div>
   </div>
 
   <!-- registration -->
   <div id="regPage">
-    <div class="container">
+    <div class="container" id="regContent">
       <div class="form-row">
-        <div class="form-group d-none d-sm-block col-md-4">
-          <div class="brandpromo2">
-            <div class="card" style="width: 18rem;" id="col1Img">
-              <!-- <img src="images/lidl200x200.png"  class="card-img-top" alt="..."  style="display: inline-block hidden-xs";> -->
-              <div class="card-body">
-                <!-- <h5 class="card-title">Find and apply for your next role here</h5>
-             <p class="card-text">Search our Jobdatabase and find your next role today by registering with jobgrabba.com now. We cover all types of roles ranging from retail to IT, Marketing, Sales, Restaurant and gig economy jobs.</p> -->
-              </div>
-            </div>
-          </div>
+        <div class="form-group d-none d-sm-block col-md-4" id="regimages">
+          <img src="/images/supermarkets.png" height="300" width="300"> 
+          <!-- <div class="brandpromo2">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">CV Resourses</li>
+              <li class="list-group-item">Supermarket and Retail Interview Processes</li>
+              <li class="list-group-item">Employment stats</li>
+              <li class="list-group-item">Learning Resources: Improve your employability</li>
+              <li class="list-group-item">Interviews Skills </li>
+            </ul>
+          </div> -->
         </div>
 
         <div class="form-group col-md-4">
           <div class="Regform" postition="center">
             <script>
-              function submitRegister(){
-                var jobCategories = $('jobCategories').val();
-                registerPushNotifications(jobCategories);
-                return true;
+              function submitRegister() {
+                if (validate()) {
+                  var jobCategories = $('#jobCategories').val();
+                  var location = $('#inputCity').val();
+                  registerPushNotifications(jobCategories,location);
+                  return true;
+                } else {
+                  return false;
+                }
               }
             </script>
-            <form id="registerForm" onSubmit="submitRegister()" style='display:inline;' action="/signupsendy" method="POST">
+            <form id="registerForm" onSubmit="return submitRegister();" style='display:inline;' action="/signupsendy"
+              method="POST">
               <div class="form-row">
-                <h5 id="regCTA" style="text-align: center">Apply for Customer Assitant Jobs Here</h5>
+                <h5 id="regCTA" style="text-align: center">Apply for Customer Assistant Jobs Here</h5>
                 <p id="" style="text-align: center strong">Tesco, LIDL, Morrisons, Sainsbuy and More!</p><br>
 
                 <P id="alreadyRegistered" style="text-align: center"><a href="/">Already registered? Click here</a></P>
@@ -215,7 +238,8 @@
                 </div>
                 <div class="form-group col-xs-5 col-md-6">
                   <label for="inputEmail4 hidden">&nbsp;</label>
-                  <select class="custom-select" id="inputGroupSelect01" name="dob_year">
+                  <select class="custom-select" id="inputGroupSelect02" name="dob_year"
+                    onchange="showRightAd(this.value)">
                     <option value="2001">2001</option>
                     <option value="2000">2000</option>
                     <option value="1999">1999</option>
@@ -259,6 +283,31 @@
                     <option value="1961">1961</option>
                     <option value="1960">1960</option>
                     <option value="1959">1959</option>
+                    <option value="1958">1958</option>
+                    <option value="1957">1957</option>
+                    <option value="1956">1956</option>
+                    <option value="1955">1955</option>
+                    <option value="1954">1954</option>
+                    <option value="1953">1953</option>
+                    <option value="1952">1952</option>
+                    <option value="1951">1951</option>
+                    <option value="1950">1950</option>
+                    <option value="1949">1949</option>
+                    <option value="1948">1948</option>
+                    <option value="1947">1947</option>
+                    <option value="1946">1946</option>
+                    <option value="1945">1945</option>
+                    <option value="1944">1944</option>
+                    <option value="1943">1943</option>
+                    <option value="1942">1942</option>
+                    <option value="1941">1941</option>
+                    <option value="1940">1940</option>
+                    <option value="1939">1939</option>
+                    <option value="1938">1938</option>
+                    <option value="1937">1937</option>
+                    <option value="1936">1936</option>
+                    <option value="1935">1935</option>
+                    <option value="1934">1934</option>
                   </select>
                 </div>
 
@@ -286,13 +335,13 @@
                   <input id="inputPhone" class="form-control" name="phone" required>
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="jobCategories">Job categories</label>
+                  <label for="jobCategories"> Select Job Interests Near You<br> (You can choose multiple from dropdown)</label>
                   <select id="jobCategories" class="job-categories-multiple form-control" name="jobcategories[]"
                     multiple="multiple">
-                    <option value="IT">IT</option>
+                    <option value="Customer Assistant" selected>Customer Assistant</option>
+                    <option value="Customer Service">Customer Service</option>
                     <option value="RETAIL">Retail</option>
-                    <option value="RETAIL">Retail</option>
-                    <option value="RETAIL">Retail</option>
+                    <option value="All">All Jobs</option>
                   </select>
                 </div>
                 <div class="form-group col-md-12">
@@ -322,29 +371,26 @@
 
                   </div>
                 </div>
-                <img src="/images/BISAlogo.png" height="50" width="100">
-                <div class="form-group col-md-12">
+
+                <div class="form-group col-md-12" id="50plus" style="display:none">
                   <div class="form-check">
-                    <!-- <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes3" value="Yes" onclick="getValue();return true;" />
-                                <label class="form-check-label" for="gridCheck3"> Yes &nbsp &nbsp &nbsp
-                    f    <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo1" value="No" onclick="getValue()">
-                                <label class="form-check-label" for="gridCheck4"> No </p>
-                                  <p style="font-size:12px">Don’t miss out – get your quote today! Tick yes to receive a call from one of our UK-based insurance specialists.</p> -->
+                    <img src="/images/BISAlogo.png" height="50" width="100">
+
                     <P style="font-size:10px">
                       Peace of mind for you and your loved ones from as little as 13p per day!</P>
                     <ul style="font-size:10px">
                       <li>Guaranteed acceptance for UK residents aged 50-80
                       <li> No health or medical questions
                       <li>Make changes with no fees
-                      <li>Free Will Kit worth £150
+                      <li>Free Will Kit worth £100
                       <li>Free £300 Funeral Benefit Option
                     </ul>
                     <p style="font-size:12px">Don’t miss out – get your quote today! Tick yes to receive a call from one
                       of our UK-based insurance specialists.</p>
-                    <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes3" value="Yes"
+                    <p><input class="form-check-input" type="checkbox" id="BSIAyes" name="tickYes3" value="Yes"
                         onclick="getValue();return true;" />
                       <label class="form-check-label" for="gridCheck3"> Yes &nbsp &nbsp &nbsp
-                        <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo1" value="No"
+                        <input class="form-check-input" type="checkbox" id="BSIAno" name="tickNo1" value="No"
                           onclick="getValue()">
                         <label class="form-check-label" for="gridCheck4"> No </p>
 
@@ -358,33 +404,49 @@
 
                   </div>
                 </div>
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-12" id="youngerthan50" style="display:block">
                   <div class="form-check">
+                    <!-- <img src="/images/amazonprime.jpg" height="35" width="70">
+                    <p style='font-size: 12px'>Amazon Prime - FREE 30 day trial</p>
+                    <P>Would you like a 30-day FREE trial? </p>
+                    <p style="font-size: 10px">Enjoy unlimited streaming of thousands of movies & TV shows on your
+                      tablet, smart TV, game consoles, laptop or mobile phones. You can also download videos on your
+                      mobile or tablet to watch on the go.</p>
+                    <p><input class="form-check-input" type="checkbox" id="amtickyes" name="tickYes2" value="Yes"
+                        onclick="getValue();return true;" />
+                      <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
+                        <input class="form-check-input" type="checkbox" id="amtickno" name="tickNo0" value="No"
+                          onclick="getValue()">
+                        <label class="form-check-label" for="gridCheck6"> No </p>
+                    <br>
+                    <p style="font-size: 10px">Watch out for the welcome email and click through to take up the offer!
+                      <a href="https://www.amazon.co.uk/gp/help/customer/display.html?nodeId=200198240">Terms and
+                        Conditions</p></a>
 
-                    <!--                     
-                      <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes2" value="Yes" onclick="getValue();return true;"/>
-                          <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
-                          <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo2" value="No" onclick="getValue()">
-                          <label class="form-check-label" for="gridCheck6"> No </p>
-                            <P>Would you like a 30-day FREE trial? </p>
-                              <img src="/images/amazonprime.jpg" height="35" width="70">
-                            <p style='font-size: 12px'>Amazon Prime - FREE 30 day trial</p>
-                            <p style="font-size: 10px">Enjoy unlimited streaming of thousands of movies & TV shows on your tablet, smart TV, game consoles, laptop or mobile phones. You can also download videos on your mobile or tablet to watch on the go.</p> 
-                            <br><p style="font-size: 10px">Watch out for the welcome email and click through to take up the offer! <a href="https://www.amazon.co.uk/gp/help/customer/display.html?nodeId=200198240">Terms and Conditions</p></a>
-                          </label> -->
+                    </label> -->
 
-                    <!-- hidden values parsed through -->
-                    <!--                     
-                      <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes2" value="Yes" onclick="getValue();return true;"/>
-                          <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
-                          <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo2" value="No" onclick="getValue()">
-                          <label class="form-check-label" for="gridCheck6"> No </p>
-                            <P>Would you like a 30-day FREE trial? </p>
-                              <img src="/images/amazonprime.jpg" height="35" width="70">
-                            <p style='font-size: 12px'>Amazon Prime - FREE 30 day trial</p>
-                            <p style="font-size: 10px">Enjoy unlimited streaming of thousands of movies & TV shows on your tablet, smart TV, game consoles, laptop or mobile phones. You can also download videos on your mobile or tablet to watch on the go.</p> 
-                            <br><p style="font-size: 10px">Watch out for the welcome email and click through to take up the offer! <a href="https://www.amazon.co.uk/gp/help/customer/display.html?nodeId=200198240">Terms and Conditions</p></a>
-                          </label> -->
+                    
+
+
+            <img src="/images/O2logo.svg" height="35" width="70">
+            <br>
+            <p style='font-size: 12px'>O2</p>
+            <p style="font-size: 10px">Claim your Free O2 Sim Card and get double Data, Minutes and Texts. Would you
+              like to be contacted to hear more?</p>
+            <p><input class="form-check-input" type="checkbox" id="amtickyes" name="tickYes2" value="Yes"
+                onclick="getValue();return true;" />
+              <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
+                <input class="form-check-input" type="checkbox" id="amtickno" name="tickNo0" value="No"
+                  onclick="getValue()">
+                <label class="form-check-label" for="gridCheck6"> No </p>
+
+
+            <br>
+            <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions">Terms and Conditions</p>
+            <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions/privacy-policy">Privacy Policy
+            </p>
+            </a>
+            </label>
 
                     <!-- hidden values parsed through -->
                     <input id="ipaddress" maxlength="20" name="ipaddress" size="20" type="hidden" value=" "></input>
@@ -394,43 +456,79 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary" style="margin-left: 130px" onsubmit="getValue()">Sign
+              <div id="message">
+
+                </div>
+                <br>
+              <button type="submit" id="submit" class="btn btn-primary" style="margin-left: 130px">Sign
                 in</button>
+                
             </form>
+            
           </div>
           <!-- form ends here -->
           <script>
-            function getValue() {
-          /*    const checks = document.getElementById("gridCheck");
-              gdpr = checks.value;
-              console.log(gdpr);
-              const checks1 = document.getElementById("gridCheck3");
-              gdpr1 = checks1.value;
-              console.log(gdpr1);
-              const dobDay = document.getElementById('form_dob_day')
-              dayInput = dobDay.value;
-              const dobMonth = document.getElementById('form_dob_month')
-              monthInput = dobMonth.value;
-              const dobYear = document.getElementById('form_dob_year')
+          //  document.getElementById("submit").addEventListener("click", validate);
+            function validate() {
+              const dobYear = document.getElementById('inputGroupSelect02');
               yearInput = dobYear.value;
-              const DOB = dayInput + ' ' + monthInput + ' ' + yearInput;*/
-              //  const userTitle = document.getElementById('title');
-              //  title = userTitle.value;
-              //  console.log(title);
+              yearOfBirth = Number(yearInput);
+              var adHtmlId = "";
+              if (yearOfBirth < 1970) {
+                adHtmlId = "BSIA";
+              } else {
+                adHtmlId = "amtick";
+              }
+              const yeh1 = document.getElementById(adHtmlId + "yes");
+              const nah1 = document.getElementById(adHtmlId + "no");
+              document.getElementById("message")
+              if ((yeh1.checked == true) || (nah1.checked == true)) {
+                console.log("true!!!!!");
+                return true;
+
+              } else {
+                document.getElementById("message").innerHTML = "Please answer the last question: Yes or No"
+                return false;
+              }
+
+            }
+
+
+
+            function showRightAd(val) {
+              console.log("year has chaged value to " + val);
+              const dobYear = document.getElementById('inputGroupSelect02');
+              yearInput = dobYear.value;
+              yearOfBirth = Number(yearInput);
+
+              if (yearOfBirth < 1970) {
+                document.getElementById("50plus").style.display = 'block';
+                document.getElementById("youngerthan50").style.display = 'none';
+              } else {
+                document.getElementById("youngerthan50").style.display = 'block';
+                document.getElementById("50plus").style.display = 'none';
+
+              }
             }
           </script>
         </div>
-        <!-- Advertisement -->
-        <div class="form-group col-md-4">
-          <a href="	https://pjtharness.ckmhop.com/?a=1&c=141&s1=regpage"> <img src="images/UKCreditRatings.png"></a>
-          <br>
-          </br>
-          <!-- Information what is a social score -->
-          <!-- <div class="card text-white bg-info mb-3" style="max-width: 18rem; text-align: center" id="infoCard">
-    <!-- <div class="card-body bg-info mb-3">
-     <!-- <h5 class="card-title">What is a Social Score?</h5> -->
-          <!-- <p class="card-text">Your social score is designed to give you an indication of your overall social media performance from the perspective of a potential employer or similar influencer.The score itself has no impact on you; it's the data and information that goes into compiling your score that's important.</p> -->
-        </div>
+       
+     <div class="form-group col-md-4" id="regads">
+      
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Jobgrabba.com searchpage -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5395995593492894"
+             data-ad-slot="5750825794"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+         
+        </div> 
       </div>
     </div>
 
@@ -440,6 +538,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
+           
 
         </div>
         <div class="col-md-4">
@@ -448,10 +547,31 @@
               <p><a color="blue" href="/privacy">Privacy Policy &nbsp </a>
                 <a href="/tandc">Terms and Conditions &nbsp </a>
                 <a href="/aboutus">About us &nbsp </a></p>
-              <p><a href="http://www.almondmedia.co.uk/contact-us/"">Contact us &nbsp</a>
-                  <a href=" http://www.almondmedia.co.uk/contact-us/"">Advertise </a> </p> </div> </div> </div> <div
-                  class="col-md-4">
+              <p><a href="http://www.almondmedia.co.uk/contact-us/">Contact us &nbsp</a>
+                  <a href=" http://www.almondmedia.co.uk/contact-us/">Advertise </a> </p> </div> </div> </div>
+                   <div class="col-md-4">
                   <img src="images/AMLogo.png" height="75" width="100">
+            </div>
+          </div>
+        </div>
+        <div id="allowNotificationsModal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                
+                <img  src="images/logojobgrabba.png" width="100" height="75"id="flag" position="right">
+
+                <button type="" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>'Allow' notifications to receive job opportunities near you <br></br> Click 'Allow' below and in the top left register to be the first to see new Customer Service jobs within 10 miles of where you live.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Reject</button>
+                <button id="allowNotificationsButton" type="button" class="btn btn-primary">Allow</button>
+              </div>
             </div>
           </div>
         </div>

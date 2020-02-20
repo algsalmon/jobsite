@@ -5,35 +5,54 @@
 const bodyParser = require('body-parser');
 const webpush = require('web-push');
 const path = require('path');
-
+const fetch = require('node-fetch');
 var express = require('express');
 var router = express.Router();
 const axios = require('axios');
 var request = require("request");
 const querystring = require('querystring');
 const mongoose = require('mongoose');
+const multer = require("multer");
+const fs = require("fs");
+const upload = multer({dest: "cvuploads/"});
 //var dateFormat = require('dateformat');
 var clientSubscriptions = [];
 
-
-//const mongoURL = 'mongodb://uwom5limrhsqdg5x1ttu:BdVRE2DVoCUtAsQBr7eF@babj45inn3ueei2-mongodb.services.clever-cloud.com:27017/babj45inn3ueei2'
-// const mongoURL = 'mongodb+srv://jobgrabba:supersecretpassw0rd@cluster0-8txdz.mongodb.net/babj45inn3ueei2?retryWrites=true&w=majority'
-// console.log(`db_url: ${mongoURL}`)
+const mongoURL = 'mongodb://uwom5limrhsqdg5x1ttu:BdVRE2DVoCUtAsQBr7eF@babj45inn3ueei2-mongodb.services.clever-cloud.com:27017/babj45inn3ueei2';
 const options = {
   connectTimeoutMS: 5000,
   useNewUrlParser: true
 }
-// mongoose.connect(mongoURL,
-//   options,
-//   function (err) {
-//     if (err) {
-//       console.log(`Connection Error occured: ${err}`);
-//       process.exit(-1)
-//     }
-//   }
-// );
 
+mongoose.connect(mongoURL,
+   options,
+   function (err) {
+     if (err) {
+       console.log(`Connection Error occured: ${err}`);
+       process.exit(-1)
+     }
+   }
+);
+
+const subscriptionDataSchema = mongoose.Schema({
+     jobCategories : [String],
+     subscription : Object,
+     location : String
+
+});
+
+var SubscriptionsDataModel = mongoose.model('subscriptions', subscriptionDataSchema);
 const app = express();
+SubscriptionsDataModel.find(function (err, subscriptionData) {
+    if (subscriptionData){
+      clientSubscriptions = subscriptionData;
+      app.set('clientSubscriptions',clientSubscriptions);
+    }
+   // console.log("Data from DB:"+JSON.stringify(subscriptionData));
+  }
+)
+
+
 
 app.use(express.static(path.join(__dirname, "clients")))
 //push notification
@@ -47,69 +66,122 @@ const privateVapidKey = '2b-NI0-lcQv4kWxgVKP5SMZlQXF-jCNj_MW7fLRns2o'
 
 webpush.setVapidDetails('mailto: almondcampaigns@gmail.com', publicVapidKey, privateVapidKey);
 
+
+function checkNewPostsForJobCategory(jobCategory,location){
+  var promise = new Promise(function(resolve,reject){    
+    const searchUrl = "https://api.ziprecruiter.com/jobs/v1?search="+jobCategory+"%20Jobs&location="+location+"&radius_miles=25&days_ago=1&jobs_per_page=10&page=1&api_key=mprhzcufvfyqvnuqezdqrryira9eusdu&geo=&distance=15&posted=14&date=";
+    console.log("search url:"+searchUrl);
+    fetch(searchUrl)
+      .then(response => response.json())
+      .then((jobsResponse) => {
+        const jobs = jobsResponse.jobs;
+        resolve(jobs);
+      })
+  }
+  );
+  return promise;  
+}
+const everyXHours = 6*6; 
+var notificationsInterval = 60000 * everyXHours;
+
+
 setInterval(function () {
-//   console.log("timeout. running ");
-//   console.log("subscription count:" + clientSubscriptions.length);
-//   for (var index = 0; index < clientSubscriptions.length; index++) {
-//     var subscription = clientSubscriptions[index];
-//     console.log("sending notification to:" + subscription.keys.auth);
-//     // create payload
-//     const payload = JSON.stringify({ title: 'Push Test ' });
-//     // pass object into sendNotification
-//     webpush.sendNotification(subscription, payload).catch(err => console.log("error:"+err));
+   console.log("timeout. running ");
+   console.log("subscription count:" + clientSubscriptions.length);
+   for (var index = 0; index < clientSubscriptions.length; index++) {
+    var subscriptionData = clientSubscriptions[index]; 
+    var subscription = subscriptionData.subscription;
+    var jobCategories = subscriptionData.jobCategories;
+    var location = subscriptionData.location;
+    var notificationsInfo = subscriptionData.notificationsInfo;
+    const jobCategoriesArray = jobCategories.toString().split(",");
+    function notificationAlreadySent(jobCategory){
+      //console.log("nots info:"+JSON.stringify(notificationsInfo));
+      if (!notificationsInfo){
+        return false;
+      }
 
-//   }
+      for(var i =0;i< notificationsInfo.length;i++){        
+        const notificationInfo = notificationsInfo[i];
+        //console.log("not info:"+JSON.stringify(notificationInfo));        
+        if (notificationInfo.jobCategory == jobCategory){
+        //  console.log("checking dates");        
+          var notDate = notificationInfo.dateSent;
+          var dayAgo = new Date();
+          dayAgo.setDate(dayAgo.getDate()-1);             
+         // console.log("not date:"+notDate+" day ago:"+dayAgo);
+          return notDate > dayAgo;
+        }
+      } 
+      return false;
 
-}, 15000);
+    }
+    for (var i=0;i < jobCategoriesArray.length;i++){      
+      const jobCategory = jobCategoriesArray[i];
+      const timeout = i*15000;
+      if (!notificationAlreadySent(jobCategory)){
+      checkNewPostsForJobCategory(jobCategory,location).then((jobs) => {
+        console.log("new jobs found for "+jobCategory+":"+jobs.length);
+        if (jobs.length > 0){
+          const notificationInfo ={};
+          notificationInfo.jobCategory = jobCategory;
+          notificationInfo.dateSent = new Date();
+          if (!notificationsInfo){
+            notificationsInfo = [];
+            subscriptionData.notificationsInfo=notificationsInfo;
+          }
+          notificationsInfo.push(notificationInfo);
+          
+          // pass object into sendNotification
+          setTimeout(function(){
+            console.log("222 sending notification to:" + subscription.keys.auth);
+            // create payload
+            const payload = JSON.stringify({ title: 'New jobs found near '+location+' for: '+jobCategory ,                                            
+                                              jobCategory: jobCategory,
+                                              location: location});
+            webpush.sendNotification(subscription, payload).catch(err => console.log("error:"+err));
+          },timeout);          
+        }
+      })      
+      }else{
+        console.log("notification already sent for "+jobCategory+" to:"+subscription.keys.auth);
+
+      }
+    }          
+   }
+}, notificationsInterval);
 
 
 
 router.post('/subscribe', function (req, res) {
   //get subscription object
-  const subscription = req.body;
+  const data = req.body;
+  const location = data.location;
+  const subscription = data.subscription;
+  const jobCategories = data.jobCategories;
   console.log("Client subscribed3:" + subscription.keys.auth);
-  var subscriptions = app.get("clientSubscriptions");
-  subscriptions.push(subscription);
+  console.log("Job categories:"+jobCategories);
+  console.log("location:"+location);
+  var subscriptions = app.get("clientSubscriptions");   
+  subscriptions.push(data);
+// console.log("subscriptions to save:"+JSON.stringify(subscriptions));
+  var subscriptionsData = new SubscriptionsDataModel(data);
+  subscriptionsData.save(function (err) {
+    if (err) {
+      console.log(JSON.stringify(err));
+    }else{
+      console.log("subscriptions save correctly");
+    }
+  });
   console.log('subscription count:' + subscriptions.length);
   // send 201 status to say resource created succesfully 
   res.status(201).json({});
 
-  // create payload
-  /*const payload = JSON.stringify({ title: 'Push Test' });
-
-  // pass object into sendNotification
-  webpush.sendNotification(subscription, payload).catch(err => console.error(err));*/
 });
 
-const userSchema = mongoose.Schema({
 
 
 
-});
-
-var UserModel = mongoose.model('users', userSchema);
-
-// var newUser = new UserModel ({
-//         firstName: "",
-//         lastName: "",
-//         email: "",
-//         address1: "",
-//         address2: "",
-//         city: "",
-//         postCode: "",
-//         phone: "",
-// });
-
-// newUser.save(function(error,user) {
-//    console.log(newUser)      
-// }
-// );
-
-UserModel.find(function (err, users) {
-  console.log(users)
-    ;
-}
-)
 
 //http to https code snippet for node js 
 router.get('*', function (req, res, next) {
@@ -163,7 +235,7 @@ router.get('/main', function (req, res, next) {
 //console.log("user models:");
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('jobboard2', { title: 'jobgrabba' });
+  res.render('homepage', { title: 'jobgrabba' });
 });
 
 router.get('/jobboard2', function (req, res, next) {
@@ -174,8 +246,8 @@ router.get('/jobcards', function (req, res, next) {
   res.render('jobcards', { title: 'jobgrabba' });
 });
 
-router.get('/registerb&m', function (req, res, next) {
-  res.render('registerb&m', { title: 'jobgrabba' });
+router.get('/registerCV', function (req, res, next) {
+  res.render('registerCV', { title: 'jobgrabba' });
 });
 
 router.get('/freecreditreport', function (req, res, next) {
@@ -184,6 +256,47 @@ router.get('/freecreditreport', function (req, res, next) {
 
 router.get('/createuser', function (req, res, next) {
   res.render('createuser', { title: 'Welcome to jobgrabba' });
+});
+
+router.get('/previews', function (req, res, next) {
+  res.render('previews', { title: 'Welcome to jobgrabba' });
+});
+
+router.get('/employmentstats', function (req, res, next) {
+  res.render('employmentstats', { title: 'Employment Stats' });
+});
+
+router.get('/jobgrabbacourses', function (req, res, next) {
+  res.render('jobgrabbacourses', { title: 'Employment Stats' });
+});
+
+router.get('/homepage', function (req, res, next) {
+  res.render('homepage', { title: 'Employment Stats' });
+});
+
+router.get('/cvhelp', function (req, res, next) {
+  res.render('cvhelp', { title: 'Employment Stats' });
+});
+
+router.get('/interviewprocess', function (req, res, next) {
+  res.render('interviewprocess', { title: 'Interview Process' });
+});
+
+router.get('/learning', function (req, res, next) {
+  res.render('learning', { title: 'Learning and Personal Development' });
+});
+
+router.get('/cvtips', function (req, res, next) {
+  res.render('cvtips', { title: 'Learning and Personal Development' });
+});
+
+
+router.get('/fulltimejobs', function (req, res, next) {
+  res.render('fulltimejobs', { title: 'From Part-time to Full-time jobs' });
+});
+
+router.get('/interviews', function (req, res, next) {
+  res.render('interviews', { title: 'Interview Tips' });
 });
 
 
@@ -197,6 +310,10 @@ router.get('/views/jobs', function (req, res, next) {
 
 router.get('/register', function (req, res, next) {
   res.render('register', { title: 'Registration' });
+});
+
+router.get('/register2019', function (req, res, next) {
+  res.render('register2019', { title: 'Registration' });
 });
 
 router.get('/privacy', function (req, res, next) {
@@ -219,14 +336,18 @@ router.get('/australia', function (req, res, next) {
   res.render('australia', { title: 'Aussie Jobs' });
 });
 
+router.get('/registerandtrain', function (req, res, next) {
+  res.render('registerandtrain', { title: 'register and train' });
+});
+
 
 router.get('/registerAU', function (req, res, next) {
   res.render('registerAU', { title: 'Aussie Jobs' });
 });
 
-router.get('/registerlidl', function (req, res, next) {
-  res.render('registerlidl', {
-    title: 'LIDL are hiring new staff now! By joining jabgrabba you are agreeing to our terms and conditions and privacy policy..'
+router.get('/registerandlearn', function (req, res, next) {
+  res.render('registerandlearn', {
+    title: 'Hiring new staff now! By joining jabgrabba you are agreeing to our terms and conditions and privacy policy..'
   });
 });
 
@@ -242,12 +363,17 @@ router.get('/deals', function (req, res, next) {
   res.render('deals', { title: 'Jobgrabba deals and discounts for you' });
 });
 
+router.get('/dealgrabba', function (req, res, next) {
+  res.render('dealgrabba', { title: 'Jobgrabba deals and discounts for you' });
+});
+
 router.get('/previews', function (req, res, next) {
   res.render('previews', { title: 'Jobgrabba deals and discounts for you' });
 });
 
 router.get('/c2version', function (req, res, next) {
-  res.render('c2version', { title: 'Jobgrabba deals and discounts for you' });
+  console.log("request object:"+JSON.stringify(req.query));
+  res.render('c2version', { title: 'job search',jobCategoryQuery: req.query.jobCategory,locationQuery:req.query.jobLocation });
 });
 
 router.get('/zipform', function (req, res, next) {
@@ -261,8 +387,20 @@ router.get('/signupsendy', function (req, res, next) {
 
 // Generally speaking the req value in the function gets information (i.e. getting info from the post request below) and the res value in the function shows information
 // signup for sendy email sending platform code below
-router.post('/signupsendy', function (req, res, next) {
-  console.log("sending data");
+router.post('/signupsendy', upload.single("cvContent"), function (req, res, next) {
+  const getCircularReplacer = () => {
+    const seen = new WeakSet();
+    return (key, value) => {
+      if (typeof value === "object" && value !== null) {
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
+      }
+      return value;
+    };
+  };
+
   const listId = 'A41rLc7GzY3qU265dQZG6w';
   const {
     title,
@@ -285,9 +423,18 @@ router.post('/signupsendy', function (req, res, next) {
     source,
     reference, 
     ipaddress,
-    jobCategories
+    jobCategories,
+    courseInterestYes,
+    specificCourseInterest,
+    Redlicence,
+    currentJob,
+    costAwareYes,
+    penaltyPoints,
+    DrivingBan,
+    redcoursetickyes,
+    CVlib
   } = req.body;
-
+  
   function twoDigitString(value){
       var result = "";
       if(value<10){
@@ -342,10 +489,19 @@ router.post('/signupsendy', function (req, res, next) {
       source,
       reference,
       currentTimestamp,
-      ipaddress
+      ipaddress,
+      jobCategories,
+      courseInterestYes:courseInterestYes + currentTimestamp,
+      specificCourseInterest,
+      currentJob,
+      costAwareYes,
+      redcoursetickyes:redcoursetickyes + currentTimestamp,
+      penaltyPoints,
+      DrivingBan,
+      Redlicence,
+   //  CVLib:cvContent
     }
   };
-
   request(options, function (error, response, body) {
     if (error) {
       console.log("request sent with error");
@@ -398,8 +554,8 @@ router.post('/signupsendy', function (req, res, next) {
     } else {
       //res.set('Content-Type', 'text/html');
       //res.send(new Buffer(body));
-      console.log("gogroopieresponse:" + JSON.stringify(response));
-      console.log("request sent correctly");
+      //console.log("gogroopieresponse:" + JSON.stringify(response));
+      //console.log("request sent correctly");
       //res.send(body)
     }
   });
@@ -450,7 +606,44 @@ router.post('/signupsendy', function (req, res, next) {
   });
   
   
+  
+  if (tickYes2) {
+    var o2Info = {
+      method: 'GET',
+      async: true,
+      crossDomain: true,
+      url: "https://lead365.leadbyte.co.uk/api/submit.php?campid=02-FREE-SIM&sid=SID492",
+      qs: {
+        email:email,
+        firstname:name,
+        lastname:lastName,
+        street1:address1,
+        towncity:city,
+        postcode:postCode,
+        phone1:phone,
+        optinurl:"https://www.jobgrabba.com",
+        optindate:currentTimestamp,
+        prize:"Job Advert",
+        trafficid:"10123"
 
+     
+      }
+
+    };
+    request(o2Info, function (error, response, body) {
+      if (error) {
+        console.log("request to o2 sent with error");
+        console.log("body:" + body);
+        //res.status(400).send(error);
+      } else {
+        //res.set('Content-Type', 'text/html');
+        //res.send(new Buffer(body));
+        console.log("request to o2 sent correctly");
+        console.log("body:" + body);
+        //res.send(body)
+      }
+    });
+  }
 
 
 
@@ -527,9 +720,50 @@ router.post('/signupsendy', function (req, res, next) {
     });
   }
 
-  res.render('deals', {
+  if (req.file){
+    console.log("sending CV"+req.file.path);
+  var CVLibrary = {
+    url: 'http://www.cv-library.co.uk/cgi-bin/cvsubapi.pl',
+    formData:
+        {
+          title: title,
+          firstname: name,
+          lastname: lastName,
+          email: email,
+          county: "501",
+          town: city,
+          postcode: postCode,
+          telephone: phone,
+          salary: "1",
+          age: "16-19",
+          affiliateID: 104125,
+          industry: "Banking",
+          affiliatepassword: "coregalm",
+          industry: "Retail",
+          currentjobtitle: "It",
+          doc: {
+            value: fs.createReadStream(req.file.path),
+            options: {
+              contentType: "application/msword",
+              filename: "cv.docx"
+            }
+          }
+        }
+  };
+  console.log("CV data:" + JSON.stringify(CVLibrary));
+  request.post(CVLibrary, function (error, response, body) {
+    if (error) {
+      console.log("CV Library request sent with error" + error + " body." + body);
+      //res.status(400).send(error);
+    } else {
+      //res.set('Content-Type', 'text/html');
+      //res.send(new Buffer(body));
+      console.log("request sent correctly CV Library:" + body);
+      //res.send(body)
+    }
+  });
 
-   
+  res.render('deals', {
 
     title: 'Welcome to jobgrabba', userInfo: {
       title: title,
@@ -548,8 +782,9 @@ router.post('/signupsendy', function (req, res, next) {
       ipaddress: ipaddress
     }
   });
-
+}
 });
+
 
 
 
@@ -575,3 +810,6 @@ router.post('/signupsendy', function (req, res, next) {
 
 
 module.exports = router;
+
+
+
