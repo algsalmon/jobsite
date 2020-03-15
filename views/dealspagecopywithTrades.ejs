@@ -39,7 +39,6 @@
     
    
      var userInfo = <%- JSON.stringify(userInfo) %>;
-     var userInfoRedCourses = <%- JSON.stringify(userInfo) %>;
     
     var userInfodiabetesLottery = <%- JSON.stringify(userInfo) %>;
     
@@ -50,11 +49,11 @@
    
     var userInfobritSeniors = <%- JSON.stringify(userInfo) %>;
     var userInfoAmazon = <%- JSON.stringify(userInfo) %>;
-    userInfoAmazon.subAffiliate = "jobseakers";
     var userInfoDealchecker = <%- JSON.stringify(userInfo) %>;
     userInfoDealchecker.prize = "Job Advert";
     userInfoDealchecker.trafficid = "10123";
-  
+    // var userInfoNationalGeographic = <%- JSON.stringify(userInfo) %>;
+    // userInfoNationalGeographic.telephone = userInfoNationalGeographic.mobile;
     userInfoo2.phone1 = userInfoo2.mobile;
     userInfoo2.optinurl = userInfoo2.reference;
     userInfoo2.prize = "Job Advert";
@@ -66,7 +65,11 @@
     userInfobritSeniors.phone1 = userInfobritSeniors.mobile;
     userInfobritSeniors.ssid = "dealspage";
     
-   
+    // userInfoHomeshield.age_of_appliance = "1 to 10 years";
+    // userInfoHomeshield.prize = "Job Advert";
+    // userInfoHomeshield.trafficid = "10123";
+    // userInfoHomeshield.optinurl = userInfoHomeshield.reference;
+    // userInfoHomeshield.phone1 = userInfoHomeshield.mobile;
     userInfodiabetesLottery.campaign = 'coreg';
     userInfodiabetesLottery.phone1 = userInfodiabetesLottery.mobile;
     userInfodiabetesLottery.optinurl = "https://www.jobgrabba.com";
@@ -279,54 +282,42 @@
         <div class="col-md-4">
           <div class="form-group col-md-12">
             <div class="form-check">
-              <img src="/images/redLogo.png" height="70" width="140">
+              <img src="/images/Plumbing.jpg" height="70" width="140">
               <br>
-              <p style='font-size: 12px strong'>Red Driving School</p>
-              <p style="font-size: 12px">Driving Instructor's have a typical gross income of £870 week with RED Driving. Get on the road to a new career for only £2120 (other payment options available),<span style="font-weight: 700"> with a 100% refund on these training costs when you become a RED Driving School instructor.</span></p>
-              <p style="font-size: 12px">Would you be interested in becoming a qualified Driving Instructor?*</p>
+              <p style='font-size: 12px strong'>Trades Courses</p>
+              <p style="font-size: 12px">Trades people are in high demand</p>
+              <p style="font-size: 12px">Would you be interested in becoming a qualified trades person?*</p>
               
-              <p><input class="form-check-input" type="checkbox" id="redcoursetickyes" name="redcoursetickyes" value="Yes"
+              <p><input class="form-check-input" type="checkbox" id="coursetickyes" name="courseInterestYes" value="Yes"
                    />
                 <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
-                  <input class="form-check-input" type="checkbox" id="redcoursetickno" name="redcoursetickno" value="No"
+                  <input class="form-check-input" type="checkbox" id="coursetickno" name="courseInterestNo" value="No"
                     >
                   <label class="form-check-label" for="gridCheck6"> No </p>
-                    <div id="courseChoices1" style="display:none"> 
-                      <p style="font-size: 12px">*Licence Type:<br> 
-                      <select class="custom-select" id="Redlicence" name="Redlicence">
-                          <option value="fullLicence3yearsplus">Full UK held for 3 years or more  </option>
-                          <option value="fullnot3years">Full UK held for less than 3 years </option>
-                          <option value="other">Other </option>
+                  </label>
+                    <div id="courseChoices" > 
+                      <p style="font-size: 12px">Course Interested In:<br> 
+                      <select class="custom-select" id="specificCourseInterest" name="specificCourseInterest">
+                          <option value="Electrician">Electrician </option>
+                          <option value="Plumbing">Plumbing </option>
+                          <option value="Gas">Gas </option>
+                          <option value="Welder"> Welder</option>
+                          <option value="All">All </option>
                       </select>
                   </p>
-                  <p style="font-size: 12px">*Have you been banned from driving in the last 4 years?<br> 
-                      <select class="custom-select" id="drivingBan" name="DrivingBan">
-                          <option value="noBan">Full UK held for 3 years or more  </option>
-                          <option value="yesBan">Full UK held for less than 3 years </option>
-                      </select>
-                  </p>
-                  <p style="font-size: 12px">*How many penalty points do you have?<br> 
-                      <select class="custom-select" id="penaltyPoints" name="penaltyPoints">
-                          <option value="lessthan6">Less than 6  </option>
-                          <option value="6ormore">6 or More </option>
-                      </select>
-                  </p>
-                  <div id="courseDetailsBelow">
-
-                  </div>
                       <br>
-          
+                      <p style="font-size:12px">Confirm that you are aware that these are approved courses & qualifications and there is a cost involved. The courses are not free.</p>
+                      <input class="form-check-input" type="checkbox" id="costAwareYes" name="costAwareYes" value="Yes"> Yes &nbsp&nbsp&nbsp
+                      <input class="form-check-input" type="checkbox" id="costAwareNo" name="costAwareNo" value="No"> No &nbsp&nbsp&nbsp
                     </div> 
 
-
-  
-  
               <br>
               <br>
-              <p style="font-size: 10px"> *I would like to talk to RED about course fees and pay as you go options. By submitting this enquiry you are giving your consent to allow RED to call you to discuss our instructor training course and to send you relevant driving instructor career opportunities via email and SMS. We will hold your data for this purpose for a period of up to 3 years. We will not use your data for any other purpose.</p>
+              <p style="font-size: 10px"> *Must be 18 or Over
+                  We offer easy payment options starting from £30 per week to help you spread the cost of the course, and to start your course straight away.</p>
              
               </p>
-              </a>
+          
                   
                        
              
@@ -342,73 +333,36 @@
         </div>
         <div class="col-md-4">
           <script>
-
-            
-
-        var redCourseTickYes1 = document.getElementById('redcoursetickyes');
-        
-        redCourseTickYes1.addEventListener('click' , displayRedCourseInfo)
-       
-            
-
-       function  displayRedCourseInfo(){
-if(redCourseTickYes1.checked){
-document.getElementById("courseChoices1").style.display = 'block';
-
-document.getElementById('courseDetailsBelow').innerHTML =`<h3>See Full Course Details Below</h3>`
-
-document.getElementById('courseOverviewRed').innerHTML = `<h3>Train to become a Driving Instructor with typical gross income of £870 week with RED Driving</h3> <br>
-<p>We have been helping people steer their career in the right direction and realise their potential of becoming a driving instructor for over 20 years. At RED, we don¹t simply rely on our heritage; we concentrate on delivering high quality training and great support every step of the way.</p>
-<p>Becoming a driving instructor is more than just a job. It is a profession that provides long term career prospects, unrivalled benefits and unlimited job satisfaction.</p>
-<p> <strong>Be your own boss and achieve a perfect work/life balance</strong></p><br>
-<p>There aren¹t many careers that give you the freedom to choose your own working hours and 90 % of RED Instructors report that they are 'satisfied¹ with their job.</p><br>
-<p> <strong>The demand for Driving Instructors is growing throughout the UK</strong></p><br>
-<p>Learning to drive is a rite of passage for most young adults, so there is always a demand for professional driving instructors who are able to deliver fantastic customer service, teach people the skills of safe driving for life and ultimately help their pupils to pass their test with the minimum of hassle.</p><br>
-<p><strong>The best course in the business with a guaranteed opportunity</strong></P>
-<br>
-<p>We focus on helping you succeed as we want you to join RED Driving School as a qualified Instructor. We achieve this by giving you the best training and support possible. Proof of this comes from those who’ve already trained with us and we’re justifiably proud of our feedback score of 4.7 out of a maximum 5 star rating from our trainees. (Independent customer survey conducted by Feefo.)</p>
-<p>With RED¹s training course you¹ll have up to 80 hrs of training with a qualified RED trainer and back office support throughout. You¹ll be able to qualify at your own pace and be able to fit the programme around your existing commitments. The majority of people we train don¹t have any previous experience; however, they do possess the drive and determination to be the very best at what they do.</p>
-<p>As part of your training with RED you have a guaranteed opportunity to join one of the largest Driving Schools in the UK and this PDI Trainee Licence route allows you to earn as you are training and gives you a significant advantage in preparing for and passing the DVSA¹s new Part 3 test.</p>
-<p><strong>Is RED for you?</strong></p>
-<p>RED Driving School has now trained more than 10,000 ADIs and is the largest driving instructor training organisation in the UK- we understand what it takes to pass.<p>
-<br>
-    <p>Our driving instructor-training course is right up your street if you:</p>
-<ul>
-<li>Want to be your own boss and have a rewarding career.</li>
-<li>Like meeting new people. -Enjoy driving.</li><br>
-<p>Are committed to learning. In addition, the Driver and Vehicle Standards Agency (DVSA) insists you will need:</p><br>
-<li>A full UK licence (or approved foreign licence) for at least 3 1/2 years.</li>
-<li>To have not been banned from driving in the last 4 years.</li>
-<li>To have no more than 6 points on your licence.</li>
-<li>To be a 'fit and proper¹ person (in the opinion of the DVSA).</li>
-</ul>
-<p><strong>Join our winning team now and we’ll provide our full Instructor training course for just £2,120 with a 100% refund on these training costs when you become a RED Driving School instructor. This price saves you £479 compared to our normal price.</strong></p>
-<p>Other course options and monthly payments are available.</p>
-
-<p style="align:right">So if this sounds like a career that interests you then please click apply and fill in our short registration form and we will call you to discuss in more detail.</strong><br>
-We offer easy payment options to help you spread the cost of the course and to start your course straight away from as little as £35 per week.</p>`;
-
-}else{
-  document.getElementById("courseChoices1").style.display = 'none';
-  document.getElementById('courseDetailsBelow').innerHTML = "";
-  document.getElementById('courseOverviewRed').innerHTML =""
-
-
-}
-
-
-}
-
-
-
             function sendSubscriptions() {
               if(!validate()){
                 return;
               }
+              // var checked = $("#gridCheck5").val();
+              // if (checked == "Yes") {
+              //   var settings = {
+              //     "async": true,
+              //     "crossDomain": true,
+              //     "data": userInfoNationalGeographic,
+              //     "url": "https://trk.m-t.io/action?_tec=0&_tep=6191767533780992",
+              //     "method": "GET",
+              //     "headers": {
+              //       "Accept": "*/*",
+              //       "Host": "trk.m-t.io",
+              //       "Accept-Encoding": "gzip, deflate",
+              //       "Connection": "keep-alive",
+              //     }
+              //   };
+              //   $.ajax(settings).done(function (response) {
+              //     console.log("national geographic response:" + JSON.stringify(response));
+              //   });
+              // }
+              // var userBrand = $("#machineSupplier").val();
+          
+              var diabetesLotteryCheckYes = $("#gridCheck5").val();
              
-               var diabetesLotteryCheckYes = document.getElementById('gridCheck5');
+
               
-              if (diabetesLotteryCheckYes.checked) {
+              if (diabetesLotteryCheckYes == "Yes") {
               
                 var diabetesLotteryInfo = {
                   "async": true,
@@ -427,30 +381,26 @@ We offer easy payment options to help you spread the cost of the course and to s
                   console.log("Diabetes response:" + JSON.stringify(response));
                 });
               }
-
+              var courseInterestYes1 = $("#coursetickyes").val();
+              var specificCourse = $("#specificCourseInterest").val();
+              var costAware = $("#costAwareYes").val();
+            
               
-              var redCourseTickYes = document.getElementById("redcoursetickyes");
-              var redLicence = $("#Redlicence").val();
-              var drivingBan = $("#drivingBan").val();
-              var penPoints = $("#penaltyPoints").val();
-
-           
-              userInfoRedCourses.redcoursetickyes = $("#redcoursetickyes").val();
-              userInfoRedCourses.Redlicence = redLicence;
-              userInfoRedCourses.DrivingBan = drivingBan;
-              userInfoRedCourses.penaltyPoints = penPoints;
-              userInfoRedCourses.list = 'U6Y763TalmDA6SYIatCfJ90g';
+              
+              userInfoTradeCourses.courseInterestYes = courseInterestYes1;
+              userInfoTradeCourses.specificCourseInterest = specificCourse;
+              userInfoTradeCourses.costAwareYes = costAware;
               
              
-            if(redCourseTickYes.checked){
+            if(courseInterestYes1 == "Yes"){
 
-            var redCourses = {
+            var tradeCourses = {
                  method: "POST",
-                  "data": userInfoRedCourses,
+                  "data": userInfoTradeCourses,
                   url: "https://dealgrabba.online/sendy/subscribe",
                   "method": "POST",
                   "headers": {
-                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                    "Accept": "*/*",
                     "Host": "dealgrabba.online",
                     "Accept-Encoding": "gzip, deflate",
                     "Connection": "keep-alive",
@@ -458,16 +408,15 @@ We offer easy payment options to help you spread the cost of the course and to s
                   }
                 };
 
-                $.ajax(redCourses).done(function (response) {
+                $.ajax(tradeCourses).done(function (response) {
                   console.log(response);
                 });
 
               }
 
 
-              var amazonCheckYes = document.getElementById("gridCheck3");
-              console.log(amazonCheckYes)
-              if (amazonCheckYes.checked) {
+              var amazonCheckYes = $("#gridCheck3").val();
+              if (amazonCheckYes == "Yes") {
                 // send request to other service
                 var options2 = {
                   method: 'GET',
@@ -487,8 +436,8 @@ We offer easy payment options to help you spread the cost of the course and to s
                   console.log("amazon response:" + JSON.stringify(response));
                 });
               }
-              var dealchecker = document.getElementById("gridCheck7");
-              if (dealchecker.checked) {
+              var dealchecker = $("#gridCheck7").val();
+              if (dealchecker == "Yes") {
                 var dealcheckerOptions = {
                   method: 'GET',
                   async: true,
@@ -509,7 +458,7 @@ We offer easy payment options to help you spread the cost of the course and to s
 
               }
 
-              var utilita = document.getElementById("gridCheck11");
+              var utilita = $("#gridCheck11").val();
 
               var supplier = $("#supplier").val();
               var paymentmethod = $("#paymentmethod").val();
@@ -518,7 +467,7 @@ We offer easy payment options to help you spread the cost of the course and to s
               userInfoutilita.currentprovider = supplier;
               userInfoutilita.paymentmethod = paymentmethod;
 
-              if (utilita.checked) {
+              if (utilita == "Yes") {
                 var utilitaInfo = {
                   method: 'GET',
                   async: true,
@@ -538,8 +487,8 @@ We offer easy payment options to help you spread the cost of the course and to s
                   console.log("utilita response:" + JSON.stringify(response));
                 });
               }
-              var o2 = document.getElementById("gridCheck9");
-              if (o2.checked) {
+              var o2 = $("#gridCheck9").val();
+              if (o2 == "Yes") {
                 var o2Info = {
                   method: 'GET',
                   async: true,
@@ -560,6 +509,29 @@ We offer easy payment options to help you spread the cost of the course and to s
                 });
               }
 
+            
+
+              var britSeniors = $("#gridCheck13").val();
+              if (britSeniors == "Yes") {
+                var britSeniorsInfo = {
+                  method: 'GET',
+                  async: true,
+                  crossDomain: true,
+                  "data": userInfobritSeniors,
+                  url: "https://pp.leadbyte.co.uk/api/submit.php?campid=BSIACOREG&sid=74265&returnjson=yes",
+                  "headers": {
+                    "Accept": "*/*",
+                    "Host": "https://pp.leadbyte.co.uk",
+                    "Accept-Encoding":
+                      "gzip, deflate",
+                    "Connection": "keep-alive",
+                  }
+
+                };
+                $.ajax(britSeniorsInfo).done(function (response) {
+                  console.log("brit seniors response:" + JSON.stringify(response));
+                });
+              }
               window.location = "c2version";
 
             }
@@ -574,8 +546,8 @@ We offer easy payment options to help you spread the cost of the course and to s
         </div>
         <script>
           function validate() {
-            const yeh = document.getElementById("redcoursetickyes");
-            const nah = document.getElementById("redcoursetickno");
+            const yeh = document.getElementById("coursetickyes");
+            const nah = document.getElementById("coursetickno");
             const yeh1 = document.getElementById("gridCheck3");
             const nah1 = document.getElementById("gridCheck4");
             const yeh2 = document.getElementById("gridCheck5");
@@ -601,29 +573,11 @@ We offer easy payment options to help you spread the cost of the course and to s
             }
           }
 
-
-          
-
         </script>
         <div class="col-md-4">
         </div>
-        
-            <div class="row">
-              <div class="col-md-2">
-              </div>
-              <div class="col-md-8">
-                <p style="text-align: center" id="courseOverviewRed"> 
-                  
-
-                </p>
-              </div>
-              <div class="col-md-2">
-              </div>
-            </div>
-          </div>
-
       </div>
-      <!-- <script type="text/javascript">
+      <script type="text/javascript">
         $('#gridCheck7').click(function() {
           fbq('trackCustom', 'Purchase', { currency: "USD", value: 0.24});
           console.log('value') });
@@ -646,7 +600,7 @@ We offer easy payment options to help you spread the cost of the course and to s
           fbq('trackCustom', 'utilita', { value: 0.78});
          
         });
-      </script> -->
+      </script>
 
 
       <!-- footer start-->
@@ -673,6 +627,7 @@ We offer easy payment options to help you spread the cost of the course and to s
       </div>
     </div>
 </body>
+
 
 
 </html>

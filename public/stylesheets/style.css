@@ -465,6 +465,14 @@ width:270;
 
  }
 
+ #courseDetailsBelow{
+  color:green;
+  font-weight: bold;
+  text-align: center;
+  font-size: 10px
+
+ }
+
  #costcoursemessage{
   color:red;
   font-weight: bold;
@@ -597,6 +605,14 @@ li:hover {
 
 .Highlightrefund{
   font-weight: bold;
+}
+
+#optintext{
+  font-size: 11px;
+}
+
+#youngerthan50{
+  font-size: 11px;
 }
 
 

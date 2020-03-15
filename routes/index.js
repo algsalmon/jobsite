@@ -316,6 +316,15 @@ router.get('/register2019', function (req, res, next) {
   res.render('register2019', { title: 'Registration' });
 });
 
+router.get('/regpreview', function (req, res, next) {
+  res.render('regpreview', { title: 'Registration' });
+});
+
+router.get('/regpreview1', function (req, res, next) {
+  res.render('regpreview1', { title: 'Registration' });
+});
+
+
 router.get('/privacy', function (req, res, next) {
   res.render('privacy', { title: 'Privacy Policy' });
 });
@@ -363,6 +372,10 @@ router.get('/deals', function (req, res, next) {
   res.render('deals', { title: 'Jobgrabba deals and discounts for you' });
 });
 
+router.get('/Reddeals', function (req, res, next) {
+  res.render('Reddeals', { title: 'Jobgrabba deals and discounts for you' });
+});
+
 router.get('/dealgrabba', function (req, res, next) {
   res.render('dealgrabba', { title: 'Jobgrabba deals and discounts for you' });
 });
@@ -384,22 +397,56 @@ router.get('/signupsendy', function (req, res, next) {
   res.render('signupsendy', { title: 'Jobgrabba deals and discounts for you' });
 });
 
-
-// Generally speaking the req value in the function gets information (i.e. getting info from the post request below) and the res value in the function shows information
-// signup for sendy email sending platform code below
-router.post('/signupsendy', upload.single("cvContent"), function (req, res, next) {
+router.get('/signupsendy3', function (req, res, next) {
+  res.render('signupsendy', { title: 'Jobgrabba deals and discounts for you' });
+});
+router.post('/redsubmission',function(req,res, next){  
   const getCircularReplacer = () => {
     const seen = new WeakSet();
     return (key, value) => {
       if (typeof value === "object" && value !== null) {
         if (seen.has(value)) {
+          
           return;
         }
         seen.add(value);
       }
       return value;
     };
+    
   };
+
+  
+  console.log("red Submission 3:"+JSON.stringify(req.body));
+  var redSubmissionRequestData = {
+    method:"POST",
+    url: 'https://dealgrabba.online/sendy/subscribe',
+    form: req.body,
+    headers:
+    {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }        
+  };
+  request(redSubmissionRequestData, function (error, response, body) {
+    if (error) {
+        console.log("Red submission request sent with error" + error + " body." );
+        //res.status(400).send(error);
+    } else {
+        //res.set('Content-Type', 'text/html');
+        //res.send(new Buffer(body));
+        res.render('c2version');
+        console.log("Red submission sent correctly"  );
+        //res.send(body)
+    }
+    
+  });
+
+});
+
+// Generally speaking the req value in the function gets information (i.e. getting info from the post request below) and the res value in the function shows information
+// signup for sendy email sending platform code below
+router.post('/signupsendy', upload.single("cvContent"), function (req, res, next) {
+  
 
   const listId = 'A41rLc7GzY3qU265dQZG6w';
   const {
@@ -762,28 +809,50 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
       //res.send(body)
     }
   });
-
-  res.render('deals', {
+  }
+  res.render('Reddeals', {
 
     title: 'Welcome to jobgrabba', userInfo: {
       title: title,
+      name,
       firstname: name,
-      email: email,
       lastname: lastName,
+      email: email,
       mobile: phone,
       subAffiliate: listId,
       dob: dob_day + '/' + dob_month + '/' + dob_year,
       optindate: currentTimestamp,
       street1: address1,
+      address2,
       towncity: city,
       postcode: postCode,
       source: "http://www.jobgrabba.com",
       reference: "http://www.jobgrabba.com",
-      ipaddress: ipaddress
+      tickYes,
+      tickYes1,
+      ipaddress: ipaddress,
+      courseInterestYes:"",
+      specificCourseInterest:"",
+      costAwareYes:"",
+      currentJob,
+      list: listId,
+      currentTimestamp,
+      redcoursetickyes:"",
+      penaltyPoints:"",
+      DrivingBan:"",
+      Redlicence:""
     }
   });
-}
-});
+
+
+
+
+
+
+  });
+
+    
+
 
 
 

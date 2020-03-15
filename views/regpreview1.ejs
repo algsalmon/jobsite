@@ -40,21 +40,21 @@
 
   </script>
   <!-- Facebook Pixel Code -->
-<script>
-    // !function(f,b,e,v,n,t,s)
-    // {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    // n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    // if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    // n.queue=[];t=b.createElement(e);t.async=!0;
-    // t.src=v;s=b.getElementsByTagName(e)[0];
-    // s.parentNode.insertBefore(t,s)}(window, document,'script',
-    // 'https://connect.facebook.net/en_US/fbevents.js');
-    // fbq('init', '524078144846220');
-    // fbq('track', 'Reg');
-    // </script>
-    // <noscript><img height="1" width="1" style="display:none"
-    // src="https://www.facebook.com/tr?id=524078144846220&ev=PageView&noscript=1"
-    // /></noscript>
+<!-- <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '524078144846220');
+    fbq('track', 'Reg');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=524078144846220&ev=PageView&noscript=1"
+    /></noscript> -->
     <!-- End Facebook Pixel Code -->
   <script>
     function getTimeStamp() {
@@ -131,7 +131,7 @@
     <div class="container" id="regContent">
       <div class="form-row">
         <div class="form-group d-none d-sm-block col-md-4" id="regimages">
-          <img src="/images/redlogo1.png" height="300" width="300"> 
+          <img src="/images/supermarkets.png" height="300" width="300"> 
           <!-- <div class="brandpromo2">
             <ul class="list-group list-group-flush">
               <li class="list-group-item">CV Resourses</li>
@@ -160,8 +160,8 @@
             <form id="registerForm" onSubmit="return submitRegister();" style='display:inline;' action="/signupsendy"
               method="POST" enctype='multipart/form-data'>
               <div class="form-row">
-                <h5 id="regCTA" style="text-align: center">Do you want a career change in high demand job?</h5>
-                <p id="" style="text-align: center strong">Apply here for Red Driving School and other course opportunites now</p><br>
+                <h5 id="regCTA" style="text-align: center">Apply for Customer Assistant Jobs Here</h5>
+                <p id="" style="text-align: center strong">Tesco, LIDL, Morrisons, Sainsbuy and More!</p><br>
 
                 <P id="alreadyRegistered" style="text-align: center"><a href="/">Already registered? Click here</a></P>
               </div>
@@ -342,7 +342,10 @@
                   <label for="inputPhone">Phone</label>
                   <input id="inputPhone" class="form-control" name="phone" required>
                 </div>
-                <div class="form-group col-md-12">
+
+
+                
+                <!-- <div class="form-group col-md-12">
                   <label for="jobCategories"> Select Job Interests Near You<br> (You can choose multiple from dropdown)</label>
                   <select id="jobCategories" class="job-categories-multiple form-control" name="jobcategories[]"
                     multiple="multiple">
@@ -351,7 +354,7 @@
                     <option value="RETAIL">Retail</option>
                     <option value="All">All Jobs</option>
                   </select>
-                </div>
+                </div> -->
                 <div class="form-group col-md-12">
                     <label for="inputEmail4">Current Job Status </label>
                     <select class="custom-select" id="inputGroupSelect01" name="currentJob">
@@ -441,43 +444,36 @@
                   </div>
                 </div>
                 <div class="form-group col-md-12" id="youngerthan50" style="display:block">
+                  <div id="tradesCourse" style="display: none">
                   <div class="form-check">
-                   
+              
 
-                    <img src="/images/redLogo.png" height="70" width="140">
+                    <img src="/images/Plumbing.jpg" height="70" width="140">
                     <br>
-                    <p style='font-size: 12px strong'>Red Driving School</p>
-                    <p style="font-size: 12px">Driving Instructor's have a typical gross income of £870 week with RED Driving. Get on the road to a new career for only £2120 (other payment options available),<span style="font-weight: 700"> with a 100% refund on these training costs when you become a RED Driving School instructor.</span></p>
-                    <p style="font-size: 12px">Would you be interested in becoming a qualified Driving Instructor?*</p>
+                    <p style='font-size: 12px strong'>Trades Courses</p>
+                    <p style="font-size: 12px">Trades people are in high demand</p>
+                    <p style="font-size: 12px">Would you be interested in becoming a qualified trades person?*</p>
                     
-                    <p><input class="form-check-input" type="checkbox" id="redcoursetickyes" name="redcoursetickyes" value="Yes"
+                    <p><input class="form-check-input" type="checkbox" id="coursetickyes" name="courseInterestYes" value="Yes"
                          />
                       <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
-                        <input class="form-check-input" type="checkbox" id="redcoursetickno" name="redcoursetickno" value="No"
+                        <input class="form-check-input" type="checkbox" id="coursetickno" name="courseInterestNo" value="No"
                           >
                         <label class="form-check-label" for="gridCheck6"> No </p>
                           <div id="courseChoices" style="display:none"> 
-                            <p style="font-size: 12px">*Licence Type:<br> 
-                            <select class="custom-select" id="Redlicence" name="Redlicence">
-                                <option value="fullLicence3yearsplus">Full UK held for 3 years or more  </option>
-                                <option value="fullnot3years">Full UK held for less than 3 years </option>
-                                <option value="other">Other </option>
-                            </select>
-                        </p>
-                        <p style="font-size: 12px">*Have you been banned from driving in the last 4 years?<br> 
-                            <select class="custom-select" id="drivingBan" name="DrivingBan">
-                                <option value="noBan">Full UK held for 3 years or more  </option>
-                                <option value="yesBan">Full UK held for less than 3 years </option>
-                            </select>
-                        </p>
-                        <p style="font-size: 12px">*How many penalty points do you have?<br> 
-                            <select class="custom-select" id="penaltyPoints" name="penaltyPoints">
-                                <option value="lessthan6">Less than 6  </option>
-                                <option value="6ormore">6 or More </option>
+                            <p style="font-size: 12px">Course Interested In:<br> 
+                            <select class="custom-select" id="specificCourseInterest" name="specificCourseInterest">
+                                <option value="Electrician">Electrician </option>
+                                <option value="Plumbing">Plumbing </option>
+                                <option value="Gas">Gas </option>
+                                <option value="Welder"> Welder</option>
+                                <option value="All">All </option>
                             </select>
                         </p>
                             <br>
-                
+                            <p style="font-size:12px">Confirm that you are aware that these are approved courses & qualifications and there is a cost involved. The courses are not free.</p>
+                            <input class="form-check-input" type="checkbox" id="costAwareYes" name="costAwareYes" value="Yes"> Yes &nbsp&nbsp&nbsp
+                            <input class="form-check-input" type="checkbox" id="costAwareNo" name="costAwareNo" value="No"> No &nbsp&nbsp&nbsp
                           </div> 
 
 
@@ -485,22 +481,24 @@
         
                     <br>
                     <br>
-                    <p style="font-size: 10px"> *I would like to talk to RED about course fees and pay as you go options. By submitting this enquiry you are giving your consent to allow RED to call you to discuss our instructor training course and to send you relevant driving instructor career opportunities via email and SMS. We will hold your data for this purpose for a period of up to 3 years. We will not use your data for any other purpose.</p>
+                    <p style="font-size: 10px"> *Must be 18 or Over
+                        We offer easy payment options starting from £30 per week to help you spread the cost of the course, and to start your course straight away.</p>
                    
                     </p>
                     </a>
-
-<!-- 
+                  </div>
+                </div>
+<div id="o2" style="display:block">
             <img src="/images/O2logo.svg" height="35" width="70">
             <br>
             <p style='font-size: 12px'>O2</p>
             <p style="font-size: 10px">Claim your Free O2 Sim Card and get double Data, Minutes and Texts. Would you
               like to be contacted to hear more?</p>
             <p><input class="form-check-input" type="checkbox" id="amtickyes" name="tickYes2" value="Yes"
-                onclick="getValue();return true;" />
+                 />
               <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
                 <input class="form-check-input" type="checkbox" id="amtickno" name="tickNo0" value="No"
-                  onclick="getValue()">
+                  >
                 <label class="form-check-label" for="gridCheck6"> No </p>
 
 
@@ -508,21 +506,25 @@
             <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions">Terms and Conditions</p>
             <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions/privacy-policy">Privacy Policy
             </p>
-            </a> -->
+            </a> 
+          </div>
             </label>
 
                     <!-- hidden values parsed through -->
                     <input id="ipaddress" maxlength="20" name="ipaddress" size="20" type="hidden" value=" "></input>
                     <!--       <input id="timestamp" maxlength="50" name="timestamp" type="hidden" value=" "></input>-->
-                    <input type="hidden" type="text" id="source" name="source" value="RedcoursesPage">
+                    <input type="hidden" type="text" id="source" name="source" value="coursesPage">
 
-                  </div>
+                  
                 </div>
               </div>
               <div id="message">
 
                 </div>
                 <div id="coursemessage">
+
+                </div>
+                <div id="costcoursemessage">
 
                 </div>
                 <br>
@@ -564,7 +566,7 @@
 function costAwareValidation(){
           const costAwareYes = document.getElementById("costAwareYes");
           const costAwareNo = document.getElementById("costAwareNo");
-          const courseticked = document.getElementById("redcoursetickyes").value;
+          const courseticked = document.getElementById("coursetickyes").value;
           console.log("it has been"+courseticked)
           const courseChoice = document.getElementById("courseChoices").style.display;
           if(courseChoice === 'block'){
@@ -596,59 +598,109 @@ function costAwareValidation(){
                 document.getElementById("50plus").style.display = 'block';
                 document.getElementById("youngerthan50").style.display = 'none';
               } else {
-                document.getElementById("youngerthan50").style.display = 'block';
+               
                 document.getElementById("50plus").style.display = 'none';
+                document.getElementById("youngerthan50").style.display = 'block';
+
+
+return;
+}
 
               }
-            };
+
+ document.getElementById('inputCity').addEventListener('input' , checkCourseAreas);
+
+var courseAreas = ["leeds","nottingham","leicester","stoke","coventry","birmingham","peterborough","essex","oxford","reading","luton","london","manchester","bristol","southampton","gloucester","portsmouth","hull","northampton","sheffield","bournemouth","brighton","wolverhampton","hertfordshire”,”worcester" ];
+function checkCourseAreas(){
+var studentLocation = document.getElementById("inputCity").value;    
+var studentLoc = studentLocation.toLowerCase()   
+    
+for (i=0;i<courseAreas.length;i++){
+if (studentLoc.includes(courseAreas[i])){
+document.getElementById("youngerthan50").style.display = 'block';
+document.getElementById("50plus").style.display = 'none';
+document.getElementById("tradesCourse").style.display = 'block';
+document.getElementById("o2").style.display = 'none';
+
+const dobYear = document.getElementById('inputGroupSelect02');
+yearInput = dobYear.value;
+yearOfBirth = Number(yearInput);
+
+if (yearOfBirth < 1970) {
+                document.getElementById("50plus").style.display = 'block';
+                document.getElementById("youngerthan50").style.display = 'none';
+              } 
+
+return;
+}
+}
+document.getElementById("tradesCourse").style.display = 'none';
+document.getElementById("o2").style.display = 'block';
+
+
+}
             
-            document.getElementById('redcoursetickyes').addEventListener('click' , displayCourseInfo)
-            document.getElementById('redcoursetickno').addEventListener('click' , hideCourseInfo)
+
+
+
+            function clickedNotCostAware(){
+             
+                document.getElementById("costcoursemessage").innerHTML = 'Ensure you tick Yes to confirm you are aware the course has a fee and Trades Courses will provide further information';
+
+              }
+            
+            
+            document.getElementById('coursetickyes').addEventListener('click' , displayCourseInfo)
+            document.getElementById('coursetickno').addEventListener('click' , hideCourseInfo)
             document.getElementById('registerForm').addEventListener('submit' , costAwareValidation)
+            document.getElementById('costAwareNo').addEventListener('click' , clickedNotCostAware)
 
             function displayCourseInfo(){
 
 
-             
-              document.getElementById('courseOverviewRed').innerHTML = `<h3>Train to become a Driving Instructor with typical gross income of £870 week with RED Driving</h3> <br>
-<p>We have been helping people steer their career in the right direction and realise their potential of becoming a driving instructor for over 20 years. At RED, we don¹t simply rely on our heritage; we concentrate on delivering high quality training and great support every step of the way.</p>
-<p>Becoming a driving instructor is more than just a job. It is a profession that provides long term career prospects, unrivalled benefits and unlimited job satisfaction.</p>
-<p> <strong>Be your own boss and achieve a perfect work/life balance</strong></p><br>
-<p>There aren¹t many careers that give you the freedom to choose your own working hours and 90 % of RED Instructors report that they are 'satisfied¹ with their job.</p><br>
-<p> <strong>The demand for Driving Instructors is growing throughout the UK</strong></p><br>
-<p>Learning to drive is a rite of passage for most young adults, so there is always a demand for professional driving instructors who are able to deliver fantastic customer service, teach people the skills of safe driving for life and ultimately help their pupils to pass their test with the minimum of hassle.</p><br>
-<p><strong>The best course in the business with a guaranteed opportunity</strong></P>
-<br>
-<p>We focus on helping you succeed as we want you to join RED Driving School as a qualified Instructor. We achieve this by giving you the best training and support possible. Proof of this comes from those who’ve already trained with us and we’re justifiably proud of our feedback score of 4.7 out of a maximum 5 star rating from our trainees. (Independent customer survey conducted by Feefo.)</p>
-<p>With RED¹s training course you¹ll have up to 80 hrs of training with a qualified RED trainer and back office support throughout. You¹ll be able to qualify at your own pace and be able to fit the programme around your existing commitments. The majority of people we train don¹t have any previous experience; however, they do possess the drive and determination to be the very best at what they do.</p>
-<p>As part of your training with RED you have a guaranteed opportunity to join one of the largest Driving Schools in the UK and this PDI Trainee Licence route allows you to earn as you are training and gives you a significant advantage in preparing for and passing the DVSA¹s new Part 3 test.</p>
-<p><strong>Is RED for you?</strong></p>
-<p>RED Driving School has now trained more than 10,000 ADIs and is the largest driving instructor training organisation in the UK- we understand what it takes to pass.<p>
-<br>
-    <p>Our driving instructor-training course is right up your street if you:</p>
-<ul>
-<li>Want to be your own boss and have a rewarding career.</li>
-<li>Like meeting new people. -Enjoy driving.</li><br>
-<p>Are committed to learning. In addition, the Driver and Vehicle Standards Agency (DVSA) insists you will need:</p><br>
-<li>A full UK licence (or approved foreign licence) for at least 3 1/2 years.</li>
-<li>To have not been banned from driving in the last 4 years.</li>
-<li>To have no more than 6 points on your licence.</li>
-<li>To be a 'fit and proper¹ person (in the opinion of the DVSA).</li>
-</ul>
-<p><strong>Join our winning team now and we’ll provide our full Instructor training course for just £2,120 with a 100% refund on these training costs when you become a RED Driving School instructor. This price saves you £479 compared to our normal price.</strong></p>
-<p>Other course options and monthly payments are available.</p>
+            if(document.getElementById('coursetickyes').checked){
 
-<p style="align:right">So if this sounds like a career that interests you then please click apply and fill in our short registration form and we will call you to discuss in more detail.</strong><br>
+        
+             
+              document.getElementById('courseOverview').innerHTML = `<h3>Get Qualified and become a qualified Trades Person. </h3> <br>
+              <strong>Trainee Electricians, Trainee Plumbers, Trainee Welders and Trainee Gas Engineers are in constant high demand </strong> <br></br>
+              <p>Jobgrabba have partnered with Trades Courses because Trainee Electricians, Trainee Plumbers, Trainee Welders and Trainee Gas Engineers are in constant high demand. </p>
+<p>We are looking for people full time and part time to train on becoming a qualified Electrician, Plumber, Welder or a Gas Engineer. No experience required
+You will be able to train from home for some of the exams, but you will be required to attend one of the state of the arts training facilities for the practical side.
+Successful candidates have come from various backgrounds across the UK including Sales, Retail, customer service, accounts, other trades and many more in order to retrain as a qualified Electrician, Plumber, Welder or a Gas Engineer
+Due to the vital role Trades people play in buildings and new constructions the government has set a goal to boost the house building industry for the next 10 years. So this is the best time to start on the road to achieve a qualification as an Electrician, Plumber & Gas engineer for a rewarding and profitable career.
+Exciting & Active Career: Rather than being stuck behind a desk all day, Qualified trades people get to work in different environments and work with their hands and actively solve problems.</p>
+<p> <strong>Why Choose us?</strong></p><br>
+<p>We are one of the largest training portals for the Building and Construction Industry having helped to train over 125,000 people nationwide.
+Our certified training providers help you to gain nationally recognised qualifications such as City & Guilds, NVQ and ACS, to help you to become a Plumber, Electrician, Welder or Gas Engineer.</p>
+<ul>
+<li>Train in state-of-the-art training centres across the UK</li>
+
+<li>All the tutors are experienced, professional and friendly</li>
+</ul>
+
+<p style="align:right">Successful completion will lead you to become a fully qualified Domestic Gas Engineer, Plumber or Electrician, you do not need any prior knowledge just a willingness to learn.</p><br>
+<p><strong>* Must be 18 or over</strong><br>
 We offer easy payment options to help you spread the cost of the course and to start your course straight away from as little as £35 per week.</p>`
 
  //document.getElementById("coursemessage").innerHTML = 'Please answer Yes or No<br> plus see course info below :)';
 
 document.getElementById("courseChoices").style.display = 'block';
 
+}else{
+  document.getElementById('courseOverview').innerHTML = '';
+  document.getElementById("courseChoices").style.display = 'none';
+}
+
             };
 
+            function hideIfUnchecked(){
+              document.getElementById('courseOverview').innerHTML = '';
+              document.getElementById("courseChoices").style.display = 'none';
+            }
+
             function hideCourseInfo(){
-              document.getElementById('courseOverviewRed').innerHTML = '';
+              document.getElementById('courseOverview').innerHTML = '';
               document.getElementById("courseChoices").style.display = 'none';
             };
 
@@ -675,7 +727,7 @@ document.getElementById("courseChoices").style.display = 'block';
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-      <div class="courseOverviewRed"id="courseOverviewRed">
+      <div class="courseOverview"id="courseOverview">
 
       </div>
          
@@ -705,7 +757,7 @@ document.getElementById("courseChoices").style.display = 'block';
             </div>
           </div>
         </div>
-        <div id="allowNotificationsModal" class="modal" tabindex="-1" role="dialog">
+        <!-- <div id="allowNotificationsModal" class="modal" tabindex="-1" role="dialog">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -725,7 +777,7 @@ document.getElementById("courseChoices").style.display = 'block';
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 </body>
 
 </html>
