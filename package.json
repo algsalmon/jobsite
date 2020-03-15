@@ -17,7 +17,7 @@
     "goquery": "^1.0.2",
     "helmet": "^3.21.1",
     "http-errors": "~1.6.3",
-    "mongoose": "^5.6.11",
+    "mongoose": "^5.7.5",
     "morgan": "~1.9.1",
     "multer": "^1.4.2",
     "node-fetch": "^2.6.0",
