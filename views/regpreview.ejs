@@ -444,7 +444,7 @@
                   </div>
                 </div>
                 <div class="form-group col-md-12" id="youngerthan50" style="display:block">
-                  <div id="tradesCourse" style="display: none">
+                  <div id="tradesCourse" style="display: block">
                   <div class="form-check">
               
 
@@ -488,7 +488,7 @@
                     </a>
                   </div>
                 </div>
-<div id="o2" style="display:block">
+<div id="o2" style="display:none">
             <img src="/images/O2logo.svg" height="35" width="70">
             <br>
             <p style='font-size: 12px'>O2</p>
@@ -598,45 +598,11 @@ function costAwareValidation(){
                 document.getElementById("50plus").style.display = 'block';
                 document.getElementById("youngerthan50").style.display = 'none';
               } else {
-               
-                document.getElementById("50plus").style.display = 'none';
                 document.getElementById("youngerthan50").style.display = 'block';
-
-
-return;
-}
+                document.getElementById("50plus").style.display = 'none';
 
               }
-
- document.getElementById('inputCity').addEventListener('input' , checkCourseAreas);
-
-var courseAreas = ["leeds","nottingham","leicester","stoke","coventry","birmingham","peterborough","essex","oxford","reading","luton","london","manchester","bristol","southampton","gloucester","portsmouth","hull","northampton","sheffield","bournemouth","brighton","wolverhampton","hertfordshire”,”worcester" ];
-function checkCourseAreas(){
-var studentLocation = document.getElementById("inputCity").value;             
-for (i=0;i<courseAreas.length;i++){
-if (studentLocation.toLowerCase() == courseAreas[i]){
-document.getElementById("youngerthan50").style.display = 'block';
-document.getElementById("50plus").style.display = 'none';
-document.getElementById("tradesCourse").style.display = 'block';
-document.getElementById("o2").style.display = 'none';
-
-const dobYear = document.getElementById('inputGroupSelect02');
-yearInput = dobYear.value;
-yearOfBirth = Number(yearInput);
-
-if (yearOfBirth < 1970) {
-                document.getElementById("50plus").style.display = 'block';
-                document.getElementById("youngerthan50").style.display = 'none';
-              } 
-
-return;
-}
-}
-document.getElementById("tradesCourse").style.display = 'none';
-document.getElementById("o2").style.display = 'block';
-
-
-}
+            };
             
 
 

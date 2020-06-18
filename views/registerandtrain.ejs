@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script data-ad-client="ca-pub-5395995593492894" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css">
@@ -12,6 +13,34 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+
+  <!-- adsense -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147951644-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-147951644-1');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <!-- pushnami -->
+  <!-- pushnami notification connection --> 
+<link rel="manifest" href = "/manifest.json">
+  <script type="text/javascript">
+    (function(document, window){
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "https://api.pushnami.com/scripts/v1/pushnami-adv/5eb1640d3650b30012f69f74";
+        script.onload = function() {
+            Pushnami
+                .update()
+                .prompt()
+        };
+        document.getElementsByTagName("head")[0].appendChild(script);
+    })(document, window);
+    </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,17 +57,9 @@
 
     gtag('config', 'UA-147951644-1');
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-5395995593492894",
-      enable_page_level_ads: true
-    });
-    $(document).ready(function () {
-      $('.job-categories-multiple').select2();
-    });
-
-  </script>
+   <script src="javascripts/arraycode.js"></script>
+   <script src="javascripts/jobsarray.js"></script>
+  
   <!-- Facebook Pixel Code -->
 <script>
     // !function(f,b,e,v,n,t,s)
@@ -52,11 +73,15 @@
     // fbq('init', '524078144846220');
     // fbq('track', 'Reg');
     // </script>
-    // <noscript><img height="1" width="1" style="display:none"
+    <noscript><img height="1" width="1" style="display:none"
     // src="https://www.facebook.com/tr?id=524078144846220&ev=PageView&noscript=1"
     // /></noscript>
     <!-- End Facebook Pixel Code -->
+
+    
+
   <script>
+    
     function getTimeStamp() {
       var d = new Date();
       var day = d.getDate();
@@ -83,13 +108,103 @@
 
     function setTimeStamp() {
       document.getElementById('timestamp').value = datetime;
-
    }
 
 
   </script>
-<!-- push notification connection --> 
-<script src="javascripts/main.js"></script> 
+
+<script>
+
+function uncheckOptin1() {
+let optinUncheck = document.getElementById("gridCheck");
+     if(optinUncheck.checked == true){
+      optinUncheckNo = document.getElementById("gridCheck1");
+      optinUncheckNo.checked = false; 
+     }
+    }
+
+    function uncheckOptin1Yes() {
+     let optinUncheckNo = document.getElementById("gridCheck1");
+     if(optinUncheckNo.checked == true){
+    
+      optinUncheck = document.getElementById("gridCheck");
+      optinUncheck.checked = false; 
+     }
+    }
+
+    function uncheckOptin2() {
+let optinUncheck2 = document.getElementById("gridCheck3");
+     if(optinUncheck2.checked == true){
+      optinUncheckNo2 = document.getElementById("gridCheck4");
+      optinUncheckNo2.checked = false; 
+     }
+    }
+
+    function uncheckOptin2Yes() {
+     let optinUncheckNo2 = document.getElementById("gridCheck4");
+     if(optinUncheckNo2.checked == true){
+    
+      optinUncheck2 = document.getElementById("gridCheck3");
+      optinUncheck2.checked = false; 
+     }
+    }
+
+function uncheck(){
+  let openUKCR = document.getElementById("amtickyes");
+  if(openUKCR.checked == true){
+    var openUKCRNO = document.getElementById("amtickno");
+
+    openUKCRNO.checked = false;
+  }
+}
+
+function uncheckYes(){
+  let openUKCRNO = document.getElementById("amtickno");
+  if(openUKCRNO.checked == true){
+    
+    openUKCR = document.getElementById("amtickyes");
+    openUKCR.checked = false;
+  }
+
+  
+  
+}
+
+
+  function openUKCreditRatings(){
+    var openUKCR = document.getElementById("amtickyes");
+    console.log("hello"+openUKCR);
+
+  if(openUKCR.checked == true){
+    
+
+    var title1 = document.getElementById('title').value;
+    var name1 = document.getElementById('name').value;
+    var surname1 = document.getElementById('lastName').value;
+    var email1 = document.getElementById('email').value;
+    var phone1 = document.getElementById('inputPhone').value;
+    var postCode1 = document.getElementById('inputZip').value;
+    var address1 = document.getElementById('inputAddress').value;
+    var city1 = document.getElementById('inputAddress2').value;
+    var dobYear1= document.getElementById('dob_year').value;
+    var dobMonth1 = document.getElementById('dob_month').value;
+    var dobDay1 = document.getElementById('dob_day').value;
+
+    window.open("https://secure.uk.rspcdn.com/xprr/red/PID/2577/SID/?title="+title1+"&fname="+name1+"&lname="+surname1+"&email="+email1+"&phone="+phone1+"&dbd="+dobDay1+"&dbm=4"+dobMonth1+"dby="+dobYear1+"&straddr="+address1+"&city="+city1+"&zip="+postCode1+"");
+    console.log(name1)
+  }else{
+    return false;
+  }
+  }
+
+// function openUKCRPage(){
+// if (openUKCR){
+//       openUKCreditRatings();
+//     }
+//   }
+</script>
+
+
 
   <!-- get ip address -->
   <script type="application/javascript">
@@ -131,7 +246,7 @@
     <div class="container" id="regContent">
       <div class="form-row">
         <div class="form-group d-none d-sm-block col-md-4" id="regimages">
-          <img src="/images/redlogo1.png" height="300" width="300"> 
+          <img src="/images/supermarkets.png" height="300" width="300"> 
           <!-- <div class="brandpromo2">
             <ul class="list-group list-group-flush">
               <li class="list-group-item">CV Resourses</li>
@@ -160,16 +275,14 @@
             <form id="registerForm" onSubmit="return submitRegister();" style='display:inline;' action="/signupsendy"
               method="POST" enctype='multipart/form-data'>
               <div class="form-row">
-                <h5 id="regCTA" style="text-align: center">Do you want a career change in high demand job?</h5>
-                <p id="" style="text-align: center strong">Apply here for Red Driving School and other course opportunites now</p><br>
-
+                <h5 id="regCTA" style="text-align: center"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Apply Here!</h5>
+                <p id="" style="text-align: center strong">Tesco, LIDL, Morrisons, Aldi, ASDA and More!</p><br>
                 <P id="alreadyRegistered" style="text-align: center"><a href="/">Already registered? Click here</a></P>
               </div>
-
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="inputEmail4">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email" required>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group col-md-3 col-xs-12">
                   <label for="inputEmail4">Title </label>
@@ -181,19 +294,17 @@
                 </div>
                 <div class="form-group col-md-4 col-xs-6">
                   <label for="inputEmail4">First </label>
-                  <input type="text" class="form-control" id="inputEmail4" name="name" placeholder="First Name"
+                  <input type="text" class="form-control" id="name" name="name" placeholder="First Name"
                     required>
                 </div>
                 <div class="form-group col-md-5 col-xs-12">
                   <label for="inputEmail4">Last </label>
-                  <input type="text" class="form-control" id="inputEmail4" name="lastName" placeholder="Last Name"
+                  <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
                     required>
                 </div>
-
                 <div class="form-group col-xs-3 col-md-3">
                   <label for="inputEmail4" style="font-size: 11px">Date of Birth</label>
-
-                  <select class="custom-select" id="inputGroupSelect01" name="dob_day">
+                  <select class="custom-select" id="dob_day" name="dob_day">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -229,7 +340,7 @@
                 </div>
                 <div class="form-group col-xs-3 col-md-3">
                   <label for="inputEmail4"> &nbsp; </label>
-                  <select class="custom-select" id="inputGroupSelect01" name="dob_month">
+                  <select class="custom-select" id="dob_month" name="dob_month">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -246,7 +357,7 @@
                 </div>
                 <div class="form-group col-xs-5 col-md-6">
                   <label for="inputEmail4 hidden">&nbsp;</label>
-                  <select class="custom-select" id="inputGroupSelect02" name="dob_year"
+                  <select class="custom-select" id="dob_year" name="dob_year"
                     onchange="showRightAd(this.value)">
                     <option value="2001">2001</option>
                     <option value="2000">2000</option>
@@ -318,91 +429,139 @@
                     <option value="1934">1934</option>
                   </select>
                 </div>
-
                 <div class="form-group col-md-6">
                   <label for="inputAddress">Address</label>
                   <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address1"
                     required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputAddress2">Address 2</label>
+                  <label for="inputAddress2">Town</label>
                   <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2" name="address2"
                     required>
                 </div>
 
                 <div class="form-group col-md-6">
-                  <label for="inputCity">City</label>
-                  <input type="text" class="form-control" id="inputCity" name="city" required>
+                  <label for="inputCity">City / County</label>
+                  <select class="form-control" id="inputCity" name="city" required>
+                  </select>
+                  <script>
+                      var countySelect = document.getElementById("inputCity");
+                      var optionsText = "";
+                      for (var prop in countyCodes) {
+                        // if (Object.prototype.hasOwnProperty.call(countyCodes, prop)) {
+                         // do stuff
+                             optionsText += "<option value='"+prop+"'>"+countyCodes[prop]+"</option>"
+                          // }
+                        }
+                        countySelect.innerHTML = optionsText;
+                  </script>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputZip">Post Code / Zip </label>
-                  <input width="200" type="text" class="form-control" id="inputZip" name="postCode" required>
+                  <input width="200" type="text" class="form-control" id="inputZip" placeholder="Postcode" name="postCode" required>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="inputPhone">Phone</label>
-                  <input id="inputPhone" class="form-control" name="phone" required>
+                  <input id="inputPhone" class="form-control" placeholder="Phone" name="phone" required>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="jobCategories"> Select Job Interests Near You<br> (You can choose multiple from dropdown)</label>
-                  <select id="jobCategories" class="job-categories-multiple form-control" name="jobcategories[]"
-                    multiple="multiple">
-                    <option value="Customer Assistant" selected>Customer Assistant</option>
+                  <select id="jobCategories" class="custom-select" name="jobCategories">
+                      <!-- name="jobCategories[]" name was an arrar for push notifications to work -->
+
+
+                    <!-- <option value="Customer Assistant" selected>Customer Assistant</option>
                     <option value="Customer Service">Customer Service</option>
-                    <option value="RETAIL">Retail</option>
-                    <option value="All">All Jobs</option>
+                    <option value="Sales-Assistant">Sales Assistant</option>
+                    <option value="Delivery-Driver">Delivery Driver</option>
+                    <option value="Warehouse-Operative">Warehouse Operative</option>
+                    <option value="Carer">Carer</option>
+                    <option value="Office Administrator">Office Administrator</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Hospitality">Hospitality / Catering Worker</option>
+                    <option value="Trades-Person">Trades Person</option>
+                    <option value="Nurses">Nurse</option>
+                    <option value="All">All Jobs</option> -->
                   </select>
+                  <script>
+                    var jobTypeSelect = document.getElementById("jobCatagories");           
+                    var currentJob = jobsArray.length;
+                    //  var jobOptions = element[i]
+                    var selectedJob = '';
+                       for(i=0;i<jobsArray.length;i++){
+                     selectedJob +=  "<option value="+jobsArray[i]+">"+jobsArray[i]+"</option>";
+                    }      
+                    jobCategories.innerHTML = selectedJob;
+                    jobCategories.value;
+                    console.log("the selected job"+jobCategories.value);
+                  </script>
                 </div>
-                <div class="form-group col-md-12">
+                <!-- <div class="form-group col-md-12">
+                  <label for="inputEmail4">Current / Previous Job Title </label>
+                  <input type="text" class="form-control" id="inputEmail4" name="jobTitle" placeholder="Current / Previous Job"
+                    required>
+                </div> -->
+                <!-- <div class="form-group col-md-12">
                     <label for="inputEmail4">Current Job Status </label>
                     <select class="custom-select" id="inputGroupSelect01" name="currentJob">
                     <option value="Employed" selected>Employed</option>
                     <option value="Unemployed">Unemployed</option>
                   </select>
+                  </div>  -->
+                  <div class="form-group col-md-12">
+                    <label for="inputEmail4">Upload Your CV.Show employers (Optional) </label>
+                    <input type="file" id="cvContent" name="cvContent" style="border:4">
+                    <!-- <div id="CVterms">*CV will be made visible to potential employers via CV Library, we'll also give you a free cv review via TopCV</div> -->
                   </div>
-                  <!-- <div class="form-group col-md-12">
-                    <label for="inputEmail4">Upload CV (Optional)</label>
-                    <input type="file" name="cvContent">
-                  </div> -->
-                    <!-- <label for="inputEmail4"> &nbsp; </label>
+                    <!-- <div class="form-check col-md-12">
+                        <div>Free CV review?
+                         Yes &nbsp &nbsp &nbsp
+                        <input class="form-check-input" type="checkbox" id="tickCvReview" name="tickCvReview" value="Yes"/> 
+                         No  &nbsp &nbsp &nbsp
+                        <input class="form-check-input" type="checkbox" id="tickCvReview" name="tickCvReview" value="No"/> 
+                      </div>                       
+                    </div> -->
+                    <br>
+                    <br>
+                  <div class="form-group col-md-12">
+                    <label for="inputEmail4"> Current Salary </label>
                     <select class="custom-select" id="inputGroupSelect01" name="salary">
-                      <option value="£10,000">£0-£10,000</option>
-                      <option value="£15,000">£10,000-£15,000</option>
-                      <option value="£20,000">£15,000-£20,000</option>
-                      <option value="£25,000">£20,000-£25,000</option>
-                      <option value="£30,000">£30,000-£35,000</option>
-                      <option value="£40,000">£35,000-£40,000</option>
-                      <option value="£50,000">£40,000-£50,000</option>
-                      <option value="£60,000">£50,000-£60,000</option>
-                      <option value="£70,000">£60,000-£70,000</option>
-                      <option value="£80,000">£70,000-£80,000</option>
-                      <option value="£100,000">£80,000-£1000,000</option>
-                      <option value="£100,000+">£100,000+</option>
+                      <option value="1">£1-£10,000</option>
+                      <option value="2">£10,001-£15,000</option>
+                      <option value="3">£15,001-£20,000</option>
+                      <option value="4">£20,001-£25,000</option>
+                      <option value="5">£25,001 -£35,000</option>
+                      <option value="6">£30,001-£40,000</option>
+                      <option value="7">£40,001-£60,000</option>
+                      <option value="8">£60,001-£80,000</option>
+                      <option value="9">£80,001-£100,00</option>
+                      <option value="10">£100,001-£120,000</option>
+                      <option value="11">£120,000+</option>
                     </select>
-                </div> -->
-
+                </div>
                 <div class="form-group col-md-12">
-                  <div class="form-check">
+                  <div class="form-check" id="optintext">
                     <p> <input class="form-check-input" type="checkbox" id="gridCheck" name="tickYes" value="Yes"
-                        onclick="getValue();return true;" required />
+                      onclick="uncheckOptin1();" required/>
                       <label class="form-check-label" for="gridCheck"> Yes &nbsp &nbsp &nbsp
                         <input class="form-check-input" type="checkbox" id="gridCheck1" name="tickNo" value="No"
-                          onclick="getValue();">
+                          onclick="uncheckOptin1Yes();">
                         <label class="form-check-label" for="gridCheck1"> no</p>
-                    By signing up here you agree to our Privacy Policy and Terms and Conditions and to recieve
+                    By signing up here you agree to our <a href="/privacy">Privacy Policy</a> a and <a href="/tandc">Terms and Conditions</a> and to recieve
                     communicaations by email, phone and sms from jobgrabba
                     </label>
                     <br>
                   </div>
                 </div>
                 <div class="form-group col-md-12">
-                  <div class="form-check">
+                  <div class="form-check" id="optintext">
                     <p><input class="form-check-input" type="checkbox" id="gridCheck3" name="tickYes1" value="Yes"
-                        onclick="getValue();return true;" required />
+                      onclick="uncheckOptin2();" required />
                       <label class="form-check-label" for="gridCheck3"> Yes &nbsp &nbsp &nbsp
-                        <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo1" value="No"
-                          onclick="getValue()">
+                        <input class="form-check-input" type="checkbox" onclick="uncheckOptin2Yes();"id="gridCheck4" name="tickNo1" value="No"
+                          >
                         <label class="form-check-label" for="gridCheck4"> No </p>
-                    By joining you agree to recieve information and offers by email, phone, sms & post from 3rd parties.
+                    By joining you agree to our <a href="/tandc">Terms</a> and <a href="/privacy">Privacy Policy</a> and to recieve information and offers by email, phone, sms & post from <a href="/privacy">3rd parties including TopCV and CV Library.</a>
                     </label>
 
                   </div>
@@ -413,25 +572,25 @@
                     <img src="/images/BISAlogo.png" height="50" width="100">
 
                     <P style="font-size:10px">
-                      Peace of mind for you and your loved ones from as little as 13p per day!</P>
+                      Peace of mind for you and your loved ones from as little as £4.14 a month!*</P>
                     <ul style="font-size:10px">
                       <li>Guaranteed acceptance for UK residents aged 50-80
                       <li> No health or medical questions
-                      <li>Make changes with no fees
+                      <li>Apply to make changes with no fees
                       <li>Free Will Kit worth £100
                       <li>Free £300 Funeral Benefit Option
                     </ul>
                     <p style="font-size:12px">Don’t miss out – get your quote today! Tick yes to receive a call from one
                       of our UK-based insurance specialists.</p>
-                    <p><input class="form-check-input" type="checkbox" id="BSIAyes" name="tickYes3" value="Yes"
-                        onclick="getValue();return true;" />
+                    <p><input class="form-check-input" type="checkbox" id="BSIAyes"  name="tickYes3" value="Yes"
+                         />
                       <label class="form-check-label" for="gridCheck3"> Yes &nbsp &nbsp &nbsp
                         <input class="form-check-input" type="checkbox" id="BSIAno" name="tickNo1" value="No"
-                          onclick="getValue()">
+                          >
                         <label class="form-check-label" for="gridCheck4"> No </p>
 
                     <P style="font-size:8px">
-                      *Based on a 50-year-old with £1,000 of cover. View full <a
+                      *Based on a 50-year-old non-smoker with £1,000 of cover. View full <a
                         href="https://www.britishseniors.co.uk/over-50-life-insurance/"> terms and conditions.
 
                       </a>
@@ -441,54 +600,27 @@
                   </div>
                 </div>
                 <div class="form-group col-md-12" id="youngerthan50" style="display:block">
-                  <div class="form-check">
-                   
-
-                    <img src="/images/redLogo.png" height="70" width="140">
-                    <br>
-                    <p style='font-size: 12px strong'>Red Driving School</p>
-                    <p style="font-size: 12px">Driving Instructor's have a typical gross income of £870 week with RED Driving. Get on the road to a new career for only £2120 (other payment options available),<span style="font-weight: 700"> with a 100% refund on these training costs when you become a RED Driving School instructor.</span></p>
-                    <p style="font-size: 12px">Would you be interested in becoming a qualified Driving Instructor?*</p>
                     
-                    <p><input class="form-check-input" type="checkbox" id="redcoursetickyes" name="redcoursetickyes" value="Yes"
-                         />
+                    
+                    
+                    
+                    <p><input class="form-check-input" onclick="uncheck();" type="checkbox"  id="amtickyes" name="tickYes2" value="Yes"
+                      />
                       <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
-                        <input class="form-check-input" type="checkbox" id="redcoursetickno" name="redcoursetickno" value="No"
-                          >
+                        <input class="form-check-input" type="checkbox" id="amtickno" name="tickNo0"  onclick="uncheckYes();" value="No"
+                        >
                         <label class="form-check-label" for="gridCheck6"> No </p>
-                          <div id="courseChoices" style="display:none"> 
-                            <p style="font-size: 12px">*Licence Type:<br> 
-                            <select class="custom-select" id="Redlicence" name="Redlicence">
-                                <option value="fullLicence3yearsplus">Full UK held for 3 years or more  </option>
-                                <option value="fullnot3years">Full UK held for less than 3 years </option>
-                                <option value="other">Other </option>
-                            </select>
-                        </p>
-                        <p style="font-size: 12px">*Have you been banned from driving in the last 4 years?<br> 
-                            <select class="custom-select" id="drivingBan" name="DrivingBan">
-                                <option value="noBan">Full UK held for 3 years or more  </option>
-                                <option value="yesBan">Full UK held for less than 3 years </option>
-                            </select>
-                        </p>
-                        <p style="font-size: 12px">*How many penalty points do you have?<br> 
-                            <select class="custom-select" id="penaltyPoints" name="penaltyPoints">
-                                <option value="lessthan6">Less than 6  </option>
-                                <option value="6ormore">6 or More </option>
-                            </select>
-                        </p>
-                            <br>
-                
-                          </div> 
-
-
-        
-        
-                    <br>
-                    <br>
-                    <p style="font-size: 10px"> *I would like to talk to RED about course fees and pay as you go options. By submitting this enquiry you are giving your consent to allow RED to call you to discuss our instructor training course and to send you relevant driving instructor career opportunities via email and SMS. We will hold your data for this purpose for a period of up to 3 years. We will not use your data for any other purpose.</p>
-                   
+                    
+                    <p style="font-size: 12px"><b>Claim Your FREE 14 Day Trial and Check Your Social Media & Credit Score Now – FREE for 14 days!
+                    </b></p>
+                    <p style="font-size: 12px">Many employers use Social Media & Credit history to screen candidates during hiring process. Improve your chances for landing your dream job and <b>Check Your Social Media & Credit Score Now!</b>
+ 
                     </p>
-                    </a>
+                    <p style="font-size: 10px">*UKCreditRatings offer a 14-day trial to their credit report service. If you choose not to cancel within the trial period, you will incur the monthly subscription of £19.95 until you cancel the account.</p>
+                    <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions/privacy-policy">Privacy Policy
+                    </a> 
+                    </label>
+
 
 <!-- 
             <img src="/images/O2logo.svg" height="35" width="70">
@@ -508,8 +640,8 @@
             <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions">Terms and Conditions</p>
             <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions/privacy-policy">Privacy Policy
             </p>
-            </a> -->
-            </label>
+            </a> 
+            </label> -->
 
                     <!-- hidden values parsed through -->
                     <input id="ipaddress" maxlength="20" name="ipaddress" size="20" type="hidden" value=" "></input>
@@ -526,24 +658,24 @@
 
                 </div>
                 <br>
-              <button type="submit" id="submit" class="btn btn-primary" style="margin-left: 130px">Sign
+              <button type="submit" onclick="openUKCreditRatings()" id="submit" class="btn btn-primary" style="margin-left: 130px">Sign
                 in</button>
                 
             </form>
             
-          </div>
+          <!-- </div> -->
           <!-- form ends here -->
           <script>
-          //  document.getElementById("submit").addEventListener("click", validate);
+
             function validate() {
-              const dobYear = document.getElementById('inputGroupSelect02');
+              const dobYear = document.getElementById('dob_year');
               yearInput = dobYear.value;
               yearOfBirth = Number(yearInput);
               var adHtmlId = "";
               if (yearOfBirth < 1970) {
                 adHtmlId = "BSIA";
               } else {
-                adHtmlId = "coursetick"; //change to relevant id if 02 of another brand
+                adHtmlId = "amtickyes"; //change to relevant id if 02 of another brand
               } 
              
               const yeh1 = document.getElementById(adHtmlId + "yes");
@@ -552,43 +684,17 @@
               if ((yeh1.checked == true) || (nah1.checked == true)) {
                 console.log("true!!!!!");
                 return true;
-
               } else {
                 document.getElementById("message").innerHTML = "Please answer the last question: Yes or No"
                 return false;
               }
-  
- };
+        };
            
-
-function costAwareValidation(){
-          const costAwareYes = document.getElementById("costAwareYes");
-          const costAwareNo = document.getElementById("costAwareNo");
-          const courseticked = document.getElementById("redcoursetickyes").value;
-          console.log("it has been"+courseticked)
-          const courseChoice = document.getElementById("courseChoices").style.display;
-          if(courseChoice === 'block'){
-               if ((costAwareYes.checked == true) || (costAwareNo.checked == true))
-               {
-
-                 console.log('fine'+courseChoice.value);
-                 return true;
-
-             } else {
-              console.log("fine"+courseticked);
-              document.getElementById("coursemessage").innerHTML = 'Please answer Yes or No<br> plus see course info below :)';
-              event.preventDefault()
-              return false;
-             }  
-            };    
-          }; 
-           
-
        
 
             function showRightAd(val) {
               console.log("year has chaged value to " + val);
-              const dobYear = document.getElementById('inputGroupSelect02');
+              const dobYear = document.getElementById('dob_year');
               yearInput = dobYear.value;
               yearOfBirth = Number(yearInput);
 
@@ -601,57 +707,10 @@ function costAwareValidation(){
 
               }
             };
+
             
-            document.getElementById('redcoursetickyes').addEventListener('click' , displayCourseInfo)
-            document.getElementById('redcoursetickno').addEventListener('click' , hideCourseInfo)
-            document.getElementById('registerForm').addEventListener('submit' , costAwareValidation)
-
-            function displayCourseInfo(){
-
-
-             
-              document.getElementById('courseOverviewRed').innerHTML = `<h3>Train to become a Driving Instructor with typical gross income of £870 week with RED Driving</h3> <br>
-<p>We have been helping people steer their career in the right direction and realise their potential of becoming a driving instructor for over 20 years. At RED, we don¹t simply rely on our heritage; we concentrate on delivering high quality training and great support every step of the way.</p>
-<p>Becoming a driving instructor is more than just a job. It is a profession that provides long term career prospects, unrivalled benefits and unlimited job satisfaction.</p>
-<p> <strong>Be your own boss and achieve a perfect work/life balance</strong></p><br>
-<p>There aren¹t many careers that give you the freedom to choose your own working hours and 90 % of RED Instructors report that they are 'satisfied¹ with their job.</p><br>
-<p> <strong>The demand for Driving Instructors is growing throughout the UK</strong></p><br>
-<p>Learning to drive is a rite of passage for most young adults, so there is always a demand for professional driving instructors who are able to deliver fantastic customer service, teach people the skills of safe driving for life and ultimately help their pupils to pass their test with the minimum of hassle.</p><br>
-<p><strong>The best course in the business with a guaranteed opportunity</strong></P>
-<br>
-<p>We focus on helping you succeed as we want you to join RED Driving School as a qualified Instructor. We achieve this by giving you the best training and support possible. Proof of this comes from those who’ve already trained with us and we’re justifiably proud of our feedback score of 4.7 out of a maximum 5 star rating from our trainees. (Independent customer survey conducted by Feefo.)</p>
-<p>With RED¹s training course you¹ll have up to 80 hrs of training with a qualified RED trainer and back office support throughout. You¹ll be able to qualify at your own pace and be able to fit the programme around your existing commitments. The majority of people we train don¹t have any previous experience; however, they do possess the drive and determination to be the very best at what they do.</p>
-<p>As part of your training with RED you have a guaranteed opportunity to join one of the largest Driving Schools in the UK and this PDI Trainee Licence route allows you to earn as you are training and gives you a significant advantage in preparing for and passing the DVSA¹s new Part 3 test.</p>
-<p><strong>Is RED for you?</strong></p>
-<p>RED Driving School has now trained more than 10,000 ADIs and is the largest driving instructor training organisation in the UK- we understand what it takes to pass.<p>
-<br>
-    <p>Our driving instructor-training course is right up your street if you:</p>
-<ul>
-<li>Want to be your own boss and have a rewarding career.</li>
-<li>Like meeting new people. -Enjoy driving.</li><br>
-<p>Are committed to learning. In addition, the Driver and Vehicle Standards Agency (DVSA) insists you will need:</p><br>
-<li>A full UK licence (or approved foreign licence) for at least 3 1/2 years.</li>
-<li>To have not been banned from driving in the last 4 years.</li>
-<li>To have no more than 6 points on your licence.</li>
-<li>To be a 'fit and proper¹ person (in the opinion of the DVSA).</li>
-</ul>
-<p><strong>Join our winning team now and we’ll provide our full Instructor training course for just £2,120 with a 100% refund on these training costs when you become a RED Driving School instructor. This price saves you £479 compared to our normal price.</strong></p>
-<p>Other course options and monthly payments are available.</p>
-
-<p style="align:right">So if this sounds like a career that interests you then please click apply and fill in our short registration form and we will call you to discuss in more detail.</strong><br>
-We offer easy payment options to help you spread the cost of the course and to start your course straight away from as little as £35 per week.</p>`
-
- //document.getElementById("coursemessage").innerHTML = 'Please answer Yes or No<br> plus see course info below :)';
-
-document.getElementById("courseChoices").style.display = 'block';
-
-            };
-
-            function hideCourseInfo(){
-              document.getElementById('courseOverviewRed').innerHTML = '';
-              document.getElementById("courseChoices").style.display = 'none';
-            };
-
+            
+      
 
             
 
@@ -662,22 +721,22 @@ document.getElementById("courseChoices").style.display = 'block';
         </div>
        
      <div class="form-group col-md-4" id="regads">
+
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Jobgrabba.com searchpage -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5395995593492894"
+                 data-ad-slot="5750825794"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
       
+      <!-- <div class="courseOverviewRed"id="courseOverviewRed">
 
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Jobgrabba.com searchpage -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5395995593492894"
-             data-ad-slot="5750825794"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      <div class="courseOverviewRed"id="courseOverviewRed">
-
-      </div>
+      </div> -->
          
         </div> 
       </div>

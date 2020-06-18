@@ -1,14 +1,3 @@
-<html>
-
-<head>
-
-
-</head>
-
-<body>
-
-    <script>
-
 var countyCodes = {
 228:"Aberconwy and Colwyn",
 301:"Aberdeenshire",
@@ -106,10 +95,12 @@ var countyCodes = {
 412:"Leitrim",
 413:"Limerick",
 121:"Lincolnshire",
+140:"London",
 506:"Londonderry",
 414:"Longford",
 343:"Lothian",
 415:"Louth",
+146:"Manchester",
 417:"Mayo",
 418:"Meath",
 209:"Merioneth",
@@ -186,11 +177,3 @@ var countyCodes = {
 223:"Wrexham"};
 
 var countyCode = Object.keys(countyCodes).find(key => countyCodes[key] === "Wrexham");
-
-export { countyCode };
-
-</script>
-
-"Leeds","Nottingham","Leicester ","Stoke","Coventry","Birmingham","Peterborough","Essex","Oxford","Reading","Luton","London","Manchester ","Bristol","Southampton","Gloucester","Portsmouth","Hull","Northampton","Sheffield","Bournemouth","Brighton","Wolverhampton","Hertfordshire","Worcester",
-</body>
-</html>

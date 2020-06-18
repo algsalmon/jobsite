@@ -170,8 +170,6 @@ color:white;
     border-radius: 40px;
     margin-top: 10;
     margin-inline-start: 10px;
-   
-  
 }
 
 #registerButton1{
@@ -182,9 +180,6 @@ color:white;
     border-radius: 40px;
     margin-top: 10;
     margin-inline-start: 10px;
-   
-   
-  
 }
 
 h5{
@@ -207,7 +202,6 @@ h5{
 }
 
 button{
-    
     height: 32px;
     line-height: 30px;
     padding: 0 18px;
@@ -578,6 +572,15 @@ li:hover {
   margin-bottom: 350;
   text-align: center;
   margin-left: 87px;
+  font-size: 16px;
+ 
+}
+
+#supermarketsnow{
+  margin-bottom: 20;
+  text-align: center;
+  margin-left: 87px;
+  font-size: 16px;
  
 }
 
@@ -613,9 +616,32 @@ li:hover {
 
 #youngerthan50{
   font-size: 11px;
+  padding: 0 25px;
 }
 
+/* #supermarketfocuspage{
+  padding: 0px 30px;
+} */
 
+#bottombuttonalign{
+text-align: center;
+
+padding-left:0;
+}
+
+#bottombutton{
+  text-align: center;
+  padding-left:76;
+  }
+
+  #cvContent.button{
+ border-block-end: 1px;
+ color: black;
+  }
+
+  #CVterms{
+    font-size: 9px;
+  }
 
 
  

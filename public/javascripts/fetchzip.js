@@ -3,7 +3,7 @@ var currentPage = 1;
 window.onload = function () {
   const jobba = document.querySelector("#jobNews")
   var itemsPerPage = 25;
- 
+  
   // const pageSelect = document.querySelector("#pageSelection");
   const paginationButtons = document.querySelector("#paginationButtons");
   //const paginationButtonsBottom = document.querySelector("#paginationButtonsBottom");
@@ -13,7 +13,7 @@ window.onload = function () {
       jobLocation = "";
     }
     
-    const jobsSearchUrl = `https://api.ziprecruiter.com/jobs/v1?search=${query}%20Jobs&location=${jobLocation},%20UK&radius_miles=25&days_ago=&jobs_per_page=10&page=${currentPage}&api_key=mprhzcufvfyqvnuqezdqrryira9eusdu&geo=&distance=15&salarytype=annum&tempperm=Any&posted=14&order=date`;
+    const jobsSearchUrl = `https://api.ziprecruiter.com/jobs/v1?search=${query}%20Jobs&location=${jobLocation}%20UK&radius_miles=25&days_ago=&jobs_per_page=10&page=${currentPage}&api_key=mprhzcufvfyqvnuqezdqrryira9eusdu&geo=&distance=15&salarytype=annum&tempperm=Any&posted=14&order=date`;
     fetch(jobsSearchUrl)
       .then(response => response.json())
       .then((jobs) => {
@@ -73,10 +73,16 @@ window.onload = function () {
                   <p>${result.snippet}</p> 
                 </div>     
                 <div class="col-sm-3">
-                  <p>
-                    
-                  </p>                 
+                <p>${result.location}</p> 
+                  
                 </div>  
+                <div class="col-sm-3">
+                <p>£${result.salary_min}</p>               
+                </div>
+                <div class="col-sm-4">
+                <p><a href="https://newskillsacademy.co.uk/?ref=274"> Update your ${result.category} skills </a><br> 50% Discount Code: GRABBA </p> 
+                  
+                </div>    
               </div>       
             </div>            
           `;
@@ -88,7 +94,7 @@ window.onload = function () {
 
    
   //  load page initial data
-
+console.log(jobCategory)
   searchJob(jobCategory,jobLocation);
 
 

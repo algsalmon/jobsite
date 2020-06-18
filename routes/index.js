@@ -15,6 +15,7 @@ const mongoose = require('mongoose');
 const multer = require("multer");
 const fs = require("fs");
 const upload = multer({dest: "cvuploads/"});
+const { generateAdsTxt } = require("ads.txt");
 //var dateFormat = require('dateformat');
 var clientSubscriptions = [];
 
@@ -238,6 +239,10 @@ router.get('/', function (req, res, next) {
   res.render('homepage', { title: 'jobgrabba' });
 });
 
+// router.get('/learnnewskills', function (req, res, next) {
+//   res.render('learnnewskills', { title: 'Learn New Skills' });
+// });
+
 router.get('/jobboard2', function (req, res, next) {
   res.render('jobboard2', { title: 'jobgrabba' });
 });
@@ -248,6 +253,10 @@ router.get('/jobcards', function (req, res, next) {
 
 router.get('/registerCV', function (req, res, next) {
   res.render('registerCV', { title: 'jobgrabba' });
+});
+
+router.get('/ads.txt', function (req, res, next) {
+  res.render('ads.txt', { title: 'jobgrabba' });
 });
 
 router.get('/freecreditreport', function (req, res, next) {
@@ -267,7 +276,7 @@ router.get('/employmentstats', function (req, res, next) {
 });
 
 router.get('/jobgrabbacourses', function (req, res, next) {
-  res.render('jobgrabbacourses', { title: 'Employment Stats' });
+  res.render('jobgrabbacourses', { title: 'Jobgrabba Courses' });
 });
 
 router.get('/homepage', function (req, res, next) {
@@ -294,6 +303,12 @@ router.get('/cvtips', function (req, res, next) {
 router.get('/fulltimejobs', function (req, res, next) {
   res.render('fulltimejobs', { title: 'From Part-time to Full-time jobs' });
 });
+
+router.get('/supermarketoralljobs', function (req, res, next) {
+  res.render('supermarketoralljobs', { title: 'Supermarket and Regular Jobgrabba listings ' });
+});
+
+
 
 router.get('/interviews', function (req, res, next) {
   res.render('interviews', { title: 'Interview Tips' });
@@ -324,6 +339,14 @@ router.get('/regpreview1', function (req, res, next) {
   res.render('regpreview1', { title: 'Registration' });
 });
 
+router.get('/manifest.json', function (req, res, next) {
+  res.render('manifest', { title: 'Pushna' });
+});
+
+router.get('/service-worker.js', function (req, res, next) {
+  res.render('service-worker', { title: 'Service Work' });
+});
+
 
 router.get('/privacy', function (req, res, next) {
   res.render('privacy', { title: 'Privacy Policy' });
@@ -349,6 +372,10 @@ router.get('/registerandtrain', function (req, res, next) {
   res.render('registerandtrain', { title: 'register and train' });
 });
 
+router.get('/freeCVReview', function (req, res, next) {
+  res.render('freeCVReview', { title: 'register and train' });
+});
+
 
 router.get('/registerAU', function (req, res, next) {
   res.render('registerAU', { title: 'Aussie Jobs' });
@@ -362,6 +389,10 @@ router.get('/registerandlearn', function (req, res, next) {
 
 router.get('/signupaus', function (req, res, next) {
   res.render('signupaus', { title: 'signup' });
+});
+
+router.get('/lookingnow', function (req, res, next) {
+  res.render('lookingnow', { title: 'Supermarkets Hiring Immediately Due To Covid' });
 });
 
 router.get('/signup', function (req, res, next) {
@@ -396,6 +427,8 @@ router.get('/zipform', function (req, res, next) {
 router.get('/signupsendy', function (req, res, next) {
   res.render('signupsendy', { title: 'Jobgrabba deals and discounts for you' });
 });
+
+
 
 router.get('/signupsendy3', function (req, res, next) {
   res.render('signupsendy', { title: 'Jobgrabba deals and discounts for you' });
@@ -479,6 +512,8 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
     penaltyPoints,
     DrivingBan,
     redcoursetickyes,
+    salary,
+    tickCvReview,
     CVlib
   } = req.body;
   
@@ -546,6 +581,7 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
       penaltyPoints,
       DrivingBan,
       Redlicence,
+      tickCvReview,
    //  CVLib:cvContent
     }
   };
@@ -556,7 +592,7 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
     } else {
       //res.set('Content-Type', 'text/html');
       //res.send(new Buffer(body));
-      console.log("request sent correctly");
+      console.log("request sent correctly now");
       //res.send(body)
     }
   });
@@ -613,8 +649,7 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
     search:"Customer Assistant",
     optinurl: "http://www.jobgrabba.com/register",
     ip_address: ipaddress,
-    location:city
-    
+    location:ipaddress,
   }
 
   var zip = {
@@ -736,7 +771,7 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
       method: 'GET',
       async: true,
       crossDomain: true,
-      url: 'https://pp.leadbyte.co.uk/api/submit.php?campid=BSIACOREG&sid=74265&returnjson=yes',
+      url: 'https://pp.leadbyte.co.uk/api/submit.php?campid=BRITSEN-COREG&sid=74265&returnjson=yes',
       qs:
       {
         firstname: name,
@@ -767,8 +802,29 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
     });
   }
 
+  
+
+
+  var Age;
+  var currentYear = new Date().getFullYear();
+  var personAge = currentYear - dob_year;
+  if(personAge > 15 && personAge < 20 ){
+    Age = "16-19"
+  } else if (personAge < 24 ){
+    Age = "20-23"
+  } else if (personAge < 31 ){
+    Age = "24-30"
+  }else if (personAge < 36 ){
+    Age = "31-35"
+  } else if (personAge < 46 ){
+    Age = "36-45"
+  } else if (personAge > 54 ){
+    Age = "55+"
+  };
+
+
   if (req.file){
-    console.log("sending CV"+req.file.path);
+    console.log("sending CV:"+req.file.path);
   var CVLibrary = {
     url: 'http://www.cv-library.co.uk/cgi-bin/cvsubapi.pl',
     formData:
@@ -777,17 +833,16 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
           firstname: name,
           lastname: lastName,
           email: email,
-          county: "501",
-          town: city,
+          county: city,
+          town: address2,
           postcode: postCode,
           telephone: phone,
-          salary: "1",
-          age: "16-19",
+          salary: salary,
+          age: Age,
           affiliateID: 104125,
-          industry: "Banking",
-          affiliatepassword: "coregalm",
           industry: "Retail",
-          currentjobtitle: "It",
+          affiliatepassword: "coregalm",          
+          currentjobtitle: jobCategories ,
           doc: {
             value: fs.createReadStream(req.file.path),
             options: {
@@ -809,50 +864,86 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
       //res.send(body)
     }
   });
+// console.log("tickCVReview:"+tickCvReview);
+// if(tickCvReview==="Yes"){
+    var TopCVFormData = {
+        url: 'https://webolytics.webosaurus.co.uk/inbound/catchForm',
+        formData:
+            {
+                "FGID_N": "NDM5",
+                "publishedID": "MjUx",
+                "formSectionID": "MjE5",
+                "formGroupID": "NDM4",
+                "campaignGroup": "MTU3MA==",
+                "formData[0][0][MzM2OA==]": email,
+                "trackingData[refererURL]": "https://webolytics.docs.apiary.io,",
+                "trackingData[currentURL]": "https://webolytics.docs.apiary.io",
+                "formData[1][0][MzM2OQ==]": {
+                    value: fs.createReadStream(req.file.path),
+                    options: {
+                        contentType: "application/msword",
+                        filename: "cv.docx"
+                    }
+                }
+            }
+    };
+    request.post(TopCVFormData, function (error, response, body) {
+        var bodyJson = JSON.parse(body);
+        if (bodyJson.status.startsWith("4")){
+            console.log("error submiting CV to TOPCV:"+body);
+        }else{
+            console.log("succesfully submitted CV to TOPCV");
+        }
+    });
+// }
+
+
   }
-  res.render('Reddeals', {
-
-    title: 'Welcome to jobgrabba', userInfo: {
-      title: title,
-      name,
-      firstname: name,
-      lastname: lastName,
-      email: email,
-      mobile: phone,
-      subAffiliate: listId,
-      dob: dob_day + '/' + dob_month + '/' + dob_year,
-      optindate: currentTimestamp,
-      street1: address1,
-      address2,
-      towncity: city,
-      postcode: postCode,
-      source: "http://www.jobgrabba.com",
-      reference: "http://www.jobgrabba.com",
-      tickYes,
-      tickYes1,
-      ipaddress: ipaddress,
-      courseInterestYes:"",
-      specificCourseInterest:"",
-      costAwareYes:"",
-      currentJob,
-      list: listId,
-      currentTimestamp,
-      redcoursetickyes:"",
-      penaltyPoints:"",
-      DrivingBan:"",
-      Redlicence:""
-    }
-  });
 
 
+  // res.render('deals', {
 
+  //   title: 'Welcome to jobgrabba', userInfo: {
+  //     title: title,
+  //     name,
+  //     firstname: name,
+  //     lastname: lastName,
+  //     email: email,
+  //     mobile: phone,
+  //     subAffiliate: listId,
+  //     dob: dob_day + '/' + dob_month + '/' + dob_year,
+  //     optindate: currentTimestamp,
+  //     street1: address1,
+  //     address2,
+  //     towncity: city,
+  //     postcode: postCode,
+  //     source: "http://www.jobgrabba.com",
+  //     reference: "http://www.jobgrabba.com",
+  //     tickYes,
+  //     tickYes1,
+  //     ipaddress: ipaddress,
+  //     courseInterestYes:"",
+  //     specificCourseInterest:"",
+  //     costAwareYes:"",
+  //     currentJob:"", 
+  //     list: listId,
+  //     currentTimestamp,
+  //     redcoursetickyes:"",
+  //     penaltyPoints:"",
+  //     DrivingBan:"",
+  //     Redlicence:""
+  //   }
 
+  // });
+  
 
-
-  });
-
+  res.render('c2version', {
+    title: 'Welcome to jobgrabba', jobCategoryQuery: jobCategories,locationQuery:postCode,
     
+  });
 
+  console.log(jobCategoryQuery)
+});
 
 
 
