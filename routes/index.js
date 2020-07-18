@@ -847,7 +847,7 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
             value: fs.createReadStream(req.file.path),
             options: {
               contentType: "application/msword",
-              filename: "cv.docx"
+              filename: name+"cv.docx"
             }
           }
         }
@@ -900,6 +900,26 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
 
   }
 
+  // if (diabetesLotteryCheckYes.checked) {
+              
+  //   var diabetesLotteryInfo = {
+  //     "async": true,
+  //     "crossDomain": true,
+  //     "data": userInfodiabetesLottery,
+  //     url: "https://pp.leadbyte.co.uk/api/submit.php?campid=DIABETES-COREG-UK&sid=74265&returnjson=yes",
+  //     "method": "GET",
+  //     "headers": {
+  //       "Accept": "*/*",
+  //       "Host": "lead365.leadbyte.co.uk",
+  //       "Accept-Encoding": "gzip, deflate",
+  //       "Connection": "keep-alive",
+  //     }
+  //   };
+  //   $.ajax(diabetesLotteryInfo).done(function (response) {
+  //     console.log("Diabetes response:" + JSON.stringify(response));
+  //   });
+  // }
+
 
   // res.render('deals', {
 
@@ -935,7 +955,7 @@ router.post('/signupsendy', upload.single("cvContent"), function (req, res, next
   //   }
 
   // });
-  
+  console.log("jobCategories:"+jobCategories);
 
   res.render('c2version', {
     title: 'Welcome to jobgrabba', jobCategoryQuery: jobCategories,locationQuery:postCode,

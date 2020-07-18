@@ -124,6 +124,12 @@ let optinUncheck2 = document.getElementById("gridCheck3");
      }
     }
 
+    function popup(){
+
+alert("Thanks for joining Jobgrabba. Please ensure you check your welcome email. "
+)
+}
+
   </script>
   <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 </head>
@@ -402,7 +408,7 @@ let optinUncheck2 = document.getElementById("gridCheck3");
                         <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo1" value="No"
                         onclick="uncheckOptin2Yes();">
                         <label class="form-check-label" for="gridCheck4"> No </p>
-                    By joining you agree to our <a href="/tandc">Terms</a> and <a href="/privacy">Privacy Policy</a> and to recieve information and offers by email, phone, sms & post from <a href="/privacy">3rd parties.</a>
+                    By joining you agree to our <a href="/tandc">Terms</a> and <a href="/privacy">Privacy Policy</a> and to recieve information, job alerts and offers by email, phone, sms & post from <a href="/privacy">3rd parties.</a>
                     </label>
 
                   </div>
@@ -496,7 +502,7 @@ let optinUncheck2 = document.getElementById("gridCheck3");
 
                 </div>
                 <br>
-              <button type="submit" id="submit" class="btn btn-primary" style="margin-left: 130px">Sign
+              <button type="submit" id="submit" onclick="popup()" class="btn btn-primary" style="margin-left: 130px">Sign
                 in</button>
                 
             </form>

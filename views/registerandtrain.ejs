@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  
     <script data-ad-client="ca-pub-5395995593492894" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -40,6 +41,7 @@
         };
         document.getElementsByTagName("head")[0].appendChild(script);
     })(document, window);
+    
     </script>
 
   <meta charset="UTF-8">
@@ -108,8 +110,12 @@
 
     function setTimeStamp() {
       document.getElementById('timestamp').value = datetime;
+     
+      document.getElementById('timestamp').innerHTML = datetime;
    }
-
+   getTimeStamp()
+   setTimeStamp()
+  
 
   </script>
 
@@ -170,38 +176,45 @@ function uncheckYes(){
   
 }
 
+function popup(){
+  debtOffer()
+  alert("Thanks for joining Jobgrabba. Please ensure you check your welcome email. "
+  )
+}
+  // function openUKCreditRatings(){
+  //   var openUKCR = document.getElementById("amtickyes");
+  //   console.log("hello"+openUKCR);
 
-  function openUKCreditRatings(){
-    var openUKCR = document.getElementById("amtickyes");
-    console.log("hello"+openUKCR);
-
-  if(openUKCR.checked == true){
+  // if(openUKCR.checked == true){
     
 
-    var title1 = document.getElementById('title').value;
-    var name1 = document.getElementById('name').value;
-    var surname1 = document.getElementById('lastName').value;
-    var email1 = document.getElementById('email').value;
-    var phone1 = document.getElementById('inputPhone').value;
-    var postCode1 = document.getElementById('inputZip').value;
-    var address1 = document.getElementById('inputAddress').value;
-    var city1 = document.getElementById('inputAddress2').value;
-    var dobYear1= document.getElementById('dob_year').value;
-    var dobMonth1 = document.getElementById('dob_month').value;
-    var dobDay1 = document.getElementById('dob_day').value;
+  //   var title1 = document.getElementById('title').value;
+  //   var name1 = document.getElementById('name').value;
+  //   var surname1 = document.getElementById('lastName').value;
+  //   var email1 = document.getElementById('email').value;
+  //   var phone1 = document.getElementById('inputPhone').value;
+  //   var postCode1 = document.getElementById('inputZip').value;
+  //   var address1 = document.getElementById('inputAddress').value;
+  //   var city1 = document.getElementById('inputAddress2').value;
+  //   var dobYear1= document.getElementById('dob_year').value;
+  //   var dobMonth1 = document.getElementById('dob_month').value;
+  //   var dobDay1 = document.getElementById('dob_day').value;
 
-    window.open("https://secure.uk.rspcdn.com/xprr/red/PID/2577/SID/?title="+title1+"&fname="+name1+"&lname="+surname1+"&email="+email1+"&phone="+phone1+"&dbd="+dobDay1+"&dbm=4"+dobMonth1+"dby="+dobYear1+"&straddr="+address1+"&city="+city1+"&zip="+postCode1+"");
-    console.log(name1)
-  }else{
-    return false;
-  }
+  //   window.open("https://secure.uk.rspcdn.com/xprr/red/PID/2577/SID/?title="+title1+"&fname="+name1+"&lname="+surname1+"&email="+email1+"&phone="+phone1+"&dbd="+dobDay1+"&dbm=4"+dobMonth1+"dby="+dobYear1+"&straddr="+address1+"&city="+city1+"&zip="+postCode1+"");
+  //   console.log(name1)
+  // }else{
+  //   return false;
+  // }
+  // }
+
+function debtOffer(){
+
+  if(amtickyes.checked == true){
+    window.open("https://pjtharness.ckmhop.com/?a=8&c=461&s1=signup");
   }
 
-// function openUKCRPage(){
-// if (openUKCR){
-//       openUKCreditRatings();
-//     }
-//   }
+  }
+
 </script>
 
 
@@ -275,8 +288,9 @@ function uncheckYes(){
             <form id="registerForm" onSubmit="return submitRegister();" style='display:inline;' action="/signupsendy"
               method="POST" enctype='multipart/form-data'>
               <div class="form-row">
+                <div id="timestamp"></div>
                 <h5 id="regCTA" style="text-align: center"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Apply Here!</h5>
-                <p id="" style="text-align: center strong">Tesco, LIDL, Morrisons, Aldi, ASDA and More!</p><br>
+                <p id="" style="text-align: center strong">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspApply for Today's Jobs</p><br>
                 <P id="alreadyRegistered" style="text-align: center"><a href="/">Already registered? Click here</a></P>
               </div>
               <div class="form-row">
@@ -465,7 +479,7 @@ function uncheckYes(){
                   <input id="inputPhone" class="form-control" placeholder="Phone" name="phone" required>
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="jobCategories"> Select Job Interests Near You<br> (You can choose multiple from dropdown)</label>
+                  <label for="jobCategories"> Select Job Interests Near You</label>
                   <select id="jobCategories" class="custom-select" name="jobCategories">
                       <!-- name="jobCategories[]" name was an arrar for push notifications to work -->
 
@@ -509,8 +523,9 @@ function uncheckYes(){
                   </select>
                   </div>  -->
                   <div class="form-group col-md-12">
-                    <label for="inputEmail4">Upload Your CV.Show employers (Optional) </label>
+                    <label for="inputEmail4">Upload CV to Employer's View on CV Library (Optional) <a href="https://www.cv-library.co.uk/terms" style="font-size: 7px">T&Cs apply</a> </label>
                     <input type="file" id="cvContent" name="cvContent" style="border:4">
+
                     <!-- <div id="CVterms">*CV will be made visible to potential employers via CV Library, we'll also give you a free cv review via TopCV</div> -->
                   </div>
                     <!-- <div class="form-check col-md-12">
@@ -561,7 +576,7 @@ function uncheckYes(){
                         <input class="form-check-input" type="checkbox" onclick="uncheckOptin2Yes();"id="gridCheck4" name="tickNo1" value="No"
                           >
                         <label class="form-check-label" for="gridCheck4"> No </p>
-                    By joining you agree to our <a href="/tandc">Terms</a> and <a href="/privacy">Privacy Policy</a> and to recieve information and offers by email, phone, sms & post from <a href="/privacy">3rd parties including TopCV and CV Library.</a>
+                    By joining you agree to our <a href="/tandc">Terms</a> and <a href="/privacy">Privacy Policy</a> and to recieve information, job alerts and offers by email, phone, sms & post from <a href="/privacy">3rd parties including TopCV and CV Library.</a>
                     </label>
 
                   </div>
@@ -604,7 +619,7 @@ function uncheckYes(){
                     
                     
                     
-                    <p><input class="form-check-input" onclick="uncheck();" type="checkbox"  id="amtickyes" name="tickYes2" value="Yes"
+                    <!-- <p><input class="form-check-input" onclick="uncheck();" type="checkbox"  id="amtickyes" name="tickYes2" value="Yes"
                       />
                       <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
                         <input class="form-check-input" type="checkbox" id="amtickno" name="tickNo0"  onclick="uncheckYes();" value="No"
@@ -617,21 +632,34 @@ function uncheckYes(){
  
                     </p>
                     <p style="font-size: 10px">*UKCreditRatings offer a 14-day trial to their credit report service. If you choose not to cancel within the trial period, you will incur the monthly subscription of £19.95 until you cancel the account.</p>
-                    <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions/privacy-policy">Privacy Policy
                     </a> 
                     </label>
 
+ -->
 
-<!-- 
-            <img src="/images/O2logo.svg" height="35" width="70">
+ <br>
+ <p style='font-size: 12px'>Debt Consolidation</p>
+ <p style="font-size: 10px">Do you have debt that you would like to consolidate? </p>
+ <p><input class="form-check-input" type="checkbox" onclick="uncheck();" id="amtickyes"  value="Yes"
+     onclick="getValue();return true;" />
+   <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
+     <input class="form-check-input" type="checkbox" onclick="uncheckYes();" id="amtickno"  value="No"
+       onclick="getValue()">
+     <label class="form-check-label" for="gridCheck6"> No </p>
+      <p style="font-size: 10px"> <a href="https://www.supermoneysaver.co.uk/debt-help/?uid=7bfa3b51-997e-4aee-886d-e4b1bb9a9796">Privacy Policy </a>
+
+
+
+      <!-- ----- -->
+            <!-- <img src="/images/O2logo.svg" height="35" width="70">
             <br>
             <p style='font-size: 12px'>O2</p>
             <p style="font-size: 10px">Claim your Free O2 Sim Card and get double Data, Minutes and Texts. Would you
               like to be contacted to hear more?</p>
-            <p><input class="form-check-input" type="checkbox" id="amtickyes" name="tickYes2" value="Yes"
+            <p><input class="form-check-input" type="checkbox" onclick="uncheck();" id="amtickyes" name="tickYes2" value="Yes"
                 onclick="getValue();return true;" />
               <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
-                <input class="form-check-input" type="checkbox" id="amtickno" name="tickNo0" value="No"
+                <input class="form-check-input" type="checkbox" onclick="uncheckYes();" id="amtickno" name="tickNo0" value="No"
                   onclick="getValue()">
                 <label class="form-check-label" for="gridCheck6"> No </p>
 
@@ -658,7 +686,7 @@ function uncheckYes(){
 
                 </div>
                 <br>
-              <button type="submit" onclick="openUKCreditRatings()" id="submit" class="btn btn-primary" style="margin-left: 130px">Sign
+              <button type="submit" onclick="popup()" id="submit" class="btn btn-primary" style="margin-left: 130px">Sign
                 in</button>
                 
             </form>

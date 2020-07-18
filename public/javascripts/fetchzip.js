@@ -66,7 +66,7 @@ window.onload = function () {
                 <div class="col-sm-4">
              
                 </div>
-                <div class="col-sm-4"></div>
+                <div class="col-sm-4"><h3>${result.name}</h3></div>
               </div>  
               <div class="row">
                 <div class="col-sm-12" id="snippet">
@@ -79,12 +79,14 @@ window.onload = function () {
                 <div class="col-sm-3">
                 <p>£${result.salary_min}</p>               
                 </div>
-                <div class="col-sm-4">
-                <p><a href="https://newskillsacademy.co.uk/?ref=274"> Update your ${result.category} skills </a><br> 50% Discount Code: GRABBA </p> 
+                <div class="col-sm-6">
+                <p><a href="https://newskillsacademy.co.uk/?ref=274"> Take A  ${result.category} Skills Course</a><br> 50% Discount Code: GRABBA </p> 
                   
                 </div>    
               </div>       
-            </div>            
+            </div>  
+                                   
+            <br>          
           `;
         });
         jobba.innerHTML = jobDescriptions;
