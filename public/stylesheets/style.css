@@ -4,7 +4,35 @@ body {
   
 }
 
+.header{
+  height: 60px;
+  display:flex;
+  background-color: white;
+  align-items: center;
+  position: sticky;
+  color:#2F2E51;
+  top:0;
+  z-index:100;
+  border-bottom: 1px solid #ccc!important;
 
+}
+
+#subHeader{
+  text-align: center;
+  color:#2F2E51;
+  margin-left: 40px;
+}
+
+
+.headerNav{
+  width:100%;
+  display:flex;
+  justify-content:space-evenly;
+  color:#2F2E51;
+ margin-right:100px;
+  margin-left:5px;
+  text-align: center;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -128,8 +156,18 @@ font-family: 'Libre Baskerville', serif;
  
 }
 
-#footerwelcomepg{
+#footer {
   position: absolute;
+  bottom:0;
+  text-align: center;
+  height: 2.5px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Libre Baskerville', serif;
+    /* Height of the footer */
+}
+
+#footerwelcomepg{
+  position: relative;
   bottom:0;
   text-align: center;
     /* Height of the footer */
@@ -147,20 +185,15 @@ font-family: 'Libre Baskerville', serif;
   
 }
 
-
 .Regform{
   width:300px;
+  
 }
-
 
 button{
 background-color:#2F2E51;
 color:white;
 }
-
-
-
-
  
 #registerButton{
   color:white;
@@ -208,7 +241,6 @@ button{
     border-radius: 40px;
 }
 
-
 button a{
   color:white;
 }
@@ -223,12 +255,15 @@ button a{
 
   .card-footer{
    position: relative;
+
   }
 
+  
   #flag{
+    height:150px;
+    object-fit:contain;
     position:relative;
   }
-
 
   #regPageHeader{
     padding: 30px;
@@ -262,8 +297,11 @@ position: relative;
   }
 
   .card{
-    height:60px;
+    height:auto;
+   
   }
+
+  
 
 #regLogo{
   margin: 2px;
@@ -407,11 +445,43 @@ display: inline;
   color: #2F2E51;
   font-size: 20px;
   font-weight: bold;
+  margin-left:0px;
+  margin-right:0px;
+  text-align: center;
+
+}
+
+.navOptions{
+  display:flex;
+  text-decoration:none;
+  margin-right:10px;
+  margin: auto;
+}
+
+.navOptions a{
+
+  text-decoration:none;
+  
 }
 
 #searchField{
   color: #2F2E51;
   font-size: 20px;
+}
+
+#searchField .btn{
+  background-color: #2F2E51;
+  
+}
+
+
+
+/* input{
+  width:100%
+} */
+
+.navLink{
+  color: #2F2E51;
 }
 
 #searchField1{
@@ -459,6 +529,14 @@ width:270;
 
  }
 
+ #coursemessageshaw{
+  color:red;
+  font-weight: bold;
+  text-align: center;
+  font-size: 10px
+
+ }
+
  #courseDetailsBelow{
   color:green;
   font-weight: bold;
@@ -494,6 +572,11 @@ width:270;
 
  #nvtext {
   margin: 0px 24px;
+  color:#2F2E51;
+}
+
+#cvTips{
+  margin: auto;
 }
 
 #navbarNav{
@@ -573,8 +656,13 @@ li:hover {
   text-align: center;
   margin-left: 87px;
   font-size: 16px;
- 
 }
+
+/* @media screen and (max-width: 768px) {
+#tradesFormArea{
+  margin-top:85px;
+}
+} */
 
 #supermarketsnow{
   margin-bottom: 20;
@@ -593,6 +681,10 @@ li:hover {
   #courseOverview{
      margin-top: 0px;
   }
+}
+
+ #courseInputs{
+  margin-left: 1.75rem;
 }
 
 #courseOverviewRed{
@@ -616,7 +708,7 @@ li:hover {
 
 #youngerthan50{
   font-size: 11px;
-  padding: 0 25px;
+  padding: 0 0px;
 }
 
 /* #supermarketfocuspage{
@@ -643,11 +735,59 @@ padding-left:0;
     font-size: 9px;
   }
 
+  #firstline{
+    margin-left: 270px;
+    margin-bottom: 1rem;
+    text-size-adjust: 18px;
+}
 
- 
+  #secondline{
+    margin-left: 200px;
+    margin-bottom: 1rem;
+}
 
- 
+#jobtit{
+  margin-left: -15;
+}
 
 
+.btn {
+  border-color: #0072EF;
+  border-radius: 4px;
+  background-color: #0072EF;
+}
+.btn-outline {
+  color: #0072EF !important;
+  background: transparent;
+}
+     .btn {
+      color: #fff;
+    }
+  
+    .card-title{
+      border:0px
+    }
 
 
+    #coursessignupbutton{
+     text-align: center;
+     margin-top:15px;
+     
+    }
+
+    #rightArea{
+     color: #2F2E51
+    }
+
+    #dob{
+      width:100%
+    }
+
+   
+#specificCourseInterest{
+ margin: 0px -10px
+}
+
+#tradespecificCourseInterest{
+  margin: 0px -10px
+}

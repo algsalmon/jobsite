@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <script data-ad-client="ca-pub-5395995593492894" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-5395995593492894" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -35,7 +35,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
      fbq('init', '280892588917611'); 
     fbq('track', 'PageView');
-    fbq('track', 'Lead');
+    fbq('track', 'Lead2ndpage');
     </script>
     <noscript>
      <img height="1" width="1" 
@@ -49,19 +49,37 @@
   
   <!-- fetch jobs -->
   <script>
-    var jobCategory; // I did console.log here and it made the job catagory undefined for some reason?
-    var jobLocation;
+  //  var jC = localStorage.getItem('textvalue');
+  //  var jL = localStorage.getItem('textv')
+  //  console.log(items)
+
+  
+    var jobCategory  = localStorage.getItem('textvalue');; // I did console.log here and it made the job catagory undefined for some reason?
+    var jobLocation = localStorage.getItem('textv');
+  
     // test test
 
-    //var jobInfo = <%- JSON.stringify(jobCategoryQuery) %>;
+    
+
+    
     <% if (locals.jobCategoryQuery){ %>
       jobCategory = '<%= jobCategoryQuery%>';
+      console.log(jobCategory)
     <% } %>
     <% if (locals.locationQuery){ %>
       jobLocation = '<%= locationQuery%>';
+      console.log(jobCategory)
     <% } %>
+
+    
   </script>
-  <script src="javascripts/fetchzip.js"></script>
+   <script>
+
+
+    JSON.stringify(userInfo)
+  </script>
+  <!-- <script src="javascripts/fetchzip.js"></script> -->
+  <script src="javascripts/fetchjobs.js"></script>
   
   <!-- fonts -->
   <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto&display=swap" rel="stylesheet">
@@ -76,8 +94,12 @@
 </head>
 
 <body>
+    <%- include('header')-%>
+    <br>
+    <br>
   <div class="dropdown show">
-    <nav class="navbar navbar-expand-lg navbar-light bg-red" id="fixednav">
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-red" id="fixednav">
       <a class="navbar-brand" href="/"><img src="images/logojobgrabba.png" width="200" height="200" id="flag"></a>
 
 
@@ -112,21 +134,21 @@
         &nbsp&nbsp&nbsp
         <a href="https://www.twitter.com/jobgrabba"></a> <img src="images/twitter.svg" width="20" height="20"></a>
         &nbsp&nbsp&nbsp
-
+ -->
 
 
         <!-- <div id="storeImages"><span><img src='/images/lidl200x200.png' width="70" height="70"><img src='/images/asdalogo.png' width="70" height="70"><img src='/images/tescologo.png' width="70" height="70"><img src='/images/sainsburylogo.png' width="70" height="70"></span> -->
-      </div>
+      <!-- </div>
 
 
 
   </div>
 
-  <div class="rightArea">
+  <div class="rightArea"> -->
 
     <!-- <a class="nav-link " href="/" ><img src="https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-kingdom-great-britain.png" id="flag1"></a></a> -->
-  </div>
-  </nav>
+  <!-- </div>
+  </nav> -->
   </div>
 
 

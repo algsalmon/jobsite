@@ -99,6 +99,7 @@
     <div class="col-md-4">
       <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <img id="rightFlagNav" src="images/logojobgrabba.png" width="200" id="flag" position="right">
+        Inspiring new careers!
       </nav>
     </div>
     <div class="col-md-4" id="regPageMobileAd">
@@ -146,7 +147,7 @@
               method="POST" enctype='multipart/form-data'>
               <div class="form-row">
                 <h5 id="regCTA" style="text-align: center">Apply for Customer Assistant Jobs Here</h5>
-                <p id="" style="text-align: center strong">Tesco, LIDL, Morrisons, Aldi, ASDA and More!</p><br>
+                <p id="subHeader" style="text-align: center strong">Jobgrabba, Inspiring new careers! </p><br>
 
                 <P id="alreadyRegistered" style="text-align: center"><a href="/">Already registered? Click here</a></P>
               </div>
@@ -347,10 +348,11 @@
                     <option value="Unemployed">Unemployed</option>
                   </select>
                   </div>
-                  <!-- <div class="form-group col-md-12">
-                    <label for="inputEmail4">Upload CV (Optional)</label>
-                    <input type="file" name="cvContent">
-                  </div> -->
+                  <div class="form-group col-md-12" >
+                      <label for="inputEmail4">Upload CV (Reccomended) <a href="https://www.cv-library.co.uk/terms" style="font-size: 7px">T&Cs apply</a> </label>
+                      <input type="file" id="cvContent" name="cvContent" style="border:4">
+                      <div id="CVterms">*CV will be made visible to potential employers via CV Library</div> 
+                   </div> 
                     <!-- <label for="inputEmail4"> &nbsp; </label>
                     <select class="custom-select" id="inputGroupSelect01" name="salary">
                       <option value="£10,000">£0-£10,000</option>
@@ -390,7 +392,7 @@
                         <input class="form-check-input" type="checkbox" id="gridCheck4" name="tickNo1" value="No"
                           onclick="getValue()">
                         <label class="form-check-label" for="gridCheck4"> No </p>
-                    By joining you agree to our <a href="/tandc">Terms</a> and <a href="/privacy">Privacy Policy</a> and to recieve information and offers by email, phone, sms & post from <a href="/privacy">3rd parties including trades courses.</a>
+                    By joining you agree to our <a href="/tandc">Terms</a> and <a href="/privacy">Privacy Policy</a> and to recieve information and offers by email, phone, sms & post from <a href="/privacy">3rd parties.</a>
                     </label>
 
                   </div>
@@ -433,21 +435,12 @@
                   <div class="form-check">
               
 
-                    <img src="/images/tradescourseslogo.png" height="70" width="140">
+                    <img src=" https://www.shawacademy.com/images/logo/logo-new.svg" height="70" width="140">
                     <br>
                     <br>
-                    <p style='font-size: 12px'><span style='font-weight: bold' >Trades Courses - Looking for a career change?</span></p>
-                    <p style='font-size: 12px'><span style='font-weight: bold' >Want to start your new career as a Fully Approved Skilled Tradesperson and earn over £60k per year?</span></p>
-                    <p style="font-size:12px"><span style='font-weight: bold'>Train to become a plumber, electrician, gas engineer or welder!.</span></p>
+                    <p style='font-size: 12px'><span style='font-weight: bold' >Would you like to take a course to start an exciting new career? </p>
+                    <!-- <p style="font-size:12px">Shaw Academy </p> -->
                     
-                    <p style="font-size: 12px">Trades Courses is one of the largest training portals for the Building and Construction Industry having helped to train over 150,000 people.
-                      Courses are from £30 per week..</p>
-
-                      <p style="font-size: 12px">This is not a job application, but a professional course that is paid for by you. This course will take you from a beginner to a qualified tradesperson.</p>
-
-                      <p style="font-size: 12px">Our job ready courses can allaow you to train to become a Plumber, Electrician, Gas Engineer or welder with qualifications from City & Guilds, BPEC & ACS.</p>
-
-
                     <p><input class="form-check-input" type="checkbox" id="coursetickyes" name="courseInterestYes" value="Yes"
                          />
                       <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
@@ -455,16 +448,22 @@
                           >
                         <label class="form-check-label" for="gridCheck6"> No </p>
                           <div id="courseChoices" style="display:none"> 
-                            <p style="font-size: 12px">Which course are you interested in? Multiple Choice: 
+                            <p style="font-size:12px">What is you specific course interest?</p>
+                            <p style="font-size: 12px">
                               <br> 
                             <select class="custom-select" id="specificCourseInterest" name="specificCourseInterest">
-                                <option value="Electrician">Electrician </option>
-                                <option value="Plumbing">Plumbing </option>
-                                <option value="Gas">Gas </option>
-                                <option value="Welder"> Welder</option>
-                                <option value="All">All </option>
+                                <option value="Photography">Photography </option>
+                                <option value="Finance">Finance  </option>
+                                <option value="Marketing">Marketing </option>
+                                <option value="Design"> Design</option>
+                                <option value="Health">Health </option>
+                                <option value="Technology">Technology</option>
+                                <option value="Beauty ">Beauty </option>
+                                <option value="Music">Music </option>
+                                <option value="Business">Business</option>
+                                <option value="Language">Language</option>
                             </select>
-                          
+                           
                         </p>
                             <br>
                             
@@ -509,7 +508,7 @@
                     <!-- hidden values parsed through -->
                     <input id="ipaddress" maxlength="20" name="ipaddress" size="20" type="hidden" value=" "></input>
                     <!--       <input id="timestamp" maxlength="50" name="timestamp" type="hidden" value=" "></input>-->
-                    <input type="hidden" type="text" id="source" name="source" value="coursesPage">
+                    <input type="hidden" type="text" id="source" name="source" value="shawCoursesPage">
 
                   
                 </div>

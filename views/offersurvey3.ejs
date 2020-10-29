@@ -1,0 +1,262 @@
+<html>
+
+<head>
+  <script data-ad-client="ca-pub-5395995593492894" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title><%= title %>;</title>
+  <!-- Event snippet for SignupJobgrabba.com conversion page -->
+  <script>
+    gtag('event', 'conversion', { 'send_to': 'AW-721106018/rsRaCL3bqasBEOLo7NcC' });
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-147951644-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-147951644-1');
+  </script>
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '280892588917611');
+    fbq('track', 'PageView');
+
+
+    var userInfoo2 = JSON.parse(localStorage.getItem('userData'));
+
+
+    userInfoo2.phone1 = userInfoo2.mobile;
+    userInfoo2.optinurl = userInfoo2.reference;
+    userInfoo2.prize = "Job Advert";
+    userInfoo2.trafficid = "10123";
+
+
+
+
+
+
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=280892588917611&ev=PageView&noscript=1" /></noscript>
+  <!-- End Facebook Pixel Code -->
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <img src="images/logojobgrabba.png" width="200" id="flag" style="margin: 0px 100px">
+    </div>
+    <div class="col-md-4">
+    </div>
+  </nav>
+  <!-- intro    -->
+  <div class="container" id="thankyoumessage">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <p style="text-align: center"> Feel free to take advantage of the below offer from our sponsor </p>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
+
+  <!-- nav end -->
+  <div class="container">
+    <div class="row">
+
+
+
+      <div class="col-md-4">
+
+      </div>
+
+      <div class="col-md-4">
+
+      </div>
+    </div>
+  </div>
+    <div class="container">
+      <div class="row">
+        <div class="form-group col-md-4">
+
+        </div>
+
+
+        <div class="col-md-4">
+          <div class="form-check">
+            <div class="form-check"> <img src="/images/O2logo.svg" height="70" width="140">
+              <p style='font-size: 12px'>O2</p>
+              <p style="font-size: 10px">Claim your Free O2 Sim Card and get double Data, Minutes and Texts. Would you
+                like to be contacted to hear more?</p>
+
+
+
+
+              <p><input class="form-check-input" type="checkbox" id="gridCheck9" name="tickYes2" value="Yes" />
+                <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
+                  <input class="form-check-input" type="checkbox" id="gridCheck10" name="tickNo2" value="No"
+                    onclick="getValue()">
+                  <label class="form-check-label" for="gridCheck6"> No </p>
+
+
+              <br>
+              <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions">Terms and Conditions</p>
+              <p style="font-size: 10px"> <a href="https://www.o2.co.uk/termsandconditions/privacy-policy">Privacy
+                  Policy
+              </p>
+              </a>
+              </label>
+              <input id="ipaddress" maxlength="20" name="ipaddress" size="20" type="hidden" value=" "></input>
+              <input type="hidden" type="text" id="source" name="source" value="basicpage">
+
+            </div>
+            <button id="applyNowButton" class="btn btn-primary" onclick="sendSubscriptions();" value="Redirect">Apply
+                now</button>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group col-md-12">
+              <div class="form-check">
+
+              </div>
+            </div>
+
+          </div>
+          <!-- sign up row -->
+          <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+              <script>
+                function sendSubscriptions() {
+                  if (!validate()) {
+                    return;
+                  }
+
+
+                  var o2 = document.getElementById("gridCheck9");
+                  if (o2.checked) {
+                    var o2Info = {
+                      method: 'GET',
+                      async: true,
+                      crossDomain: true,
+                      "data": userInfoo2,
+                      url: "https://lead365.leadbyte.co.uk/api/submit.php?campid=02-FREE-SIM&sid=SID492",
+                      "headers": {
+                        "Accept": "*/*",
+                        "Host": "lead365.leadbyte.co.uk",
+                        "Accept-Encoding":
+                          "gzip, deflate",
+                        "Connection": "keep-alive",
+                      }
+
+                    };
+                    $.ajax(o2Info).done(function (response) {
+                      console.log("o2 response:" + JSON.stringify(response));
+                    });
+                  }
+
+                  window.location = "c2Version";
+
+                }
+              </script>
+              <div id="errormessage">
+
+              </div>
+
+              
+
+            </div>
+            <script>
+              function validate() {
+
+                const yeh4 = document.getElementById("gridCheck9");
+                const nah4 = document.getElementById("gridCheck10");
+
+                const alertMessage = document.getElementById("validationmessage")
+                if (
+                  (yeh4.checked == true || nah4.checked == true)
+                ) {
+                  return true;
+                } else {
+                  document.getElementById("errormessage").innerHTML = "Please select either Yes or No for each offer";
+                  return false;
+                }
+              }
+
+
+
+
+            </script>
+            <div class="col-md-4">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+              <p style="text-align: center" id="courseOverviewRed">
+
+
+              </p>
+            </div>
+            <div class="col-md-2">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+</div>
+      <!-- footer start-->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+
+          </div>
+          <div class="col-md-4">
+            <div class="footer1">
+              <div class="card-footer text-muted">
+                <p><a color="blue" href="/privacy">Privacy Policy &nbsp </a>
+                  <a href="/tandc">Terms and Conditions &nbsp </a>
+                  <a href="/aboutus">About us &nbsp </a></p>
+                <p><a href="http://www.almondmedia.co.uk/contact-us/">Contact us &nbsp</a>
+                  <a href="http://www.almondmedia.co.uk/contact-us/">Advertise </a> </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img src="images/AMLogo.png" height="75" width="100">
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+
+</html>

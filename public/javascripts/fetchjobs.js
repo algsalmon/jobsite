@@ -45,15 +45,17 @@ window.onload  = function ( )  {
           console.log("result:" + result);
           jobDescriptions = jobDescriptions + `
             <div class="container">
+            <div class="row"></div>
+            <div class="col-sm-12" id="Jobtit"><a href= https://www.cv-library.co.uk${result.url}> ${result.title}
+            </a> </div>
               <div class="row">
-                <div class="col-sm-4">
-                 <p>${result.title}</p>
-                 <h5>${result.agency.title}</h5> 
+                <div class="col-sm-6">
+                <p><b>${result.agency.title}</b></p>  
                 </div>
-                <div class="col-sm-4">
-                  <p>${result.location}</p>      
-                </div>
-                <div class="col-sm-4"></div>
+             
+                <div class="col-sm-6">${result.location}</div>
+                
+               
               </div>  
               <div class="row">
                 <div class="col-sm-12">
@@ -61,9 +63,7 @@ window.onload  = function ( )  {
                 </div>     
                 <div class="col-sm-3">
                   <p>
-                    <button>
-                      <a href= https://www.cv-library.co.uk${result.url}> Apply Here </a> 
-                    </button>
+                    
                   </p>                 
                 </div>  
               </div>       
@@ -77,9 +77,9 @@ window.onload  = function ( )  {
 
 
     //  load page initial data
-    searchJob("UK");
+    searchJob(jobCategory,jobLocation);
 
-   
+    
     //Search form and Function
     const jobsForm = document.querySelector("#searchJob");
     jobsForm.addEventListener('submit', (event) => {

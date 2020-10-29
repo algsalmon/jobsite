@@ -177,9 +177,10 @@ function uncheckYes(){
 }
 
 function popup(){
-  debtOffer()
+  
   alert("Thanks for joining Jobgrabba. Please ensure you check your welcome email. "
   )
+  debtOffer()
 }
   // function openUKCreditRatings(){
   //   var openUKCR = document.getElementById("amtickyes");
@@ -515,6 +516,13 @@ function debtOffer(){
                   <input type="text" class="form-control" id="inputEmail4" name="jobTitle" placeholder="Current / Previous Job"
                     required>
                 </div> -->
+                 <!-- <div class="form-group col-md-12">
+                    <label for="inputEmail4">Has being unemployed caused debt that you would like to consolidate?</label>
+                    <select class="custom-select" id="debt" name="debt">
+                    <option value="yes" selected>Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                  </div>  -->
                 <!-- <div class="form-group col-md-12">
                     <label for="inputEmail4">Current Job Status </label>
                     <select class="custom-select" id="inputGroupSelect01" name="currentJob">
@@ -523,7 +531,7 @@ function debtOffer(){
                   </select>
                   </div>  -->
                   <div class="form-group col-md-12">
-                    <label for="inputEmail4">Upload CV to Employer's View on CV Library (Optional) <a href="https://www.cv-library.co.uk/terms" style="font-size: 7px">T&Cs apply</a> </label>
+                    <label for="inputEmail4">Upload CV to Employer's View on CV-Library (Optional) <a href="https://www.cv-library.co.uk/terms" style="font-size: 7px">T&Cs apply</a> </label>
                     <input type="file" id="cvContent" name="cvContent" style="border:4">
 
                     <!-- <div id="CVterms">*CV will be made visible to potential employers via CV Library, we'll also give you a free cv review via TopCV</div> -->
@@ -639,7 +647,7 @@ function debtOffer(){
 
  <br>
  <p style='font-size: 12px'>Debt Consolidation</p>
- <p style="font-size: 10px">Do you have debt that you would like to consolidate? </p>
+ <p style="font-size: 10px">Has unemployment caused you to get into debt that you would like to consolidate? </p>
  <p><input class="form-check-input" type="checkbox" onclick="uncheck();" id="amtickyes"  value="Yes"
      onclick="getValue();return true;" />
    <label class="form-check-label" for="gridCheck5"> Yes &nbsp &nbsp &nbsp
@@ -686,7 +694,7 @@ function debtOffer(){
 
                 </div>
                 <br>
-              <button type="submit" onclick="popup()" id="submit" class="btn btn-primary" style="margin-left: 130px">Sign
+              <button type="submit"  id="submit" class="btn btn-primary" style="margin-left: 130px">Sign
                 in</button>
                 
             </form>
@@ -703,7 +711,7 @@ function debtOffer(){
               if (yearOfBirth < 1970) {
                 adHtmlId = "BSIA";
               } else {
-                adHtmlId = "amtickyes"; //change to relevant id if 02 of another brand
+                adHtmlId = "amtick"; //change to relevant id if 02 of another brand
               } 
              
               const yeh1 = document.getElementById(adHtmlId + "yes");
@@ -711,6 +719,7 @@ function debtOffer(){
               document.getElementById("message")
               if ((yeh1.checked == true) || (nah1.checked == true)) {
                 console.log("true!!!!!");
+                popup()
                 return true;
               } else {
                 document.getElementById("message").innerHTML = "Please answer the last question: Yes or No"

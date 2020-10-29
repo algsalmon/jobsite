@@ -1,0 +1,340 @@
+
+<script>
+router.post('/signupsendy2', upload.single("cvContent"), function (req, res, next) {
+  
+
+    const listId = 'A41rLc7GzY3qU265dQZG6w';
+    const {
+      title,
+      name,
+      email,
+      lastName,
+      address1,
+      address2,
+      city,
+      postCode,
+      phone,
+      dob_day,
+      dob_month,
+      dob_year,
+      tickYes,
+      tickYes1,
+      tickYes2,
+      tickYes3,
+      listname,
+      source,
+      reference, 
+      ipaddress,
+      jobCategories,
+      courseInterestYes,
+      specificCourseInterest,
+      Redlicence,
+      currentJob,
+      costAwareYes,
+      penaltyPoints,
+      DrivingBan,
+      redcoursetickyes,
+      salary,
+      tickCvReview,
+      CVlib
+    } = req.body;
+    
+    function twoDigitString(value){
+        var result = "";
+        if(value<10){
+          result = "0"+value;
+        }else{
+          result = ""+value;
+        }
+        return result;
+    }
+  
+    function getTimeStamp(){
+      var d = new Date();
+      var day = twoDigitString(d.getDate());
+      var month = twoDigitString(d.getMonth()+1);
+      var year = twoDigitString(d.getFullYear());
+      var hours = twoDigitString(d.getHours());
+      var mins = twoDigitString(d.getMinutes());
+      var secs = twoDigitString(d.getSeconds());
+      var datetime = day+"/"+ month+"/"+ year + " "+ hours+":"+mins+":"+secs;
+      console.log(datetime);
+      return datetime;  
+      }
+      
+  
+    var currentTimestamp = getTimeStamp();
+    console.log("currentTimeStamp:"+currentTimestamp);
+    var options = {
+      method: 'POST',
+      url: 'https://dealgrabba.online/sendy/subscribe',
+      headers:
+      {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      form:
+      {
+        title,
+        name,
+        email,
+        lastName,
+        address1,
+        address2,
+        city,
+        postCode,
+        phone,
+        dob_day: dob_day + '/' + dob_month + '/' + dob_year,
+        list: listId,
+        tickYes,
+        tickYes1,
+        tickYes2,
+        tickYes3,
+        listname,
+        source,
+        reference,
+        currentTimestamp,
+        ipaddress,
+        jobCategories,
+        courseInterestYes:courseInterestYes + currentTimestamp,
+        specificCourseInterest,
+        currentJob,
+        costAwareYes,
+        redcoursetickyes:redcoursetickyes + currentTimestamp,
+        penaltyPoints,
+        DrivingBan,
+        Redlicence,
+        tickCvReview,
+     //  CVLib:cvContent
+      }
+    };
+    request(options, function (error, response, body) {
+      if (error) {
+        console.log("request sent with error");
+    
+      } else {
+      
+        console.log("request sent correctly now");
+     
+      }
+    });
+
+    var genderString;
+    if (title == "Mr"){
+      genderString = "Male";
+    }else if (title == "Mrs" || title == "Ms"){
+      genderString = "Female";
+    }
+  
+    var queryString = {
+      gender: genderString,
+      firstname: name,
+      email: email,
+      lastname: lastName,
+      optinurl: "http://www.jobgrabba.com/register",
+      optindate: currentTimestamp,
+      ipaddress: ipaddress,
+      prize: "Job Advert",
+      trafficid: "10123"
+    }
+    console.log("gogroopie query String:" + JSON.stringify(queryString));
+    var gogroopie = {
+      async: true,
+      crossDomain: true,
+      url: "https://lead365.leadbyte.co.uk/api/submit.php?campid=GOGROOPIECOPY&sid=SID492&returnjson=yes",
+      method: "GET",
+      qs: queryString
+    }
+   
+    request(gogroopie, function (error, response, body) {
+      if (error) {
+        console.log("request sent with error:" + JSON.stringify(error));
+      } else {
+      }
+    });
+  
+
+    
+    if (tickYes2) {
+      var o2Info = {
+        method: 'GET',
+        async: true,
+        crossDomain: true,
+        url: "https://lead365.leadbyte.co.uk/api/submit.php?campid=02-FREE-SIM&sid=SID492",
+        qs: {
+          email:email,
+          firstname:name,
+          lastname:lastName,
+          street1:address1,
+          towncity:city,
+          postcode:postCode,
+          phone1:phone,
+          optinurl:"https://www.jobgrabba.com",
+          optindate:currentTimestamp,
+          prize:"Job Advert",
+          trafficid:"10123"
+  
+       
+        }
+  
+      };
+      request(o2Info, function (error, response, body) {
+        if (error) {
+          console.log("request to o2 sent with error");
+          console.log("body:" + body);
+          //res.status(400).send(error);
+        } else {
+          //res.set('Content-Type', 'text/html');
+          //res.send(new Buffer(body));
+          console.log("request to o2 sent correctly");
+          console.log("body:" + body);
+          //res.send(body)
+        }
+      });
+    }
+  
+  
+    if (tickYes3) {
+      console.log("lastname:" + lastName);
+      // send request to other service
+      var britSeniors = {
+        method: 'GET',
+        async: true,
+        crossDomain: true,
+        url: 'https://pp.leadbyte.co.uk/api/submit.php?campid=BRITSEN-COREG&sid=74265&returnjson=yes',
+        qs:
+        {
+          firstname: name,
+          lastname: lastName,
+          email: email,
+          dob: dob_day + '/' + dob_month + '/' + dob_year,
+          phone1: phone,
+          mobile: phone,
+          ipaddress: ipaddress,
+          source: "http://www.jobgrabba.com",
+          ssid: source,
+          postcode: postCode
+        }
+      };
+  
+      request(britSeniors, function (error, response, body) {
+        if (error) {
+          console.log("request to brit seniors sent with error");
+          console.log("body:" + body);
+          //res.status(400).send(error);
+        } else {
+          //res.set('Content-Type', 'text/html');
+          //res.send(new Buffer(body));
+          console.log("request to brit seniors sent correctly");
+          console.log("body:" + body);
+          //res.send(body)
+        }
+      });
+    }
+  
+    
+  
+  
+    var Age;
+    var currentYear = new Date().getFullYear();
+    var personAge = currentYear - dob_year;
+    if(personAge > 15 && personAge < 20 ){
+      Age = "16-19"
+    } else if (personAge < 24 ){
+      Age = "20-23"
+    } else if (personAge < 31 ){
+      Age = "24-30"
+    }else if (personAge < 36 ){
+      Age = "31-35"
+    } else if (personAge < 46 ){
+      Age = "36-45"
+    } else if (personAge > 54 ){
+      Age = "55+"
+    };
+  
+  
+    if (req.file){
+      console.log("sending CV:"+req.file.path);
+    var CVLibrary = {
+      url: 'http://www.cv-library.co.uk/cgi-bin/cvsubapi.pl',
+      formData:
+          {
+            title: title,
+            firstname: name,
+            lastname: lastName,
+            email: email,
+            county: city,
+            town: address2,
+            postcode: postCode,
+            telephone: phone,
+            salary: salary,
+            age: Age,
+            affiliateID: 104125,
+            industry: "Retail",
+            affiliatepassword: "coregalm",          
+            currentjobtitle: jobCategories ,
+            doc: {
+              value: fs.createReadStream(req.file.path),
+              options: {
+                contentType: "application/msword",
+                filename: name+"cv.docx"
+              }
+            }
+          }
+    };
+    console.log("CV data:" + JSON.stringify(CVLibrary));
+    request.post(CVLibrary, function (error, response, body) {
+      if (error) {
+        console.log("CV Library request sent with error" + error + " body." + body);
+        //res.status(400).send(error);
+      } else {
+        //res.set('Content-Type', 'text/html');
+        //res.send(new Buffer(body));
+        console.log("request sent correctly CV Library:" + body);
+        //res.send(body)
+      }
+    });
+  
+    }
+  
+  
+    res.render('freecreditreport', {
+  
+      title: 'Welcome to jobgrabba', userInfo: {
+        title: title,
+        name,
+        firstname: name,
+        lastname: lastName,
+        email: email,
+        mobile: phone,
+        subAffiliate: listId,
+        dob: dob_day + '/' + dob_month + '/' + dob_year,
+        optindate: currentTimestamp,
+        street1: address1,
+        address2,
+        towncity: city,
+        postcode: postCode,
+        source: "http://www.jobgrabba.com",
+        reference: "http://www.jobgrabba.com",
+        tickYes,
+        tickYes1,
+        ipaddress: ipaddress,
+        courseInterestYes:"",
+        specificCourseInterest:"",
+        costAwareYes:"",
+        currentJob:"", 
+        list: listId,
+        currentTimestamp,
+        redcoursetickyes:"",
+        penaltyPoints:"",
+        DrivingBan:"",
+        Redlicence:""
+        
+      }
+     
+  
+    });
+  
+     localStorage.setItem("userData", JSON.stringify(userInfo))
+  });
+
+</script>
